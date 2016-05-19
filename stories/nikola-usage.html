@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Nikola usage | Xenos</title>
+<link href="../assets/css/all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+<link rel="canonical" href="https://example.com/stories/nikola-usage.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Nat Lund">
+<meta property="og:site_name" content="Xenos">
+<meta property="og:title" content="Nikola usage">
+<meta property="og:url" content="https://example.com/stories/nikola-usage.html">
+<meta property="og:description" content="Nikola is a static site generator geared towards making blogs.  To make a standard website, a few tweaks are required.
+First, note that the front page of a website has the name index.html
+It seems tha">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-04-22T13:20:11+01:00">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+            styles, `#sidebar-checkbox` for behavior. -->
+    <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox"><!-- Toggleable sidebar --><div class="sidebar" id="sidebar">
+        <div class="sidebar-item">
+            <p>A reserved <a href="https://getnikola.com" target="_blank">Nikola</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> for Jekyll,
+            ported to Nikola by <a href="https://twitter.com/ralsina" target="_blank">@ralsina</a>.</p>
+        </div>
+        
+    <nav id="menu" role="navigation" class="sidebar-nav"><a class="sidebar-nav-item" href="../archive.html">Archive</a>
+        <a class="sidebar-nav-item" href="../categories/index.html">Tags</a>
+        <a class="sidebar-nav-item" href="../rss.xml">RSS feed</a>
+    
+    
+    </nav>
+</div>
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          
+    <h3 id="brand" class="masthead-title">
+      <a href="https://example.com/" title="Xenos" rel="home">Xenos</a>
+    </h3>
+
+        </div>
+      </div>
+
+      <div class="container content" id="content">
+        
+<article class="storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="post-title p-name entry-title" itemprop="headline name"><a href="#" class="u-url">Nikola usage</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Nikola is a static site generator geared towards making blogs.  To make a standard website, a few tweaks are required.</p>
+<p>First, note that the front page of a website has the name index.html
+It seems that when you point a browser at a folder, if the folder contains a file called <tt class="docutils literal">index.html</tt>, the browser automatically loads <tt class="docutils literal">index.html</tt>.</p>
+<p>When build is run, Nikola creates an <tt class="docutils literal">index.html</tt> in the root of the output directory.  This <tt class="docutils literal">index.html</tt> is designed to be a generic front page for a blog website.  So it shows the first 500 words from the newest 10 blog posts, or whatever, as well as all the navigation bars, etc.  Nikola actually puts <tt class="docutils literal">index.html</tt> in the root of the output directory, because that is the default location.  We need to change this by uncommenting and altering the INDEX_PATH variable in <tt class="docutils literal">conf.py</tt></p>
+<p>Uncomment and change to:</p>
+<pre class="literal-block">
+INDEX_PATH = "blog"
+</pre>
+<p>Now, the Nikola build command creates a blog sub-directory in output, creates the blog-centric <tt class="docutils literal">index.html</tt> file, and dumps it in the <tt class="docutils literal">output/blog</tt> directory.</p>
+<p>But we still need an <tt class="docutils literal">index.html</tt> in the root of output to be the front page of our website.  There are various ways to do this, but:</p>
+<ul class="simple">
+<li>I want the home page .rst file to be easy to find: ideally sitting by itself in a <tt class="docutils literal">/stories/home</tt> directory.</li>
+<li>I want to keep the root of output clean.  I don't want <em>all</em> of my web pages there, only the <tt class="docutils literal">index.html</tt> page.  All the rest should be tucked away in <tt class="docutils literal">/output/stories</tt>.</li>
+</ul>
+<p>It seems that one way to do this is to add a tuple to the <tt class="docutils literal">PAGES</tt> variable in <tt class="docutils literal">conf.py</tt>.  By default, <tt class="docutils literal">PAGES</tt> looks like this:</p>
+<pre class="literal-block">
+PAGES = (
+    ("stories/*.rst", "stories", "story.tmpl"),
+    ("stories/*.txt", "stories", "story.tmpl"),
+    ("stories/*.html", "stories", "story.tmpl"),
+)
+</pre>
+<p>The <strong>first</strong> tuple in <tt class="docutils literal">PAGES</tt> seems to have the following significance:</p>
+<ul class="simple">
+<li>The command <tt class="docutils literal">nikola build</tt> parses the tuple <tt class="docutils literal"><span class="pre">("stories/*.rst",</span> "stories", "story.tmpl")</tt> like so: 'Look for files matching <tt class="docutils literal"><span class="pre">"stories/*.rst"</span></tt>, process them using the <tt class="docutils literal">"story.tmpl"</tt> template, and dump the output in the <tt class="docutils literal">"stories"</tt> subdirectory of <tt class="docutils literal">output</tt>.</li>
+<li>The command <tt class="docutils literal">nikola new_page</tt> will create a new <tt class="docutils literal">.rst</tt> file in the directory specified in the first tuple member: <tt class="docutils literal"><span class="pre">"stories/*.rst"</span></tt>, that is, in <tt class="docutils literal">/stories/</tt>.</li>
+</ul>
+<p>This gives us two options, each with drawbacks.</p>
+<ul class="simple">
+<li>Add <tt class="docutils literal"><span class="pre">("stories/home/*.rst",</span> "", "story.tmpl")</tt>, to the <strong>end</strong> of the list of other tuples.  This <strong>should</strong> tell Nikola to process files in <tt class="docutils literal">stories/home/</tt> and put the result in the "" subdirectory of <tt class="docutils literal">/output/</tt>.  BUT, instead it puts it in the subdirectory <tt class="docutils literal">/output/stories/home</tt>.</li>
+<li>Add <tt class="docutils literal"><span class="pre">("stories/home/*.rst",</span> "", "story.tmpl")</tt>, to the <strong>start</strong> of the list of other tuples.  This works well.  The drawback is that the command <tt class="docutils literal">nikola new_page</tt> puts new files in <tt class="docutils literal">/stories/home</tt> instead of just <tt class="docutils literal">/stories</tt>.</li>
+</ul>
+<p>The latter option is better, so we will go with that.  <tt class="docutils literal">PAGES</tt> now looks like:</p>
+<pre class="literal-block">
+PAGES = (
+    ("stories/home/*.rst", "", "story.tmpl"),
+    ("stories/*.rst", "stories", "story.tmpl"),
+    ("stories/*.txt", "stories", "story.tmpl"),
+    ("stories/*.html", "stories", "story.tmpl"),
+)
+</pre>
+</div>
+    </div>
+    
+
+</article><footer id="footer"><p>Contents © 2016         <a href="mailto:natjlund@gmail.com">Nat Lund</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </div>
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+    
+    
+
+    
+</body>
+</html>

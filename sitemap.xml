@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <url>
+  <loc>https://example.com/archive.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/blog/index.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/categories/index.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/galleries/index.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/index.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/listings/index.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/stories/nikola-usage.html</loc>
+  <lastmod>2016-05-19T16:07:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://example.com/stories/six-types-of-money.html</loc>
+  <lastmod>2016-05-19T16:50:00Z</lastmod>
+ </url>
+</urlset>
