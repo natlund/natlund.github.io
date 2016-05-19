@@ -6,35 +6,35 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
-  <loc>https://example.com/archive.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/archive.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/blog/index.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/blog/index.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/categories/index.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/categories/index.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/galleries/index.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/galleries/index.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/index.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/index.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/listings/index.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/listings/index.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/stories/nikola-usage.html</loc>
-  <lastmod>2016-05-19T16:07:00Z</lastmod>
+  <loc>http://natlund.github.io/stories/nikola-usage.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
  <url>
-  <loc>https://example.com/stories/six-types-of-money.html</loc>
-  <lastmod>2016-05-19T16:50:00Z</lastmod>
+  <loc>http://natlund.github.io/stories/six-types-of-money.html</loc>
+  <lastmod>2016-05-19T21:32:00Z</lastmod>
  </url>
 </urlset>
