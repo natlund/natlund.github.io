@@ -9,8 +9,10 @@
 
 
 This website records various technical things I work on.  What is useful to one explorer may be useful to another, so I have made some effort to make this web repository easily accessible.
+Therefore, this website features a collection of essays organized in various logical categories, rather than a linear sequence of articles in chronological order.  Too many good technical blogs are too difficult to browse, due to the opacity of the conventional linear blog format.
 
-This is not really a blog.  Successful blogs follow the model of a broadcasting medium, releasing topical content on a regular schedule.  Such blogs have been likened to sharks - they need to keep moving to stay alive.  In contrast, this website is a collection of essays on diverse subjects, that are not necessarily connected to a particular point in time.
+.. Therefore, it is not organized in the linear chronological fashion of a conventional blog.  Typically, a conventional linear blog succeeds if it follows the model of a broadcasting medium, releasing topical content on a regular schedule.  Such blogs have been likened to sharks - they need to keep moving to stay alive.  But a common problem with such blogs is the difficulty in browsing old but useful content.  In contrast, this website features a collection of essays organized into logical categories.  (For technical essays, the time of writing is often not particularly relevant.)
+
 
 Monetary Theory
 ===============
