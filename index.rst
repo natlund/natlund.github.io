@@ -26,6 +26,14 @@ Globalization?  War?  Climate change?  Muslim terrorism?  These might be typical
 .. _`Six Types of Money`: /stories/six-types-of-money.html 
 
 
+Maths for Physicists
+====================
+
+Physicists need maths.  Here is some that I have learned.
+
+*  `Calculus of Variations and the Variational or 'Weak' Form </stories/calculus-of-variations.html>`_
+
+
 Nikola Static Site Generator
 ============================
 
