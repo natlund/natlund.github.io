@@ -1,4 +1,0 @@
-Sitemap: http://natlund.github.io/sitemapindex.xml
-
-User-Agent: *
-Host: natlund.github.io
