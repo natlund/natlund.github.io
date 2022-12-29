@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Readable Code (Archived) | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Readable Code (Archived)</h1>
+      <p class="subtitle"><strong>2022-03-14</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://example.com/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://example.com/software_engineering/">Software Engineering</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://example.com/software_engineering/">Software Engineering</a></p>
+
+      <ul>
+        
+          <li>
+            <a href="https://example.com/software_engineering/principles-of-code-structure/">Principles Of Code Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://example.com/software_engineering/readable-code/">Readable Code (Archived)</a>
+          </li>
+        
+      </ul>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Readable Code (Archived)</p>
+    
+        
+        <ol>
+        
+            <li>
+                <a href="https://example.com/software_engineering/readable-code/#principle-of-obvious-execution-flow">Principle of Obvious Execution Flow</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://example.com/software_engineering/readable-code/#principle-that-data-flow-should-follow-control-flow">Principle that Data Flow should follow Control Flow</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://example.com/software_engineering/readable-code/#principle-of-explicit-dependencies">Principle of Explicit Dependencies</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://example.com/software_engineering/readable-code/#summary">Summary:</a>
+                
+            </li>
+        
+        </ol>
+        
+    </nav>
+
+    <article class="essay">
+        <p><em>A document written early in my Quant Software Developer career.  At the time of writing, I had worked with a terrible, malformed object-oriented code base every day for approximately a year, and spent many productive hours discussing it with a colleague.  The ideas herein are sound, but have been expanded and improved in other essays.  This essay is 'archived', but is an interesting snapshot of my understanding at that time.</em></p>
+<p>Let's start with a very common everyday challenge that a developer faces:  You are working with an unfamiliar code base, and you have to use some function or object.  The immediate question is:</p>
+<p>&quot;What the hell does this do?&quot;</p>
+<p>Perhaps the function is part of an API; in any case it is the entry point into the code, and also the entry point of our discussion here.</p>
+<p>The question &quot;what the heck does this do?&quot; gives us a good basis from which to define readability.</p>
+<p><strong>Definition:  READABILITY:</strong>  The (inverse) time taken to satisfactorily answer the question &quot;what does this do?&quot;  The most readable code takes the least amount of time to understand.  Unreadable code takes a long time to understand.</p>
+<p>Obviously, we need to be comparing apples with apples:  We are considering different ways of coding the <em>same functionality</em>.  From the same entry point, there are an infinite number of different ways of implementing the same functionality.  Our concern is ranking those different ways by how long they take to understand - to rank them by readability.</p>
+<p>Equally obviously, there is a subjective element.  Different developers are accustomed to different coding styles.  Developers vary enormously in their experience and exposure to code.  People will insist that things are &quot;a matter of taste.&quot;  So, we are interested in principles of readability that are universal, in the sense that most reasonable people will agree.  We cannot account for the absurd opinions of highly non-neuro-typical outliers, so we won't bother.  What we seek are reasonable, defensible principles that are helpful in the vast majority of situations.</p>
+<p>What follows are three interlinked principles that go a long way towards making code readable.</p>
+<h2 id="principle-of-obvious-execution-flow">Principle of Obvious Execution Flow</h2>
+<p>Time is linear.  Time is just one damn thing after another.</p>
+<p>Important Corollary: The execution of a program is a <em>sequence</em> of operations, one after the other.  We can say that program flow is <em>linear</em>.</p>
+<p>Even more important corollary:  Reading is a linear process.  We read one element at a time, <em>incrementally</em> building an understanding of the whole piece.</p>
+<p>Now, to answer &quot;what does this code do?&quot; is to understand the sequence of operations during its execution.  Furthermore, our understanding of that sequence of operations is built by reading parts of the code, one after the other.</p>
+<p>Claim: Since execution of code is a linear sequence of operations, and reading of code is a linear sequence of operations, code should structured to as much as possible reveal that linear sequence.</p>
+<p>Observation:  Very often, code is written in a <em>tree-like</em> structure that <em>hides</em> the flow of execution.  Even worse, the deeply-nested tree must be read by mentally following a tree-parsing algorithm that requires the reader to maintain a mental 'stack' to assemble the elements into the execution order.</p>
+<p>Now, <em>data</em> is usually naturally tree-like.  There is typically an obvious hierarchy of categories.  In fact, non-trivial data structures (such as a json file) <em>need</em> to have a sensible tree structure, otherwise they become unwieldy.</p>
+<p>Trees have tremendous power to bring order to a programmer's file system, home directory, json files, music collection, etc.  And so programmers have a tendency to organise their <em>code</em> into trees.  The assumption is that a tree hierarchy makes code better organized - things are in neat logical categories, and you always know where to find things.  Unfortunately, this is wrong. Data is <em>static</em>.  But code has <em>another dimension:</em> execution order.  Execution is the <em>whole point</em> of code.  Execution order completely over-rides any considerations regarding the hierarchy of logical categories in the code.</p>
+<p>Principle: Structure code such that the execution order is as clear as possible.  Favour linear constructions.  Tree-like structures usually obfuscate.</p>
+<p>Practical Advice:</p>
+<ol>
+<li>Most code follows the pattern handed down from the ancients: Take some data, do things to the data, put the data somewhere.</li>
+<li>Assume we are considering a non-trivial algorithm of this type, that takes up more than one screen of code to implement.</li>
+<li>Take the entire algorithm, and decide what the different <em>logical</em> elements are.  A logical element does <em>one thing</em>, it is a logically distinct operation.  This breakdown has nothing to do with the number of lines of code: Some operations can be done in one line of code, others in one thousand.</li>
+<li>Create a separate function to do each logical element.  Because of the clean logical separation, it should be easy to give the function an accurate and complete self-documenting name.</li>
+<li>Now the entry point, the algorithm in question, can be written as a linear sequence of functions.</li>
+</ol>
+<p>Resist the temptation to group the functions into higher-level functions with vague names like <code>transform()</code>.  This incredibly widespread plague of abstraction addiction is the <em>opposite</em> of writing readable code.</p>
+<p>Now, code is fractal: each logical element described above may itself be composed of distinct logical sub-elements.  The same principle applies: write code that clearly reveals the flow of execution order.  Because of the fractal nature, we end up with a tree.  This principle is not that &quot;trees are bad&quot;.  The point is to clarify <em>why</em> you have created a tree.  A bad tree is a thoughtlessly-constructed hierarchy of vague abstractions that obfuscates the flow.  A good tree is the natural and healthy consequence of describing 'what it does' at the appropriate level of detail for a given level of abstraction.</p>
+<h2 id="principle-that-data-flow-should-follow-control-flow">Principle that Data Flow should follow Control Flow</h2>
+<p>Imagine you are on a police surveillance team, watching suspicious comings-and-goings on Functional Street.  You observe three shady individuals leave Bada Bing club and enter Larry's Barber shop.  A police sniper contacts you by radio, and asks how many people are in Larry's. You answer &quot;At least three.&quot;</p>
+<p>Now, on a similar assignment, you are conducting surveillance on Object-Oriented Avenue.  You observe three dodgy characters leave The Red Lion pub and enter Sharp's Bait and Tackle.  Anticipating the question, you think about how many people are in Sharp's.  What is the correct answer?  Three?  Nope.  There are seventeen.  What?  <em>People came in the BACK DOOR</em>.  Five minutes later, your radio crackles to life with the question &quot;How many people are in Sharp's?&quot;  How many indeed?  The correct answer is: zero.  What?  <em>They all left through the back door</em>.</p>
+<p>This story is analogous to reading code where the data flow does not follow the control flow.  The control flow is what you are reading, line-by-line, as you try to understand what it does.  Data flow describes the movement of data between different components.  Suppose you are reading the code, and see that Function A is executed, followed by Function B.  Further suppose that just by reading the code in front of you, you see that data generated by Function A is passed as input into Function B.  Then we can say that Data Flow is following Control Flow.</p>
+<p>Interestingly, Data flow is something you don't think about <em>unless</em> it deviates from the control flow.  How might it do that?  By the use of evil <em>global variables</em>.</p>
+<p>Global variables are dangerous as hell, everyone knows that.  But if you use them <em>inside an Object</em>, and call them 'attributes', then suddenly nobody notices them.</p>
+<p>The most egregious use of ~global~ object variables is for passing data between functions.  Method A dumps a result to an object attribute.  Some time later, Method B reads that attribute as input.  But surprise! That new bit of code you wrote yesterday alters the attribute before Method B has used it.  And that is why you are debugging today...</p>
+<p>Message passing by global variables makes code incredibly hard to read.  You have to read every single damn line to see where global variables are being set, and remember that fact as you read on.  Then much later, when you encounter code that reads that variable, you have to remember the state of that variable.  So you have to keep a parallel thread in your mind.  You are reading code - that is one mental thread - but now you need another mental thread to track the flow of data between functions.</p>
+<p>Don't do this.  Make data follow the control flow.  Pass necessary data in, so that you can see it right there as you read the code that uses it.</p>
+<p>Sardonic observation:  In this respect, OO positively <em>encourages</em> bad coding.</p>
+<p>Observation:  There is probably a good reason why programmers are so strangely accepting of message passing by global variables:  this is how you program in assembly language, and Fortran and C remain close in spirit to that style.</p>
+<h2 id="principle-of-explicit-dependencies">Principle of Explicit Dependencies</h2>
+<p>When you start at a code entry point and ask &quot;What does this do?&quot;, there are two implicit sub-questions:</p>
+<ol>
+<li>What does this depend on?  What does it need to work?</li>
+<li>What depends on this?  What will be affected by this thing running?</li>
+</ol>
+<p>There are two main kinds of dependencies: imports and Input/Output (IO).  Imports are typically not a problem: they are declared in one place at the top of the file.  (There is an argument for preferring <em>dependency injection</em> over importing, but that is beyond the scope of the current article.)  IO includes: reads and writes to a database, reading configuration from a YAML file, checking the time, and possibly reading from object or class attributes (global variables).  Output may be considered to have a <em>side effect</em>: other program entities are altered, or their behaviour is changed due to the side effect.</p>
+<p>If our code entry point does IO, we should make that dependency explicit at the top level of the code.  DO NOT hide it inside a nested sub-function.  Try to put it in an explicitly-named top-level function, like <code>get_customer_info_from_database()</code>.</p>
+<p>An excellent rule of thumb is do Inputs at the beginning, Outputs at the end, and in the middle, use <em>pure functions</em> as much as possible.  In rare cases, code might be more readable if some IO occurs in the middle somewhere.</p>
+<p>A pure function takes an input, returns an output, and does nothing else.  It does not read from the database, check system time, or write to anything (with the possible pragmatic exception of writing logs)  The same input always returns the same output.  It does not depend on the day of the week, config in a YAML file that may change, or the phase of the moon.</p>
+<p>(Incidentally, pure functions automatically force data flow to follow control flow - it can't happen any other way.)</p>
+<p>The idea is that someone reading the function can quickly see the dependencies.  &quot;Oh, this function needs a valid yaml config file to exist.&quot;</p>
+<p>In general, IO and side effects should only occur at the Beginning or End.  Pure functions in the middle.</p>
+<h2 id="summary">Summary:</h2>
+<p><strong>Principle:</strong> Make execution flow clear.  Make control flow explicit.</p>
+<p><strong>Principle:</strong> Make Data Flow follow control flow.</p>
+<p><strong>Principle:</strong> Make dependencies explicit.  Two ways: pure functions when possible, and do IO at beginning and end only.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+    
+    </article>
+    
+    
+  
+    <footer>
+      <p class="datestamp"><strong>2022-01-01</strong></p>
+    </footer>
+  
+  </body>
+
+</html>
