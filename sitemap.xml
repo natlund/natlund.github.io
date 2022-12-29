@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://example.com/</loc>
+        <loc>natlund.github.io/</loc>
     </url>
     <url>
-        <loc>https://example.com/mathematical_physics/</loc>
+        <loc>natlund.github.io/mathematical_physics/</loc>
     </url>
     <url>
-        <loc>https://example.com/mathematical_physics/calculus-of-variations/</loc>
+        <loc>natlund.github.io/mathematical_physics/calculus-of-variations/</loc>
         <lastmod>2022-12-28</lastmod>
     </url>
     <url>
-        <loc>https://example.com/monetary_theory/</loc>
+        <loc>natlund.github.io/monetary_theory/</loc>
     </url>
     <url>
-        <loc>https://example.com/monetary_theory/six-types-of-money/</loc>
+        <loc>natlund.github.io/monetary_theory/six-types-of-money/</loc>
         <lastmod>2016-05-31</lastmod>
     </url>
     <url>
-        <loc>https://example.com/software_engineering/</loc>
+        <loc>natlund.github.io/software_engineering/</loc>
     </url>
     <url>
-        <loc>https://example.com/software_engineering/principles-of-code-structure/</loc>
+        <loc>natlund.github.io/software_engineering/principles-of-code-structure/</loc>
         <lastmod>2022-12-19</lastmod>
     </url>
     <url>
-        <loc>https://example.com/software_engineering/readable-code/</loc>
+        <loc>natlund.github.io/software_engineering/readable-code/</loc>
         <lastmod>2022-03-14</lastmod>
     </url>
 </urlset>
