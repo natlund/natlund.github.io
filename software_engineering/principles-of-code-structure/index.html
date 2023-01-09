@@ -211,6 +211,14 @@
             <li>
                 <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#collate-the-concern-of-logical-branching">Collate The Concern Of Logical Branching</a>
                 
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#use-polymorphism-to-eliminate-logical-branching">Use Polymorphism To Eliminate Logical Branching</a>
+                            </li>
+                        
+                    </ul>
+                
             </li>
         
             <li>
@@ -225,6 +233,30 @@
                         
                             <li>
                                 <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#types-of-connections">Types Of Connections</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#function-call">Function Call</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#method-call-on-class">Method Call On Class</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#function-call-of-injected-function">Function Call Of Injected Function</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#method-call-on-injected-object">Method Call On Injected Object</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#inheritance">Inheritance</a>
                             </li>
                         
                     </ul>
@@ -280,15 +312,19 @@
 <p>In order to extend a piece of code, one must first understand it.  So the total time required to extend the code must include the reading time.  Thus, code that was written to be 'extensible' but is difficult to read, will take longer to modify than readable code that <em>technically</em> requires slightly more work to modify.</p>
 </li>
 <li>
-<p>You Ain't Gonna Need It (YAGNI).  Don't solve tomorrow's problems.  Premature Optimisation is the root of all evil (<em>Knuth</em> 1968). Because:</p>
+<p>Code that is easy to extend tends to have a very modular structure, with minimal coupling.  Happily, those are properties of highly readable code also.  Thus, code that is highly readable tends to be highly extensible.</p>
+</li>
+<li>
+<p>You Ain't Gonna Need It (YAGNI).  Don't Solve Tomorrow's Problems.  Premature Optimisation is the root of all evil (<em>Knuth</em> 1974). Because:</p>
 <ul>
 <li>What is the best time to design a system for extensibility?  Answer: at the time you actually have to extend it.  Only at that point do you have the maximum possible information on the problem.   At any earlier time, you have less information, so will likely make worse engineering decisions.</li>
 </ul>
 </li>
 <li>
-<p>Code that is easy to extend tends to have a very modular stucture, with minimal coupling.  Happily, those are properties of highly readable code also.  Thus, code that highly readable tends to be highly extensible.</p>
+<p>However, Don't Create Tomorrow's Problems.  If you <strong>know</strong> that your code will need to be extended, then that is in fact a specification for the design of the code.  Therefore, choose the most readable solution that meets the need for extensibility.  But keep in mind the previous point, and consider delaying the re-design for extensibility until the time you actually extend it.</p>
 </li>
 </ol>
+<p>Don't solve tomorrow's problems, but don't create tomorrow's problems, either.</p>
 <p>Readability is King.  Except in rare circumstances when speed matters, optimise for readability.</p>
 <h1 id="elementary-code-structures">Elementary Code Structures</h1>
 <p>This <em>Principles Of Code Structure</em> is not intended for complete beginner programmers.  Nevertheless, to prevent any possible confusion, we shall describe the two most common structural elements found in most modern computer languages.</p>
@@ -551,6 +587,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <h1 id="collate-the-concern-of-logical-branching">Collate The Concern Of Logical Branching</h1>
 <p>If your code requires a logical branch, try to do it only once.  Your code will be much cleaner and easier to read.</p>
 <p>Making the <em>same</em> logical branch (i.e. exactly the same logical conditions) in <em>multiple</em> places should be considered an anti-pattern, or at least a code smell.  The resulting code is always cluttered and messy.  Try to refactor it to have only one occurrence of the logical branch.</p>
+<h3 id="use-polymorphism-to-eliminate-logical-branching">Use Polymorphism To Eliminate Logical Branching</h3>
 <h1 id="coupling">Coupling</h1>
 <p>Now that we have separated all the concerns into separate modules, how should we connect them together?</p>
 <p>There are two aspects to Coupling:</p>
@@ -565,20 +602,115 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>How simple they are to understand.</li>
 <li>How easy they are to extend or modify, in particular, how easy it is to swap out one module for another.</li>
 </ol>
-<p>The value of assessing Simplicity is obvious, since we value readability above all else.</p>
-<p>The value of assessing 'Swappability' needs a little more justification.  We may <strong>know</strong> that the code will need to be modified in the future.  In that case, we want to choose methods of connection that give the best compromise between readability and extensibility (ideally, maximise both).  Furthermore, by explicitly analysing the extensibility of a method of coupling, we can pre-empt a lot of vague, misguided bleating about 'reusable code' that OO tossers are prone to emit.  Those wankers often claim that some stupid OO solution is better, when actual analysis of the solution often reveals that it is not.  These pricks just parrot OO dogma without actually examining it in the real world.</p>
-<p>Other justifications for making connections 'Swappable': 1) Don't create tomorrow's problems.  2) More easily swappable means more loosely coupled, which in turn tends to correlate with cleaner separation of concerns.</p>
-<p>Hmmm.  Maybe this section needs some justification in the first chapter on Readability, at the bit where I rant about extensibility.</p>
+<p>The value of assessing Simplicity is obvious, since we usually value readability above all else.</p>
+<p>There are a few reasons why we should assess Extensibility: <br />
+Firstly, suppose we <strong>know</strong> that the code will need to be modified in the future.  Then the specification for the code will include the criterion &quot;Needs to be extensible&quot;.  So we choose the <em>most readable</em> solution that provides the extensibility that we need.</p>
+<p>Secondly, the label 'extensible' is often applied very vaguely.  Object-Oriented methods, in particular, are often claimed to be 'extensible', without much deep analysis as to how easy they actually are to extend, and whether they truly are easier to extend than simpler competing methods.  It is worth doing a little critical examination of this here.</p>
+<p>Thirdly, 'swappable' modules must be loosely coupled, which tends to correlate with cleanly separated concerns.</p>
 <h3 id="types-of-connections">Types Of Connections</h3>
 <p>Some types of connection, in approximate order of simplicity.</p>
 <ol>
 <li>Function call.</li>
-<li>Function call of injected function.</li>
 <li>Method call on class.</li>
-<li>Method call on injected object.</li>
 <li>Object instantiation, then method call on object.</li>
+<li>Function call of injected function.</li>
+<li>Method call on injected object.</li>
 <li>Inheritance.  Method call on parent class.</li>
 </ol>
+<h3 id="function-call">Function Call</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="method-call-on-class">Method Call On Class</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="function-call-of-injected-function">Function Call Of Injected Function</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">injected_func</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=secondary)
+</span><span>
+</span></code></pre>
+<h3 id="method-call-on-injected-object">Method Call On Injected Object</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    injected_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
+</span><span>
+</span></code></pre>
+<h3 id="inheritance">Inheritance</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
 <h1 id="coupling-modules-into-a-structure">Coupling Modules Into A Structure</h1>
 <h3 id="a-couple-of-structures-tree-and-linear">A Couple Of Structures: Tree And Linear</h3>
 <h3 id="a-couple-of-types-of-code-algorithm-like-and-data-like">A Couple Of Types Of Code: Algorithm-like And Data-like</h3>
