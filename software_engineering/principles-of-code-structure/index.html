@@ -214,6 +214,10 @@
                     <ul>
                         
                             <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#make-branching-explicit">Make Branching Explicit</a>
+                            </li>
+                        
+                            <li>
                                 <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#use-polymorphism-to-eliminate-logical-branching">Use Polymorphism To Eliminate Logical Branching</a>
                             </li>
                         
@@ -587,7 +591,85 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <h1 id="collate-the-concern-of-logical-branching">Collate The Concern Of Logical Branching</h1>
 <p>If your code requires a logical branch, try to do it only once.  Your code will be much cleaner and easier to read.</p>
 <p>Making the <em>same</em> logical branch (i.e. exactly the same logical conditions) in <em>multiple</em> places should be considered an anti-pattern, or at least a code smell.  The resulting code is always cluttered and messy.  Try to refactor it to have only one occurrence of the logical branch.</p>
+<h3 id="make-branching-explicit">Make Branching Explicit</h3>
+<p>One way to save a line of code is to write a logical branch like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>x = </span><span style="color:#d08770;">0  </span><span style="color:#65737e;"># Default value.
+</span><span style="color:#b48ead;">if </span><span>some_condition is </span><span style="color:#d08770;">True</span><span>:
+</span><span>    x = </span><span style="color:#d08770;">1
+</span></code></pre>
+<p>Now, does this <em>look</em> like a logical branch?  At first glance, the reader notices that a variable is set, then mutated <em>if</em> a particular condition is true.  The pattern is: 1) Do some work. 2) If a condition is true, then <em>undo and redo</em> the work.</p>
+<p>What does mutating a variable have to do with logical branching?  The answer is: <em>nothing</em>.  This mutation is not necessary to achieve logical branching.  In fact, while all languages allow logical branching, there are modern languages with an emphasis on safety that strongly discourage mutation, or even forbid it.  (Eg. Rust, and functional languages.)  Mutation typically makes code harder to reason about, so should be kept to an absolute minimum.</p>
+<p>The <em>meaning</em> of the code is: make a binary logical choice.  Therefore, the code should reflect that meaning as directly as possible.  The traditional construction does this perfectly:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">if </span><span>some_condition is </span><span style="color:#d08770;">True</span><span>:
+</span><span>    x = </span><span style="color:#d08770;">1
+</span><span style="color:#b48ead;">else</span><span>:
+</span><span>    x = </span><span style="color:#d08770;">0
+</span></code></pre>
+<p>The other benefit is that the code at the same <em>logical level</em> (down one branch or the other) is at the same <em>indentation level</em>.</p>
 <h3 id="use-polymorphism-to-eliminate-logical-branching">Use Polymorphism To Eliminate Logical Branching</h3>
+<p>Consider this code, a toy example of part of some kind of graphics program.  It may not be realistic, but it illustrates a point.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Square</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_init_</span><span>(</span><span style="color:#bf616a;">width</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.width = width
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_init</span><span>(</span><span style="color:#bf616a;">radius</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.radius = radius
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calculate_total_area_of_shapes</span><span>(</span><span style="color:#bf616a;">shapes</span><span>: list):
+</span><span>    total_area = </span><span style="color:#d08770;">0
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">for </span><span>shape </span><span style="color:#b48ead;">in </span><span>shapes:
+</span><span>        </span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">isinstance</span><span>(shape, Square):
+</span><span>            total_area += </span><span style="color:#bf616a;">area_of_square</span><span>(shape)
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">elif </span><span style="color:#96b5b4;">isinstance</span><span>(shape, Circle):
+</span><span>            total_area += </span><span style="color:#bf616a;">area_of_circle</span><span>(shape)
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">else</span><span>:
+</span><span>            </span><span style="color:#96b5b4;">print</span><span>(&quot;</span><span style="color:#a3be8c;">Shape not recognised.  Cannot calculate area.</span><span>&quot;)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span>total_area
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">area_of_square</span><span>(</span><span style="color:#bf616a;">square</span><span>: Square):
+</span><span>    </span><span style="color:#b48ead;">return </span><span>square.width ** </span><span style="color:#d08770;">2
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">area_of_circle</span><span>(</span><span style="color:#bf616a;">circle</span><span>: Circle):
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">3.141592654 </span><span>* circle.radius ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>The important point to note is the <strong>logical branching</strong> in the function <code>calculate_total_area_of_shapes()</code>.</p>
+<p>This example code can also be considered a canonical example of the value of <em>method polymorphism</em>.  Let us rewrite the code to use method polymorphism.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Square</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_init_</span><span>(</span><span style="color:#bf616a;">width</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.width = width
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">area</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self</span><span>.width ** </span><span style="color:#d08770;">2
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_init_</span><span>(</span><span style="color:#bf616a;">radius</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.radius = radius
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">area</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.radius ** </span><span style="color:#d08770;">2
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calculate_total_area_of_shapes</span><span>(</span><span style="color:#bf616a;">shapes</span><span>: list):
+</span><span>    total_area = </span><span style="color:#d08770;">0
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">for </span><span>shape </span><span style="color:#b48ead;">in </span><span>shapes:
+</span><span>        total_area += shape.</span><span style="color:#bf616a;">area</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span>total_area
+</span></code></pre>
+<p>The code has been simplified considerably, and is easier to read.  This shows the value of method polymorphism.</p>
+<p>But let's dig a little deeper.  Obviously, the two functions for calculating area have been <em>moved</em> to be attached to the data structures they operate on. And the main function <code>calculate_total_area_of_shapes()</code> no longer contains the <em>logical branching</em>.  But where did the logical branching go?  It has apparently disappeared.  In fact, the logical branching is still inside the compiled (byte) code in the form of look-up table or similar.  Method polymorphism has allowed us remove the logical branching from our source code, where it adds complexity for the human reader, and move it into the compiled code, where it is completely out of our sight, and now the responsibility of the computer.</p>
+<p>Removing the complexity of logical branching from our source code is perhaps an under-appreciated aspect of object-oriented techniques such as this.</p>
 <h1 id="coupling">Coupling</h1>
 <p>Now that we have separated all the concerns into separate modules, how should we connect them together?</p>
 <p>There are two aspects to Coupling:</p>
@@ -603,8 +685,8 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>How easy they are to extend or modify, in particular, how easy it is to swap out one module for another.</li>
 </ol>
 <p>The value of assessing Simplicity is obvious, since we usually value readability above all else.</p>
-<p>There are a few reasons why we should assess Extensibility: <br />
-Firstly, suppose we <strong>know</strong> that the code will need to be modified in the future.  Then the specification for the code will include the criterion &quot;Needs to be extensible&quot;.  So we choose the <em>most readable</em> solution that provides the extensibility that we need.</p>
+<p>There are a few reasons why we should assess Extensibility:</p>
+<p>Firstly, suppose we <strong>know</strong> that the code will need to be modified in the future.  Then the specification for the code will include the criterion &quot;Needs to be extensible&quot;.  So we choose the <em>most readable</em> solution that provides the extensibility that we need.</p>
 <p>Secondly, the label 'extensible' is often applied very vaguely.  Object-Oriented methods, in particular, are often claimed to be 'extensible', without much deep analysis as to how easy they actually are to extend, and whether they truly are easier to extend than simpler competing methods.  It is worth doing a little critical examination of this here.</p>
 <p>Thirdly, 'swappable' modules must be loosely coupled, which tends to correlate with cleanly separated concerns.</p>
 <h3 id="types-of-connections">Types Of Connections</h3>
@@ -627,6 +709,28 @@ Firstly, suppose we <strong>know</strong> that the code will need to be modified
 </span><span>    </span><span style="color:#bf616a;">secondary</span><span>(data)
 </span><span>    </span><span style="color:#d08770;">...
 </span></code></pre>
+<h4 id="simplicity">Simplicity:</h4>
+<p>As simple as possible.</p>
+<h4 id="extensibility">Extensibility:</h4>
+<p>Assuming that an <code>alternative()</code> function has been written, then changing the coupling simply requires changing the function call in <code>main()</code>:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
+</span><span style="color:#65737e;">#     # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># secondary(data)
+</span><span>    </span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>New function.</li>
+<li>One-line change in <code>main()</code>, to call new function.</li>
+</ul>
 <h3 id="method-call-on-class">Method Call On Class</h3>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
 </span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
@@ -641,6 +745,55 @@ Firstly, suppose we <strong>know</strong> that the code will need to be modified
 </span><span>    SomeStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
 </span><span>    </span><span style="color:#d08770;">...
 </span></code></pre>
+<h4 id="simplicity-1">Simplicity:</h4>
+<p>Almost as simple as possible.  The class simply acts as a <em>namespace</em> for the <code>secondary()</code> function.  In some situations, having such a namespace may tidy up the code and make it more readable.</p>
+<h4 id="extensibility-1">Extensibility:</h4>
+<p>This depends on whether the new alternative function lives in the <em>same</em> namespace class, or needs its own new class.</p>
+<p>Like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#    @staticmethod
+</span><span style="color:#65737e;">#    def secondary(data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
+</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>Or this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#65737e;">#class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    @staticmethod
+</span><span style="color:#65737e;">#    def secondary(data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
+</span><span>    LessStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>New method or class.</li>
+<li>One-line change in <code>main()</code>, to call different class or method.</li>
+</ul>
 <h3 id="object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</h3>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
 </span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
@@ -655,6 +808,52 @@ Firstly, suppose we <strong>know</strong> that the code will need to be modified
 </span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
 </span><span>    </span><span style="color:#d08770;">...
 </span></code></pre>
+<h4 id="simplicity-2">Simplicity:</h4>
+<p>Extra overhead of a container class, and instantiating the class.</p>
+<h4 id="extensibility-2">Extensibility:</h4>
+<p>Swapping functionality requires either a new method on the existing class, or a new class.</p>
+<p>Like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    </span><span style="color:#65737e;"># stupid_object.secondary(data)
+</span><span>    stupid_object.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>Or this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#65737e;"># class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
+</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
+</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>New method or class.</li>
+<li>One-line change in <code>main()</code>, to call new method or instantiate new class.</li>
+</ul>
 <h3 id="function-call-of-injected-function">Function Call Of Injected Function</h3>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
 </span><span>    </span><span style="color:#65737e;"># Do stuff.
@@ -671,6 +870,36 @@ Firstly, suppose we <strong>know</strong> that the code will need to be modified
 </span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=secondary)
 </span><span>
 </span></code></pre>
+<h4 id="simplicity-3">Simplicity:</h4>
+<p>Not so simple...  There are now <em>three</em> modules required.  However, each module is itself very simple.  A first-class function needs to be followed as it is passed around.  When reading the <code>main()</code> function alone, it is impossible to know what <em>real</em> function the injected function actually is.  An IDE would probably be unable to 'jump to source' of <code>injected_func</code>.</p>
+<h4 id="extensibility-3">Extensibility:</h4>
+<p>The defining attribute of this form of coupling is that the <code>main()</code> function <em>does not need to be touched</em> to change functionality.</p>
+<p>However, the <em>orchestrator</em> function will need to be changed, to pass in the new function.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
+</span><span style="color:#65737e;">#    # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">injected_func</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># main(injected_func=secondary)
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=alternative)
+</span><span>
+</span></code></pre>
+<ul>
+<li>New function.</li>
+<li><code>main()</code> function is <strong>not</strong> changed.</li>
+<li>One-line change in orchestrator function, to pass in alternative function.</li>
+</ul>
 <h3 id="method-call-on-injected-object">Method Call On Injected Object</h3>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
 </span><span>
@@ -691,6 +920,41 @@ Firstly, suppose we <strong>know</strong> that the code will need to be modified
 </span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
 </span><span>
 </span></code></pre>
+<h4 id="simplicity-4">Simplicity:</h4>
+<p>Relatively complex.  There are now <em>three</em> modules.  There is the extra overhead of a container class, and instantiating the class.  An injected object needs to be followed as it is passed around, though this is arguably easier to understand than a first-class <em>function</em> being passed around, since it is probably more commonly seen.</p>
+<p>When reading the <code>main()</code> function alone, it is impossible to know which real class the injected object actually is.  An IDE will probably not be able to 'go to source' of <code>injected_object</code>.  This will be less of a problem if the injected object conforms to an <em>interface</em>, that can be specified as the type of the <code>injected_object</code> argument.</p>
+<h4 id="extensibility-4">Extensibility:</h4>
+<p>Could in principle depend on whether the new functionality needs a whole new class or just a new method on the existing class.  However, the whole point of the flexibility of the orchestrator pattern is to <em>easily inject a different object</em>, so that's what we'll consider here.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    injected_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
+</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
+</span><span>
+</span></code></pre>
+<ul>
+<li>New class with different method <em>of same name</em>.</li>
+<li><code>main()</code> function is <strong>not</strong> changed.</li>
+<li>One-line change in orchestrator function, to instantiate new class.</li>
+</ul>
 <h3 id="inheritance">Inheritance</h3>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
 </span><span>
@@ -711,6 +975,71 @@ Firstly, suppose we <strong>know</strong> that the code will need to be modified
 </span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
 </span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
 </span></code></pre>
+<h4 id="simplicity-5">Simplicity:</h4>
+<h4 id="extensibility-5">Extensibility:</h4>
+<p>Best case: the new functionality properly belongs on the parent class, just like the old functionality.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#   def secondary(self, data):
+</span><span style="color:#65737e;">#       # Do stuff.
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#65737e;"># self.secondary(data)
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<ul>
+<li>New method on parent class (base class).</li>
+<li>One-line change in child class, to call new method.</li>
+<li>No change in surrounding orchestrating code.</li>
+</ul>
+<p>Worst case: The new functionality is realised to be not part of the parent class.  The whole abstraction is discovered to be wrong.  The inheritance hierarchy must be dismantled and rebuilt.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class ParentClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#   def secondary(self, data):
+</span><span style="color:#65737e;">#       # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># class MainClass(ParentClass):
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<ul>
+<li>Whole new parent class required.</li>
+<li>Parent class of main class must be changed (one line change).</li>
+<li>Surrounding orchestrating code should not need to be changed.</li>
+</ul>
+<p>However, in practice, this change will often be very difficult.  The original parent class may have many child classes.  So if the main class changes to a different parent, then the main class is no longer considered to be the same type of class as the other child classes.  This may have widespread ramifications for the design.</p>
+<p>It seems that inheritance is a very brittle form of coupling.  The abstraction of the inheritance relationship needs to be exactly right, because it can be very difficult to change.  This implies that inheritance is not suitable for agile, iterative designs.</p>
 <h1 id="coupling-modules-into-a-structure">Coupling Modules Into A Structure</h1>
 <h3 id="a-couple-of-structures-tree-and-linear">A Couple Of Structures: Tree And Linear</h3>
 <h3 id="a-couple-of-types-of-code-algorithm-like-and-data-like">A Couple Of Types Of Code: Algorithm-like And Data-like</h3>
