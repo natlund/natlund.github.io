@@ -178,7 +178,7 @@
             </li>
         
             <li>
-                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#separation-of-functions-from-state">Separation Of Functions From State</a>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#separation-of-functions-and-state">Separation Of Functions And State</a>
                 
                     <ul>
                         
@@ -192,6 +192,23 @@
                         
                             <li>
                                 <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#separate-state-collate-state-minimise-state">Separate State; Collate State; Minimise State</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#distinguish-algorithm-like-code-from-data-like-code">Distinguish Algorithm-like Code From Data-like Code</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#antipattern-objects-conflating-algorithms-and-data">Antipattern: Objects Conflating Algorithms And Data</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#enforce-consistency-of-state">Enforce Consistency Of State</a>
                             </li>
                         
                     </ul>
@@ -276,8 +293,29 @@
                                 <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#a-couple-of-structures-tree-and-linear">A Couple Of Structures: Tree And Linear</a>
                             </li>
                         
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#make-execution-flow-obvious">Make Execution Flow Obvious</a>
+                
+                    <ul>
+                        
                             <li>
-                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#a-couple-of-types-of-code-algorithm-like-and-data-like">A Couple Of Types Of Code: Algorithm-like And Data-like</a>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#data-like-code-favours-a-tree-structure">Data-like Code Favours A Tree Structure</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#a-fundamental-cause-of-badly-structured-code">A Fundamental Cause Of Badly-Structured Code</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#algorithm-like-code-suits-linear-structures">Algorithm-like Code Suits Linear Structures</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#summary">Summary</a>
                             </li>
                         
                     </ul>
@@ -285,12 +323,59 @@
             </li>
         
             <li>
-                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#principles-of-coupling-modules-into-a-structure">Principles Of Coupling Modules Into A Structure:</a>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#data-flow-should-follow-execution-flow">Data Flow Should Follow Execution Flow</a>
                 
             </li>
         
             <li>
-                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#case-study-polymorphism">Case Study: Polymorphism</a>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#interfaces-the-glue-that-connects">Interfaces: The Glue That Connects</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#miscellaneous-advice">Miscellaneous Advice</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#name-things-clearly">Name Things Clearly</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#code-hygiene">Code Hygiene</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#thinking-like-an-engineer">Thinking Like An Engineer</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#be-explicit">Be Explicit</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#single-source-of-truth">Single Source Of Truth</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#format-code-perfectly-at-all-times">Format Code Perfectly At All Times</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#case-studies-polymorphism">Case Studies?: Polymorphism?</a>
                 
             </li>
         
@@ -363,7 +448,7 @@
 <h3 id="hierarchies-of-abstraction">Hierarchies Of Abstraction</h3>
 <p>Abstraction can be applied to abstractions themselves.  For example, the abstraction 'fruit' defines a set including things like apples and oranges.  And the abstraction 'flowers' includes things like tulips and roses.  Moreover, the sets 'fruit' and 'flowers' are both <em>plants</em>.  Qualities that define plants can be abstracted from both fruit and flowers.</p>
 <p>Hierarchies of abstractions can be constructed: sets of sets; sets within sets.</p>
-<p>The value of such set hierarchies is that they underpin logical inference.  A classic illustration is the logical syllogisms formalised in Ancient Greece: &quot;All humans are mortal.  Socrates is a human.  Therefore, Socrates is mortal.&quot;  Various other logical rules have been formalised.</p>
+<p>The value of such set hierarchies is that they underpin logical inference.  A classic illustration is the logical syllogisms formalised in Ancient Greece: &quot;All humans are mortal.  Socrates is a human.  Therefore, Socrates is mortal.&quot;  Various other logical rules have also been formalised.</p>
 <h3 id="the-power-of-abstraction">The Power Of Abstraction</h3>
 <p>Abstract reasoning lets us find hidden connections between concrete observable things, and derive new information by using logical inference.  This allows us to make predictions about the world.  Science is essentially the systematic application of abstract reasoning.  Engineering can be viewed as a scientific approach to building things -- such as software.</p>
 <p>'Intelligence', broadly speaking, could be described as the ability to abstract the essential elements of a situation and apply logic to them to derive new knowledge.</p>
@@ -383,7 +468,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <h4 id="correct-abstractions">Correct Abstractions</h4>
 <p>Scientific knowledge consists of elaborate conceptual structures that accurately map to the real world, and are internally consistent.  The key distinction that makes a concept 'scientific' is that it has been <em>tested by experiment</em>.  Abstractions are formulated, and eventually confirmed (or falsified) by experiments in the real world.</p>
 <ul>
-<li>For example, the quark subatomic particle started out as a purely mathematical abstraction that simplified and clarified the theory of subatomic particles.  But much later, high-energy physics experiments confirmed the physical existence of quarks.</li>
+<li>For example, the subatomic particle known as a <em>quark</em> started out as a purely mathematical abstraction that simplified and clarified the theory of subatomic particles.  But much later, high-energy physics experiments confirmed the physical existence of quarks.</li>
 </ul>
 <p>But if our abstractions cannot be tested with the rigour of science, then how do we decide if they are 'good' or not?</p>
 <p>The answer to this question is deep, and beyond the scope of this essay.  Only some rough guidelines can be suggested:</p>
@@ -394,7 +479,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>A good set (or hierarchy )of abstractions will be <strong>internally consistent</strong>.  There will be no contradictions.</li>
 </ul>
 <p>Thus, abstract reasoning is actually very risky, in the following sense: It can be done very badly, leading to a false understanding of the universe, and that false understanding may persist for a very long time, because of the difficulty of testing it.  Enormous amounts of time and energy may be wasted on building castles in the air, discussing how many angels may dance on the head of a pin.</p>
-<p>Primitive people don't suffer much from this problem, because errors in concrete thinking are usually immediately visible.  &quot;Trust me, there are no bears in this cave!&quot;  <em>Chomp</em>.  But it doesn't take much additional cultural sophistication to suffer badly from it.  &quot;We need to throw a virgin into the volcano to prevent it from erupting&quot;.  <em>&quot;Aaaaargh</em>&quot;.  Silence.  &quot;See, it's working.&quot;</p>
+<p>Primitive people don't suffer much from this problem, because errors in concrete thinking are usually immediately visible.  &quot;Trust me, there are no bears in this cave!&quot;  <em>Chomp</em>.  But it doesn't take much additional cultural sophistication to suffer badly from it.  &quot;We need to throw a virgin into the volcano to prevent it from erupting&quot;.  <em>&quot;Aaaaargh!</em>&quot;  Silence.  &quot;See, it's working.&quot;</p>
 <h4 id="correct-level-of-abstraction">Correct Level Of Abstraction</h4>
 <p>Given that <em>hierarchies</em> of abstractions may be constructed, it is critical to choose the abstraction at the <em>right level</em> for the problem.  The correct level of abstraction is this: <strong>as concrete as possible</strong> (but no more).  In other words, choose the abstraction that is the <em>least abstract</em> that you can get away with.</p>
 <p>A little-publicised but absolutely fundamental rule of good prose writing (and good communication in general) is to use the lowest possible level of abstraction (but no lower).  Think about it: a concrete concept is more precise, explicit, and easy to understand than a vague generality.  <strong>The same applies to writing computer code.</strong></p>
@@ -484,19 +569,19 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 </ol>
 <p>A number of concerns have been identified that appear time and time again in many computer programs.  Appropriately separating those particular concerns should be the first order of business when designing a software architecture.  Details follow in the next several chapters.</p>
 <h1 id="separate-inherent-complexity-from-collateral-complexity">Separate Inherent Complexity from Collateral Complexity</h1>
-<p>The 'complexity' of a computer program is difficult to define precisely, but for our purposes, it suffices to employ common-sense notions along the lines of 'complexity = amount of stuff, and amount of connections between stuff'.  More complexity is obviously harder to understand.  A key focus of good software engineering is managing complexity: disentangling it, and minimising it.</p>
+<p>There are various definitions of the 'complexity' of a computer program, some highly mathematical, but for our purposes, it suffices to employ common-sense notions along the lines of 'complexity = amount of stuff, and amount of connections between stuff'.  More complexity is obviously harder to understand.  A key focus of good software engineering is managing complexity: disentangling it, and minimising it.</p>
 <p>Complexity can be broken into three different types:</p>
-<h4 id="inherent-complexity">Inherent Complexity</h4>
+<h3 id="inherent-complexity">Inherent Complexity</h3>
 <p>Inherent complexity is the complexity of the actual domain problem itself.  It may be the complexity of a mathematical algorithm, or the complexity of some business logic, or the complexity of managing a long-term interaction with a user.</p>
 <p>Inherent complexity cannot be reduced, because it is inherent to the domain problem itself.</p>
-<h4 id="collateral-complexity">Collateral Complexity</h4>
+<h3 id="collateral-complexity">Collateral Complexity</h3>
 <p>Collateral complexity is the complexity in the details of the solution to the domain problem, that is not inherent to the problem.  This is best explained with an example:</p>
 <p>Suppose the domain problem requires saving some data to a database.  The action 'save data to database' is considered part of the <em>inherent complexity</em> of the problem, because it is a critical step in the algorithm.  But the <em>details</em> on how to connect to the database, where the passwords are stored, the exact protocol for calling a Postgres database, <em>et cetera</em>, are considered to be only <em>collateral</em> complexity, because these low-level details do not fundamentally matter to the solution.  This collateral complexity is essential to solve the domain problem, but it is not <em>inherent</em>, because the details could change quite drastically (for example, by changing to a different database) without affecting the operation of the solution.</p>
-<h4 id="accidental-complexity">Accidental Complexity</h4>
+<h3 id="accidental-complexity">Accidental Complexity</h3>
 <p>Accidental complexity is any complexity in the design that is <em>not</em> essential to solve the domain problem.  The problem has an inherent complexity, and there is the collateral complexity of the low-level details <em>required</em> to solve the problem, and any remaining complexity is essentially due to <em>bad design</em>.</p>
 <p>Classic examples include: poor use of Object Oriented design, unstructured spaghetti code, having the wrong abstractions, confusing or obscure variable names, 'clever' code that is more generalised than it needs to be, <em>et cetera, et cetera, ad nauseum</em>.</p>
 <p>The point about accidental complexity is that is <em>can</em> and <em>should</em> be eliminated.  In this sense, it is completely different from collateral complexity, which <em>cannot</em> be eliminated.</p>
-<h4 id="notes">Notes</h4>
+<h3 id="notes">Notes</h3>
 <p>Separating inherent complexity from collateral complexity is a good example of the art of abstraction at work, and one of the first abstractions that novice programmers naturally tend to start doing.  Pulling the boring details of a database connection into a <em>separate function</em> is an excellent and easy first step towards a better program structure.  Several lines of code are recognised to be all contributing to the same <em>abstract</em> activity - 'save to database' - and are not part of any other concern.  Therefore, this Concern is separated out into its own function.  Engineers would often describe this with language like &quot;abstracting out the database connection.&quot;</p>
 <p>A corollary is that the function call <code>save_to_database()</code> is at a higher level of abstraction, and that level of abstraction is inherent to the problem solution.  An <em>essential</em> step of the solution algorithm has now been made explicit with a self-documenting function name.  The code is now easier to understand; it is more readable.</p>
 <p>In summary:</p>
@@ -504,7 +589,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>Separate Inherent Complexity from Collateral Complexity.</li>
 <li>Eliminate Accidental Complexity.  Or at least understand the trade-offs.</li>
 </ol>
-<h1 id="separation-of-functions-from-state">Separation Of Functions From State</h1>
+<h1 id="separation-of-functions-and-state">Separation Of Functions And State</h1>
 <p>The Constitution of the United States Of America contains the important concept of 'separation of church and state'.  A similarly important concept in software engineering is the separation of <em>functions</em> from state.  (This is a pun on the two different meanings of 'state', as we shall see.)</p>
 <p>This principle could also be simplified to 'Separate state from everything else'.</p>
 <h3 id="interlude-pure-functions">Interlude:  Pure Functions</h3>
@@ -528,7 +613,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <ol>
 <li>Can <strong>change</strong>, especially in these two ways:
 <ul>
-<li>In non-deterministic ways, for example, due to user input.</li>
+<li>In non-deterministic ways, for example, due to random user input.</li>
 <li>In hard-to-understand ways, for example, during the convoluted machinations of a complex algorithm.</li>
 </ul>
 </li>
@@ -560,9 +645,149 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>The collateral complexity of managing a variable to index into the sequence, and terminating the sequence, <em>etc</em>. is <em>hidden away</em> inside the iterator module.</li>
 <li>Thus, state has been concentrated into the iterator module, and extracted out of (separate from) the main code.</li>
 </ol>
+<p>Consider a classic for-loop that iterates through an array, in C++:</p>
+<pre data-lang="C++" style="background-color:#2b303b;color:#c0c5ce;" class="language-C++ "><code class="language-C++" data-lang="C++"><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">0</span><span>; i &gt; array_length; i++) {
+</span><span>    element = some_array[i]
+</span><span>    </span><span style="color:#65737e;">// Do stuff.
+</span><span>    </span><span style="color:#65737e;">// Horrifyingly, it is possible to modify the iterator variable i.
+</span><span>} 
+</span></code></pre>
+<p>The irrelevant iterator variable <em>i</em> is exposed in the code.  Even worse, it is possible to <em>modify</em> the iterator variable during each iteration, so misguided programmers could write insane 'clever' code that is impossible to reason about.</p>
+<p>With the Iterator abstraction, code is much simpler and safer.  Consider this Python code:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">for </span><span>element </span><span style="color:#b48ead;">in </span><span>some_array:
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span></code></pre>
+<p>The <em>state</em> variable <em>i</em> has now vanished.  It is isolated inside the Iterator for <code>some_array</code>, and no longer appears in our algorithm.  State has been successfully separated from our function.</p>
 <h4 id="warning-don-t-add-complexity-via-too-little-state">Warning:  Don't Add Complexity Via Too Little State</h4>
 <p>It is sometimes possible to completely eliminate state by using constructions found in functional programming languages.  A classic example is recursion.  A <code>for</code> loop may be eliminated by using a function that recursively calls itself.</p>
 <p>But this is a bad idea:  Recursion is <em>considerably harder</em> to understand than a simple <code>for</code> loop with state.  Our goal is not to be clever, but to write readable, maintainable code.  So don't do this sort of thing.  The goal is not to eliminate state at all costs, but to reduce the use of state down to the point where it maximises readability.  A little bit of easy-to-understand state is vastly better than a confusingly 'clever' stateless solution borrowed from functional programming.</p>
+<h1 id="distinguish-algorithm-like-code-from-data-like-code">Distinguish Algorithm-like Code From Data-like Code</h1>
+<p>This principle is in many ways an expansion and restatement of the previous principle 'Separation Of Functions And State', though typically applicable at a higher level of abstraction.</p>
+<p>Time is linear.  Time is just one damn thing after another.</p>
+<p>Important Corollary: The execution of a computer program is a <em>sequence</em> of operations, one after the other.  We can say that program flow is <em>linear</em>.</p>
+<p>Even more important corollary:  Reading is a linear process.  We read one element at a time, <em>incrementally</em> building an understanding of the whole piece.</p>
+<p>Thus, to answer &quot;what does this code do?&quot; is to understand the sequence of operations during the execution of the code.  Furthermore, our understanding of that sequence of operations is built by reading parts of the code, one after the other.</p>
+<p>Now, a computer program <em>as a whole</em> has an execution order, a program flow.  However, not all parts of the program may have a meaningful execution order.  For example, code that is some kind of data structure is essentially static, and merely accessed by other code, and so does not really have a meaningful execution order.</p>
+<p>If code <em>does</em> have a meaningful execution order, then we can describe it as <strong>'algorithm-like'</strong>.  An algorithm is colloquially described as a 'recipe', or sequence of steps to carry out.  So code that is essentially a recipe of steps to execute in order, is algorithm-like.</p>
+<p>Code that is <em>not</em> algorithm-like may be described as <strong>'data-like'</strong>.  As mentioned, this tends to be static structures that don't really <em>do</em> anything, just store information to be accessed by other parts of the code.</p>
+<p>Note that algorithm-like code may still contain <em>state</em>.  An algorithm may work by mutating some state, so that state is an integral part of the algorithm.  We cannot apply a simplistic hard-and-fast rule like &quot;State = Data-like; Pure Functions = Algorithm-like&quot;.  Rather, the point is to distinguish the <em>role</em> of state - is it to serve an algorithm?  Or is it more like reference data?</p>
+<p>As we become familiar with the distinction between algorithm-like and data-like code, we can see situations where they should be <em>separated</em>.  This point is best illustrated with an example such as the following.</p>
+<h3 id="antipattern-objects-conflating-algorithms-and-data">Antipattern: Objects Conflating Algorithms And Data</h3>
+<p>A common bad construction is an object that:</p>
+<ol>
+<li>Stores input parameters as object variables.</li>
+<li>Executes an algorithm, using object variables as temporary working variables.</li>
+<li>Stores the output of the algorithm as yet more object variables.</li>
+</ol>
+<p>Faced with this abomination, the reader thinks:  What is the class doing?  Executing an algorithm?  Storing the result of the algorithm?  Storing the algorithm inputs as a kind of specification?  Are some variables merely irrelevant temporary working variables?  Depressingly, the answer to all of the above is &quot;Yes&quot;.</p>
+<p>A toy example of this antipattern in Python:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Rotundicity</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">a</span><span>, </span><span style="color:#bf616a;">b</span><span>, </span><span style="color:#bf616a;">c</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.a = a
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.b = b
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.c = c
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">discombobulate</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.p = </span><span style="color:#bf616a;">self</span><span>.a**</span><span style="color:#bf616a;">self</span><span>.b + </span><span style="color:#bf616a;">sin</span><span>(</span><span style="color:#bf616a;">self</span><span>.c)/</span><span style="color:#bf616a;">cos</span><span>(</span><span style="color:#bf616a;">self</span><span>.a)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">freneticise</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.q = </span><span style="color:#bf616a;">exp</span><span>(a, p) + </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.p * </span><span style="color:#bf616a;">arctan</span><span>(</span><span style="color:#bf616a;">self</span><span>.b/</span><span style="color:#bf616a;">self</span><span>.c)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">compute</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.rotundicity = </span><span style="color:#bf616a;">log</span><span>(</span><span style="color:#bf616a;">self</span><span>.p) - </span><span style="color:#bf616a;">log</span><span>(</span><span style="color:#bf616a;">self</span><span>.q) + </span><span style="color:#bf616a;">self</span><span>.p**</span><span style="color:#d08770;">2 </span><span>+ </span><span style="color:#bf616a;">self</span><span>.q**</span><span style="color:#d08770;">3
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">q_factor</span><span>():
+</span><span>        </span><span style="color:#b48ead;">return </span><span>(</span><span style="color:#bf616a;">self</span><span>.a + </span><span style="color:#bf616a;">tan</span><span>(</span><span style="color:#bf616a;">self</span><span>.b))/</span><span style="color:#bf616a;">self</span><span>.rotundicity
+</span></code></pre>
+<p>Consider the stupid example above.  By just reading the class definition, it is impossible to know the <em>purpose</em> and usage of the code.  It seems clear that <code>rotundicity</code> is an important thing to be computed, but why is it stored on the class?  Will it be recomputed again at random times?  Are <code>p</code> and <code>q</code> important?  If not, why are they accessible attributes on the class?  Would a user ever set <code>p</code> or <code>q</code> directly?  <em>Et cetera</em>.</p>
+<p>Now, some of the problems with this class could be alleviated if the language had 'private' class member variables, <em>etc.</em>  (Python does not.)  However, there are fundamental <em>structural</em> problems with the code that should be addressed.  We need to <em>separate concerns</em>.  Distinguish the <em>input data</em> from the <em>algorithm</em> from the <em>output data</em>, and separate them.  A possible refactoring is as follows:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">RotundicityInputs</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">a</span><span>, </span><span style="color:#bf616a;">b</span><span>, </span><span style="color:#bf616a;">c</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.a = a
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.b = b
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.c = c
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Rotundicity</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">rotundicity</span><span>, </span><span style="color:#bf616a;">q_factor</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.rotundicity = rotundicity
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.q_factor = q_factor
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">compute_rotundicity</span><span>(</span><span style="color:#bf616a;">data</span><span>: RotundicityInputs):
+</span><span>    p = </span><span style="color:#bf616a;">discombobulate</span><span>(data)
+</span><span>    q = </span><span style="color:#bf616a;">freneticise</span><span>(data, p)
+</span><span>
+</span><span>    rotundicity = </span><span style="color:#bf616a;">log</span><span>(p) - </span><span style="color:#bf616a;">log</span><span>(q) + p**</span><span style="color:#d08770;">2 </span><span>+ q**</span><span style="color:#d08770;">3
+</span><span>    q_factor = (data.a + </span><span style="color:#bf616a;">tan</span><span>(data.b))/rotundicity
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">Rotundicity</span><span>(
+</span><span>        </span><span style="color:#bf616a;">rotundicity</span><span>=rotundicity,
+</span><span>        </span><span style="color:#bf616a;">q_factor</span><span>=q_factor,
+</span><span>        )
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">discombobulate</span><span>(</span><span style="color:#bf616a;">data</span><span>: RotundicityInputs):
+</span><span>    </span><span style="color:#b48ead;">return </span><span>data.a**data.b + </span><span style="color:#bf616a;">sin</span><span>(data.c)/</span><span style="color:#bf616a;">cos</span><span>(data.a)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">freneticise</span><span>(</span><span style="color:#bf616a;">data</span><span>: RotundicityInputs, </span><span style="color:#bf616a;">p</span><span>: float):
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">exp</span><span>(data.a, p) + </span><span style="color:#d08770;">3.141592654 </span><span>* p * </span><span style="color:#bf616a;">arctan</span><span>(data.b/data.c)
+</span></code></pre>
+<p>Now it is very clear that <code>rotundicity</code> and associated <code>q_factor</code> are the outputs that matter.  They are tied together on a simple, lightweight data class, that can be passed around the rest of the program.  It is equally clear that the only parameters that a user can control are <code>a</code>, <code>b</code>, and <code>c</code>.  Finally, the actual algorithm for calculating the outputs from the inputs is now crystal clear.</p>
+<p>An alternative refactoring would be to have the <code>compute_rotundicity()</code> function be a <em>method</em> on the <code>RotundicityInputs</code> class.  This might be a more appropriate structure if the <code>RotundicityInputs</code> data class is <em>state</em> that changes frequently, and the rotundicity needs to be computed frequently.</p>
+<h2 id="enforce-consistency-of-state">Enforce Consistency Of State</h2>
+<p>In the stupid example above, the lack of separation of concerns causes another more subtle but potentially more serious problem: the state can become inconsistent.  Here is how:  There is only <em>one</em> value of <code>rotundicity</code> that is mathematically consistent with given inputs <code>a</code>, <code>b</code>, and <code>c</code>.  However, the input variables can be modified <em>without</em> updating the output variables.  Thus, since the 'state' of the <code>Rotundicity</code> object consists of all five variables, the state can become inconsistent.</p>
+<p>This is better illustrated with a simpler example.  Consider this snippet of code that represents geometric shapes drawn on the screen:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">x</span><span>: float, </span><span style="color:#bf616a;">y</span><span>: float, </span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#65737e;"># Position on screen.
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.x = x
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.y = y
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Radius
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.r = r
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">calculate_area</span><span>()  </span><span style="color:#65737e;"># Sets self.area
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calculate_area</span><span>()
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.area = </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.r ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>The problem is that both <code>r</code> (radius) and <code>area</code> are attributes of a <code>Circle</code> object, and radius <code>r</code> can be updated <em>without</em> updating <code>area</code>.  Thus, the state of the <code>Circle</code> object can become inconsistent.</p>
+<p>There are at least a couple of fixes.  Probably the best way to enforce consistency of state is to <strong>minimise state</strong>, and not store <code>area</code> as state at all - just compute it when needed, in the spirit of functional programming.  The code would look like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">x</span><span>: float, </span><span style="color:#bf616a;">y</span><span>: float, </span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#65737e;"># Position on screen.
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.x = x
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.y = y
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Radius
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.r = r
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calculate_area</span><span>()
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.r ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>This is a very clean solution, that keeps code minimal and easy to understand.</p>
+<p>Another approach to enforcing consistency of state is to use 'setters', in the spirit of traditional object-oriented programming.  This approach is automatically re-calculate <code>area</code> every time radius <code>r</code> is changed.  The following code is not idiomatic Python, but illustrates the approach:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">x</span><span>: float, </span><span style="color:#bf616a;">y</span><span>: float, </span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#65737e;"># Position on screen.
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.x = x
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.y = y
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Radius
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">set_radius</span><span>(r)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">set_radius</span><span>(</span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.r = r
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">_calculate_area</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_calculate_area</span><span>()
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.area = </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.r ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>(There is an idiomatic Python way to define setters, but the syntax will be less clear to readers not familiar with this somewhat obscure Python feature.)</p>
+<p>The disadvantage of this approach to enforcing consistency of state is that area <em>must</em> be calculated every time the radius is changed, even if we don't care about the area at the time.  This doesn't matter for this minimal example, but in real-world code, there could be a significant performance cost to automatically doing a costly calculation regardless of whether or not it is needed.  Thus, in general, prefer the simpler method of <em>minimising state</em>, to enforce consistency.</p>
 <h1 id="separate-input-output-from-computation">Separate Input/Output From Computation</h1>
 <p>A lot of computer code follows the pattern handed down to us from the ancients:</p>
 <ol>
@@ -571,6 +796,8 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>Put the new data somewhere.</li>
 </ol>
 <p>Separate the code that does Input or Output into its own modules.  Do <em>not</em> make an I/O call in the middle of some code that is doing a computation.</p>
+<p>An Input code module deals with things like reading a configuration file, reading environment variables from the operating system, loading data from a file, <em>et cetera</em>.</p>
+<p>An Output code module will typically handle writing to a file or database, or transferring data through a network call.</p>
 <p>Rules of thumb for readable code:</p>
 <ol>
 <li>Try to put the calls to the Input module at the beginning of the program.</li>
@@ -582,7 +809,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>It makes the dependency on the existence of the config file immediately explicit to the reader.</li>
 <li>If the file is missing, the program will error immediately, instead of wasting time on a computation that will ultimately fail.</li>
 </ol>
-<p>Make dependencies explicit.  (See chapters on Coupling.)  Fail early.  Make sure you have everything that you need before starting the job.</p>
+<p>Make dependencies explicit.  Declare them early; your readers will want to know about them.  Fail early.  Make sure you have everything that you need before starting the job.</p>
 <h1 id="separate-business-logic-from-mechanical-work">Separate Business Logic From Mechanical Work</h1>
 <p>Business logic is the <em>whole point</em> of software.  Software is engineered to solve business problems.</p>
 <p>Therefore, in your code, <em>highlight</em> the business logic.  Try to elevate it to its own module so that the business logic is <em>obvious</em>.  This also tends to make it easier to modify the business logic.</p>
@@ -591,21 +818,100 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <h1 id="collate-the-concern-of-logical-branching">Collate The Concern Of Logical Branching</h1>
 <p>If your code requires a logical branch, try to do it only once.  Your code will be much cleaner and easier to read.</p>
 <p>Making the <em>same</em> logical branch (i.e. exactly the same logical conditions) in <em>multiple</em> places should be considered an anti-pattern, or at least a code smell.  The resulting code is always cluttered and messy.  Try to refactor it to have only one occurrence of the logical branch.</p>
+<p>In graphical form, the left hand pattern is much easier to understand than the right hand pattern:</p>
+<div align="center">
+<svg width="600" height="640">
+    <line x1="100" y1="20" x2="100" y2="120" stroke="red" stroke-width="8"/>
+    <line x1="100" y1="120" x2="20" y2="220" stroke="red" stroke-width="8"/>
+    <line x1="100" y1="120" x2="180" y2="220" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="220" x2="20" y2="620" stroke="red" stroke-width="8"/>
+    <line x1="180" y1="220" x2="180" y2="620" stroke="red" stroke-width="8"/>
+    <circle cx="100" cy="20" r="20" fill="blue"/>
+    <polygon points="100,90 70,120 100,150 130,120" fill="lime" stroke="black"/>
+    <circle cx="20" cy="220" r="20" fill="blue"/>
+    <circle cx="20" cy="320" r="20" fill="blue"/>
+    <circle cx="20" cy="420" r="20" fill="blue"/>
+    <circle cx="20" cy="520" r="20" fill="blue"/>    
+    <circle cx="20" cy="620" r="20" fill="blue"/>    
+    <circle cx="180" cy="220" r="20" fill="blue"/>
+    <circle cx="180" cy="320" r="20" fill="blue"/>
+    <circle cx="180" cy="420" r="20" fill="blue"/>
+    <circle cx="180" cy="520" r="20" fill="blue"/>
+    <circle cx="180" cy="620" r="20" fill="blue"/>
+    <line x1="500" y1="20" x2="500" y2="120" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="120" x2="420" y2="220" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="120" x2="580" y2="220" stroke="red" stroke-width="8"/>
+    <line x1="420" y1="220" x2="500" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="580" y1="220" x2="500" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="320" x2="500" y2="420" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="420" x2="420" y2="520" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="420" x2="580" y2="520" stroke="red" stroke-width="8"/>
+    <line x1="420" y1="520" x2="500" y2="620" stroke="red" stroke-width="8"/>
+    <line x1="580" y1="520" x2="500" y2="620" stroke="red" stroke-width="8"/>
+    <circle cx="500" cy="20" r="20" fill="blue"/>
+    <polygon points="500,90 470,120 500,150 530,120" fill="lime" stroke="black"/>
+    <circle cx="420" cy="220" r="20" fill="blue"/>
+    <circle cx="500" cy="320" r="20" fill="blue"/>
+    <polygon points="500,390 470,420 500,450 530,420" fill="lime" stroke="black"/>
+    <circle cx="420" cy="520" r="20" fill="blue"/>    
+    <circle cx="580" cy="220" r="20" fill="blue"/>
+    <circle cx="580" cy="520" r="20" fill="blue"/>    
+    <circle cx="500" cy="620" r="20" fill="blue"/>
+</svg>
+</div>
 <h3 id="make-branching-explicit">Make Branching Explicit</h3>
-<p>One way to save a line of code is to write a logical branch like this:</p>
+<p>One (misguided) way to save a line of code is to write a logical branch like this:</p>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>x = </span><span style="color:#d08770;">0  </span><span style="color:#65737e;"># Default value.
 </span><span style="color:#b48ead;">if </span><span>some_condition is </span><span style="color:#d08770;">True</span><span>:
 </span><span>    x = </span><span style="color:#d08770;">1
 </span></code></pre>
 <p>Now, does this <em>look</em> like a logical branch?  At first glance, the reader notices that a variable is set, then mutated <em>if</em> a particular condition is true.  The pattern is: 1) Do some work. 2) If a condition is true, then <em>undo and redo</em> the work.</p>
 <p>What does mutating a variable have to do with logical branching?  The answer is: <em>nothing</em>.  This mutation is not necessary to achieve logical branching.  In fact, while all languages allow logical branching, there are modern languages with an emphasis on safety that strongly discourage mutation, or even forbid it.  (Eg. Rust, and functional languages.)  Mutation typically makes code harder to reason about, so should be kept to an absolute minimum.</p>
-<p>The <em>meaning</em> of the code is: make a binary logical choice.  Therefore, the code should reflect that meaning as directly as possible.  The traditional construction does this perfectly:</p>
+<p>The <em>meaning</em> of the code is: make a binary logical choice.  Therefore, the code should reflect that meaning as directly as possible.  The traditional <code>if else</code> construction does this perfectly:</p>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">if </span><span>some_condition is </span><span style="color:#d08770;">True</span><span>:
 </span><span>    x = </span><span style="color:#d08770;">1
 </span><span style="color:#b48ead;">else</span><span>:
 </span><span>    x = </span><span style="color:#d08770;">0
 </span></code></pre>
-<p>The other benefit is that the code at the same <em>logical level</em> (down one branch or the other) is at the same <em>indentation level</em>.</p>
+<p>The other benefit of the traditional <code>if else</code> is that the code at the same <em>logical level</em> (down one branch or the other) is at the same <em>indentation level</em>.</p>
+<p>In the diagrams below, the <em>meaning</em> of the code is shown as the tree with red links, and the <em>execution flow</em> of the code is shown as the black arrows.</p>
+<div align="center">
+<svg width="600" height="260">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="8" 
+         refX="8" refY="4" orient="auto">
+            <polygon points="2 4, 0 8, 10 4, 0 0"/>
+    </defs>
+    <-- Left hand tree -->
+    <line x1="100" y1="20" x2="100" y2="120" stroke="red" stroke-width="8"/>
+    <line x1="100" y1="120" x2="20" y2="220" stroke="red" stroke-width="8"/>
+    <line x1="100" y1="120" x2="180" y2="220" stroke="red" stroke-width="8"/>
+    <circle cx="100" cy="20" r="20" fill="blue"/>
+    <polygon points="100,90 70,120 100,150 130,120" fill="lime" stroke="black"/>
+    <circle cx="20" cy="220" r="20" fill="blue"/>
+    <circle cx="180" cy="220" r="20" fill="blue"/>
+    <text x="0" y="260">x = 0</text>
+    <text x="160" y="260">x = 1</text>
+    <--   Flow arrows -->
+    <line x1="20" y1="0" x2="20" y2="195" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="43" y1="217" x2="95" y2="155" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="105" y1="155" x2="155" y2="215" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <-- Right hand tree -->
+    <line x1="500" y1="20" x2="500" y2="120" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="120" x2="420" y2="220" stroke="red" stroke-width="8"/>
+    <line x1="500" y1="120" x2="580" y2="220" stroke="red" stroke-width="8"/>
+    <circle cx="500" cy="20" r="20" fill="blue"/>
+    <polygon points="500,90 470,120 500,150 530,120" fill="lime" stroke="black"/>
+    <circle cx="420" cy="220" r="20" fill="blue"/>
+    <circle cx="580" cy="220" r="20" fill="blue"/>
+    <text x="400" y="260">x = 0</text>
+    <text x="560" y="260">x = 1</text>
+    <-- Flow arrows -->
+    <line x1="530" y1="0" x2="530" y2="115" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="527" y1="127" x2="580" y2="195" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+</svg>
+</div>
+<p>The left-hand diagram of the code using mutation shows how the code actually traverses one branch of the tree <em>before</em> encountering the conditional.  This disconnect from the semantics of the code has a cognitive cost.  So the 'shorter' method using variable mutation is actually harder to understand.  Don't try to save a single line of code at the expense of readability.  Just use the traditional <code>if else</code> construction.</p>
 <h3 id="use-polymorphism-to-eliminate-logical-branching">Use Polymorphism To Eliminate Logical Branching</h3>
 <p>Consider this code, a toy example of part of some kind of graphics program.  It may not be realistic, but it illustrates a point.</p>
 <pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Square</span><span style="color:#eff1f5;">:
@@ -668,7 +974,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 </span><span>    </span><span style="color:#b48ead;">return </span><span>total_area
 </span></code></pre>
 <p>The code has been simplified considerably, and is easier to read.  This shows the value of method polymorphism.</p>
-<p>But let's dig a little deeper.  Obviously, the two functions for calculating area have been <em>moved</em> to be attached to the data structures they operate on. And the main function <code>calculate_total_area_of_shapes()</code> no longer contains the <em>logical branching</em>.  But where did the logical branching go?  It has apparently disappeared.  In fact, the logical branching is still inside the compiled (byte) code in the form of look-up table or similar.  Method polymorphism has allowed us remove the logical branching from our source code, where it adds complexity for the human reader, and move it into the compiled code, where it is completely out of our sight, and now the responsibility of the computer.</p>
+<p>But let's dig a little deeper.  Obviously, the two functions for calculating area have been <em>moved</em> to be attached to the data structures they operate on. And the main function <code>calculate_total_area_of_shapes()</code> is drastically simpler because it no longer contains the logical branching.  Was it moved?  Upon inspection, the <strong>logical branching</strong> has apparently completely <strong>disappeared</strong> from our code!  Where did it go? In fact, the logical branching is still inside the compiled (byte) code in the form of look-up table or similar.  Method polymorphism has allowed us remove the logical branching from our source code, where it adds complexity for the human reader, and move it into the compiled code, where it is completely out of our sight, and now the responsibility of the computer.</p>
 <p>Removing the complexity of logical branching from our source code is perhaps an under-appreciated aspect of object-oriented techniques such as this.</p>
 <h1 id="coupling">Coupling</h1>
 <p>Now that we have separated all the concerns into separate modules, how should we connect them together?</p>
@@ -1039,18 +1345,264 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <li>Surrounding orchestrating code should not need to be changed.</li>
 </ul>
 <p>However, in practice, this change will often be very difficult.  The original parent class may have many child classes.  So if the main class changes to a different parent, then the main class is no longer considered to be the same type of class as the other child classes.  This may have widespread ramifications for the design.</p>
-<p>It seems that inheritance is a very brittle form of coupling.  The abstraction of the inheritance relationship needs to be exactly right, because it can be very difficult to change.  This implies that inheritance is not suitable for agile, iterative designs.</p>
+<p>It seems that inheritance is a very brittle form of coupling.  The abstraction of the inheritance relationship needs to be exactly right, because it can be very difficult to change.  This implies that inheritance is not suitable for code that will developed in an agile, iterative fashion.</p>
 <h1 id="coupling-modules-into-a-structure">Coupling Modules Into A Structure</h1>
 <h3 id="a-couple-of-structures-tree-and-linear">A Couple Of Structures: Tree And Linear</h3>
-<h3 id="a-couple-of-types-of-code-algorithm-like-and-data-like">A Couple Of Types Of Code: Algorithm-like And Data-like</h3>
-<h1 id="principles-of-coupling-modules-into-a-structure">Principles Of Coupling Modules Into A Structure:</h1>
+<p>Connecting modules together produces a structure that can be considered to be a network of nodes and links (or 'edges').  (The mathematical field of <em>graph theory</em> is the study of these structures and their properties.)</p>
+<p>While there are an infinite number of possible structures, a couple of foundational 'platonic forms' will be familiar: trees and chains.  They are intuitive enough that diagrams will be sufficient reminders of their definitions.</p>
+<h4 id="chain-linear-structure">Chain (Linear structure)</h4>
+<svg width="500" height="40">
+    <line x1="25" y1="20" x2="475" y2="20" stroke="red" stroke-width="8"/>
+    <circle cx="25" cy="20" r="20" fill="blue"/>
+    <circle cx="175" cy="20" r="20" fill="blue"/>
+    <circle cx="325" cy="20" r="20" fill="blue"/>
+    <circle cx="475" cy="20" r="20" fill="blue"/>    
+</svg>
+<h4 id="tree">Tree</h4>
+<svg width="500" height="340">
+    <line x1="250" y1="20" x2="100" y2="170" stroke="red" stroke-width="8"/>
+    <line x1="250" y1="20" x2="400" y2="170" stroke="red" stroke-width="8"/>
+    <line x1="100" y1="170" x2="25" y2="325" stroke="red" stroke-width="8"/>
+    <line x1="100" y1="170" x2="175" y2="325" stroke="red" stroke-width="8"/>
+    <line x1="400" y1="170" x2="325" y2="325" stroke="red" stroke-width="8"/>
+    <line x1="400" y1="170" x2="475" y2="325" stroke="red" stroke-width="8"/>
+    <circle cx="250" cy="20" r="20" fill="blue"/>
+    <circle cx="100" cy="170" r="20" fill="blue"/>
+    <circle cx="400" cy="170" r="20" fill="blue"/>
+    <circle cx="25" cy="320" r="20" fill="blue"/>
+    <circle cx="175" cy="320" r="20" fill="blue"/>
+    <circle cx="325" cy="320" r="20" fill="blue"/>
+    <circle cx="475" cy="320" r="20" fill="blue"/>    
+</svg>
+<h1 id="make-execution-flow-obvious">Make Execution Flow Obvious</h1>
+<p>Four paragraphs appearing at the beginning of the chapter <em>Distinguish Algorithm-like Code From Data-like Code</em> apply here.  For convenience, we repeat them verbatim here:</p>
+<p>Time is linear.  Time is just one damn thing after another.</p>
+<p>Important corollary: The execution of a computer program is a <em>sequence</em> of operations, one after the other.  We can say that program flow is <em>linear</em>.</p>
+<p>Even more important corollary:  Reading is a linear process.  We read one element at a time, <em>incrementally</em> building an understanding of the whole piece.</p>
+<p>Thus, to answer &quot;what does this code do?&quot; is to understand the sequence of operations during the execution of the code.  Furthermore, our understanding of that sequence of operations is built by reading parts of the code, one after the other.</p>
+<p>Therefore, a key principle for structuring code for readability is: <strong>make execution flow obvious</strong>.</p>
+<p>Before exploring how to apply this principle, we shall first deal with the <em>exception</em> - code that <em>does not</em> have a meaningful execution order, which we have defined as 'data-like code'.</p>
+<h2 id="data-like-code-favours-a-tree-structure">Data-like Code Favours A Tree Structure</h2>
+<p>Data can be thought of as just a bunch of static variables.  However, the variables may be grouped in various ways, and the groups themselves may be further grouped into higher-order sets, forming a <strong>hierarchy</strong>.  Thus, a <strong>tree-like</strong> structure can be imposed onto the bunch of variables.  If the data is correctly abstracted in this way, it will make more logical sense, and be easier to understand.</p>
+<p>Obviously, code whose main purpose is to represent data should be structured so as represent the abstract tree of variable groupings.  Then, accessing the data in the rest of the program will be as intuitive and logical as possible.</p>
+<p>Consider an example of some data in JSON format.  The first example shows data in 'flat' format.</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">student_id</span><span>&quot;: </span><span style="color:#d08770;">12345678</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Joe Aloysius Bloggs</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">j.bloggs@gmail.com</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">phone</span><span>&quot;: </span><span style="color:#d08770;">07412345678</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">street_address</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">21 Jump Street</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">town</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Crapstone</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">county</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Devon</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">postcode</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">PL20 7PJ</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">bank</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Barclays</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">account_name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">J A Bloggs</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">sort_code</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">12-34-56</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">account_number</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">87654321</span><span>&quot;,
+</span><span>}
+</span></code></pre>
+<p>The second example shows the same data grouped into a sensible tree structure.</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">student_id</span><span>&quot;: </span><span style="color:#d08770;">12345678</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Joe Aloysius Bloggs</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">contact_details</span><span>&quot;: {
+</span><span>        &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">j.bloggs@gmail.com</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">phone</span><span>&quot;: </span><span style="color:#d08770;">07412345678</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">postal_address</span><span>&quot;: {
+</span><span>            &quot;</span><span style="color:#a3be8c;">street_address</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">21 Jump Street</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">town</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Crapstone</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">county</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Devon</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">postcode</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">PL20 7PJ</span><span>&quot;,
+</span><span>        }
+</span><span>    },
+</span><span>    &quot;</span><span style="color:#a3be8c;">bank_details</span><span>&quot;: {
+</span><span>        &quot;</span><span style="color:#a3be8c;">bank</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Barclays</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">account_name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">J A Bloggs</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">sort_code</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">12-34-56</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">account_number</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">87654321</span><span>&quot;,
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>The second example with the tree structure is obviously <em>much</em> easier to parse.</p>
+<p>Suppose the JSON example above needs to be represented as a data structure in a computer program.  There are various ways of converting JSON into, for example, a composition of objects.  The details of that conversion are not important here - what is important is that the organised tree structure is preserved.  Assuming that details of reading and converting the JSON are abstracted away, then (Python) code that uses the data structure could look like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>student_json = </span><span style="color:#bf616a;">read_student_json</span><span>()
+</span><span>student = </span><span style="color:#bf616a;">convert_json_to_student_object</span><span>(student_json)
+</span><span>
+</span><span style="color:#d08770;">...
+</span><span>
+</span><span>email = student.contact_details.email
+</span><span>
+</span><span style="color:#d08770;">...
+</span><span>
+</span><span>postcode = student.contact_details.postal_address.postcode
+</span><span>
+</span></code></pre>
+<p>As we can see, the tree structure is accessed in an intuitive way using the nested 'dot' syntax of object attributes.</p>
+<p>The logical grouping and sub-grouping of all the data elements makes the data structure easy to understand and work with.  So favour tree-like structures for data-like code.</p>
+<h2 id="a-fundamental-cause-of-badly-structured-code">A Fundamental Cause Of Badly-Structured Code</h2>
+<p>Now that we have seen how tree-like code structures can be a great idea, let us indulge in a rant about how tree-like structures can be a <em>terrible</em> idea. </p>
+<p>Why do intelligent people write such obfuscated, tangled code?  Here is one reason:</p>
+<p>They are organising code as if it were nothing more than a static bunch of text statements.  Of course, it <em>is</em> a static bunch text statements, but crucially, it may be <em>more</em> than that: there is another dimension to consider.  We'll come back to this point.</p>
+<p>The intelligent but unwise programmer looks at code as a bunch of static text statements, and proceeds to 'organise' it.  The programmer abstracts out an underlying logical structure, and breaks the code into separate parts.  He or she carries on, further breaking each newly-created part into separate logical chunks.  The final result is a large number of separate pieces, all connected together in a <strong>tree</strong> structure.  The intelligent but unwise programmer is probably proud of this achievement, believing that he or she has cleverly followed the Separation Of Concerns Principle to the letter.  The code is now so beautifully <em>organised</em>.</p>
+<p>Now, as we have seen, this is eminently appropriate as long as the code is <strong>data-like</strong>.</p>
+<p>But most code in an application is algorithm-like. For algorithm-like code, this approach is completely and utterly wrong.  As we noted above, there is another dimension: time.  More specifically: execution order.</p>
+<p>Algorithm-like code consists of a series of actions performed in a sequence.  To understand the code, one must understand the exact sequence of actions.  A linear type of structure obviously perfectly captures the sequence of actions.  On the other hand, a tree structure <em>obfuscates</em> the sequence of actions.</p>
+<h2 id="algorithm-like-code-suits-linear-structures">Algorithm-like Code Suits Linear Structures</h2>
+<p>As the preceding sections have made clear, linear-type code structures maximise the readability of algorithm-like code.  Let us consider a plan of attack for achieving well-structured code, using our skills of software abstraction to separate concerns.</p>
+<p>Practical Advice:</p>
 <ol>
-<li>Make dependencies explicit, by putting them at the top, or entry point, of the program.</li>
-<li>Code should look like what it does.  Code should look like what it does.  Data-like or algorithm-like.</li>
-<li>Make execution flow obvious.</li>
-<li>Data flow should follow execution flow.</li>
+<li>Most code follows the pattern handed down from the ancients: Take some data, do things to the data, put the data somewhere.</li>
+<li>Assume we are considering a non-trivial algorithm of this type, that takes up more than one screen of code to implement.</li>
+<li>Take the entire algorithm, and decide what the different <em>logical</em> elements are.  A logical element does <em>one thing</em>, it is a logically distinct operation.  This breakdown has nothing to do with the number of lines of code: Some operations can be done in one line of code, others in one thousand.  In other words, <em>separate concerns.</em></li>
+<li>Create a separate function to do each logical element.  Because of the clean logical separation, it should be easy to give the function an accurate and complete self-documenting name.</li>
+<li>Now the entry point, the algorithm in question, can be written as a 'main' or 'orchestrator' function containing a linear sequence of sub-functions.</li>
 </ol>
-<h1 id="case-study-polymorphism">Case Study: Polymorphism</h1>
+<p>Now, code is fractal: each logical element described above may itself be composed of distinct logical sub-elements.  The same principle applies at any level: for each element, write code that clearly reveals the flow of execution order.</p>
+<p>Because of the fractal nature, we end up with code that has a nested structure, and is therefore tree-like in some sense.  However, the structure is <em>not</em> a 'pure' tree - there is a critical additional property: The <em>linearity</em> of each element means that an explicit <em>execution flow</em> can be traced through the structure.</p>
+<p>The diagram below illustrates the 'nested chain' structure.  The black arrows show the execution flow.</p>
+<div align="center">
+<svg width="400" height="640">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="8" 
+         refX="8" refY="4" orient="auto">
+            <polygon points="2 4, 0 8, 10 4, 0 0"/>
+    </defs>
+    <-- Main function -->
+    <line x1="20" y1="20" x2="20" y2="620" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="220" x2="200" y2="120" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="220" x2="200" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="200" y1="120" x2="200" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="200" y1="253" x2="350" y2="187" stroke="red" stroke-width="8"/>
+    <line x1="200" y1="253" x2="350" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="350" y1="187" x2="350" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="520" x2="170" y2="453" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="520" x2="170" y2="587" stroke="red" stroke-width="8"/>
+    <line x1="170" y1="453" x2="170" y2="587" stroke="red" stroke-width="8"/>
+    <circle cx="20" cy="20" r="20" fill="blue"/>
+    <circle cx="20" cy="120" r="20" fill="blue"/>
+    <circle cx="20" cy="220" r="20" fill="blue"/>
+    <circle cx="20" cy="320" r="20" fill="blue"/>
+    <circle cx="20" cy="420" r="20" fill="blue"/>
+    <circle cx="20" cy="520" r="20" fill="blue"/>
+    <circle cx="20" cy="620" r="20" fill="blue"/>
+    <-- Sub-function 1 -->
+    <circle cx="200" cy="120" r="15" fill="blue"/>
+    <circle cx="200" cy="187" r="15" fill="blue"/>
+    <circle cx="200" cy="253" r="15" fill="blue"/>
+    <circle cx="200" cy="320" r="15" fill="blue"/>
+    <-- Sub-sub-function -->
+    <circle cx="350" cy="187" r="15" fill="blue"/>
+    <circle cx="350" cy="253" r="15" fill="blue"/>
+    <circle cx="350" cy="320" r="15" fill="blue"/>
+    <-- Sub-function 2 -->
+    <circle cx="170" cy="453" r="15" fill="blue"/>
+    <circle cx="170" cy="520" r="15" fill="blue"/>
+    <circle cx="170" cy="587" r="15" fill="blue"/>
+    <--   Flow arrows -->
+    <line x1="50" y1="0" x2="50" y2="185" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="60" y1="182" x2="180" y2="115" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="225" y1="120" x2="225" y2="220" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="235" y1="212" x2="330" y2="172" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="375" y1="187" x2="375" y2="320" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="350" y1="345" x2="220" y2="280" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="220" y1="290" x2="220" y2="320" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="200" y1="345" x2="40" y2="250" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="50" y1="270" x2="50" y2="450" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="37" y="475">Etc</text>
+</svg>
+</div>
+<p>An example sketch in Python would look something like:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    config = </span><span style="color:#bf616a;">read_config</span><span>()
+</span><span>    data = </span><span style="color:#bf616a;">load_data_from_file</span><span>(config)
+</span><span>    transformed_data = </span><span style="color:#bf616a;">operation_1</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    discombobulated_data = </span><span style="color:#bf616a;">operation_4</span><span>(transmogrified_data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    modified_data = </span><span style="color:#bf616a;">sub_operation_1</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    mangled_data = </span><span style="color:#bf616a;">sub_operation_3</span><span>(altered_data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">sub_operation_3</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    mutated_data = </span><span style="color:#bf616a;">sub_sub_operation_1</span><span>()
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># Et cetera.
+</span></code></pre>
+<p>As noted in the section above <em>A Fundamental Cause Of Badly-Structured Code</em>, the point is <em>not</em> to create a neatly-structured tree of nodes, with each node having minimal content, resulting in a very deep tree.  Therefore, resist the temptation to group the functions into higher-level functions with vague names like <code>transform()</code>.  This incredibly widespread plague of abstraction addiction is the <em>opposite</em> of writing readable code.</p>
+<p>Furthermore, as noted in the chapter <em>Separate Input/Output From Computation</em>, Input dependencies such as reading a configuration file, reading environment variables from the operating system, loading a data file, <em>etc</em>, should happen at the <strong>start</strong> of the algorithm.  Making dependencies obvious is an important part of making code easy to understand quickly, so declare them up front. </p>
+<h3 id="the-daisy-chain-anti-pattern">The Daisy-Chain Anti-Pattern</h3>
+<p>Code with a 'daisy-chain' structure has a <em>linear</em> structure, but lacks a proper 'main' or 'orchestrator' function.  Code consists of a chain of function calls, where each function calls the next function in the sequence, instead of returning back up to an orchestrator.  There are two main flaws of this structure:</p>
+<ol>
+<li>With no 'main' or orchestrator function, the overall structure of the algorithm cannot be seen anywhere.  One must read all the functions in turn to build a mental picture of the key steps in the algorithm.</li>
+<li>The entry point will be the first function in the sequence.  Since it will have a single clear concern, it should have a simple descriptive name such as <code>read_data_file()</code>.  However, its final act is to call the next function in the sequence, thus ultimately executing the entire program.  Executing the entire program is the <em>mother</em> of all side-effects for a simple function!</li>
+</ol>
+<p>So don't do this.  Instead, use the (nested) linear structures with orchestrators described in the previous section.</p>
+<p>The example sketch above structured in this anti-pattern would look something like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">read_config</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">load_data_from_file</span><span>(config)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">load_data_from_file</span><span>(</span><span style="color:#bf616a;">config</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">operation_1</span><span>(data)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">operation_2</span><span>(data):
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_2</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">operation_3</span><span>(data)
+</span></code></pre>
+<h2 id="summary">Summary</h2>
+<p>The structure of code should reflect its purpose.  Is the purpose of a module of code to store data or is it to do some computation?</p>
+<p>Note that a data-like code component may still have algorithm-like code within it, for example, non-trivial accessor methods on a complex data structure.  Within those accessor methods, the advice for algorithm-like code applies (favour linear 'nested chain' structures).</p>
+<p><strong>Code should look like what it is.  Code should look like what it does.</strong></p>
+<hr />
+<p>Work In Progress below this line.</p>
+<h1 id="data-flow-should-follow-execution-flow">Data Flow Should Follow Execution Flow</h1>
+<h1 id="interfaces-the-glue-that-connects">Interfaces: The Glue That Connects</h1>
+<p>Rough notes:</p>
+<ol>
+<li>
+<p>An API should be <strong>multi-granular</strong>.  All atomic operations should be exposed.  And all <em>routine</em> operations should have a simple API call to do them.  Higher-order operations should be achieved by internally calling a sequence of atomic operations.</p>
+</li>
+<li>
+<p>Consider using Spec Data Objects.  That is, rather than having a large function interface with many parameters, pass in a rich data object.  Then, changes to the interface can be done by modifying the spec object, instead of modifying the function call signature.  This is especially useful if many variables must be passed into sub-functions, which also suffer from signature bloat.</p>
+</li>
+</ol>
+<h1 id="miscellaneous-advice">Miscellaneous Advice</h1>
+<p>Some advice on low-level code constructions that nevertheless have a big impact on code readability.</p>
+<h2 id="name-things-clearly">Name Things Clearly</h2>
+<p>Duh.  Make code self-documenting.</p>
+<h2 id="code-hygiene">Code Hygiene</h2>
+<p>Don't call a file <code>data.txt</code>.  Call it what it is.  Spend 60 seconds thinking of a great name.  This will save <em>many minutes</em> in the future.  So call it something like <code>user_accounts_2023-01-21.txt</code></p>
+<p>Delete temporary files as soon as you can.  They are supposed to be <em>temporary</em>.</p>
+<p>A common problem is that you can't delete a temporary file immediately, because you may need it again in a few hours or days.  So try this trick:  Put a deletion date in the file name.</p>
+<p>Eg. <code>user_accounts_2023-01-21_DELETE_AFTER_2023-02-01.txt</code></p>
+<p>Then, in six months time, when you stumble across this long-dead file again, you won't have to spend time investigating whether or not it is safe to delete.</p>
+<h2 id="use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</h2>
+<p>Though it appears to lack symmetry, using closed/open ranges makes the arithmetic much simpler, and gets rid of loads of code to handle edge cases.</p>
+<p>There's a reason the Python range() function uses this convention: <code>range(3, 6) = [3, 4, 5]</code>.</p>
+<h1 id="thinking-like-an-engineer">Thinking Like An Engineer</h1>
+<h2 id="be-explicit">Be Explicit</h2>
+<p>Crush Ambiguity.</p>
+<p>A callback to the art of abstraction first encountered at the beginning of the book.  'Be Explicit' is another rule for creating good abstractions at the right level.</p>
+<h2 id="single-source-of-truth">Single Source Of Truth</h2>
+<h2 id="format-code-perfectly-at-all-times">Format Code Perfectly At All Times</h2>
+<p>Keep code formatting perfect at all times.  <em>Don't</em> say to yourself &quot;I'll come back and fix the formatting later.&quot;  Write your code in the same way that proper chefs practise 'clean as you go' in a commercial kitchen.  This discipline helps instil both the attention to detail and sensitivity to structure that characterise a good engineering mind.</p>
+<h1 id="case-studies-polymorphism">Case Studies?: Polymorphism?</h1>
 <p>The classic example with <code>square.area()</code> and <code>circle.area()</code> illustrating the power of method polymorphism.</p>
 
         
