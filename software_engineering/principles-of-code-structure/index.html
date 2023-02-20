@@ -342,6 +342,22 @@
             <li>
                 <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#interfaces-the-glue-that-connects">Interfaces: The Glue That Connects</a>
                 
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#private-interfaces">Private Interfaces</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#public-interfaces">Public Interfaces</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#api-design">API Design</a>
+                            </li>
+                        
+                    </ul>
+                
             </li>
         
             <li>
@@ -1701,28 +1717,64 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <p>Make objects <strong>small</strong>, and chiefly concerned about <strong>carrying state</strong>.  Use as few objects as possible, but no fewer - separate the different kinds of state into separate objects.</p>
 </blockquote>
 <p>The above advice is a general corollary of the Golden Rule: Separation Of Concerns.</p>
-<hr />
-<p>Work In Progress below this line.</p>
 <h1 id="interfaces-the-glue-that-connects">Interfaces: The Glue That Connects</h1>
-<p>Rough notes:</p>
+<p>An <strong>interface</strong> to a code module is the point of entry.  Examples include:</p>
+<ul>
+<li>A function call.  The interface is defined by the function name and signature (arguments passed in).</li>
+<li>Class instantiation, and the suite of public methods on the object.</li>
+<li>Internet requests via the <code>http</code> protocol.</li>
+</ul>
+<p>An Application Programming Interface (API) is any interface that a programmer could use, by learning the protocol, and writing correct code for it.  In practice, the words 'API' and 'interface' are generally used interchangeably.</p>
+<p>An interface may be private or public.  Somewhat different guidelines apply between private and public interfaces.</p>
+<h4 id="private-interfaces">Private Interfaces</h4>
+<p>Private interfaces can be modified without external consequence.  Furthermore, private interfaces <em>should</em> be modified as the program iterates towards a sound structure engineered for readability.  The <em>ideal</em> interface should emerge organically as the program is developed.</p>
+<h4 id="public-interfaces">Public Interfaces</h4>
+<p>Any interface that an external party uses is <em>public</em>.  Therefore, modifying the interface will affect the external party.  If the external party is just some engineers on the other side of the office, then this can be coordinated.  However, if the external party could be any random user on the internet, then more care is required.</p>
+<p>In general, a public interface should be <strong>versioned</strong>, so that if it is changed, the change is explicitly advertised.</p>
+<p>A public interface needs <em>much</em> more care in its design than a private interface, because it is much harder to change.</p>
+<h3 id="api-design">API Design</h3>
+<h4 id="multi-granular">Multi-Granular</h4>
+<p>Especially for a non-trival public API, the interface should have <strong>different levels of granularity</strong>.  This means:</p>
 <ol>
 <li>
-<p>An API should be <strong>multi-granular</strong>.  All atomic operations should be exposed.  And all <em>routine</em> operations should have a simple API call to do them.  Higher-order operations should be achieved by internally calling a sequence of atomic operations.</p>
+<p><strong>Atomic operations</strong> should be defined and exposed.  These are the lowest-level building blocks of API operations.  This is the lowest level of granularity.  The atomic operations should form a <strong>complete set</strong>, so that any possible action with the API can be achieved by a sequence of atomic operations.</p>
 </li>
 <li>
-<p>Consider using Spec Data Objects.  That is, rather than having a large function interface with many parameters, pass in a rich data object.  Then, changes to the interface can be done by modifying the spec object, instead of modifying the function call signature.  This is especially useful if many variables must be passed into sub-functions, which also suffer from signature bloat.</p>
+<p><strong>Routine operations</strong> should be possible with a single simple call.  That is, the most common uses of the API should be <em>trivial</em> to achieve.  Internally, each routine operation should use atomic operations, so that by definition, a routine operation call is equivalent to a sequence of atomic operation calls.</p>
+</li>
+<li>
+<p>Further operations should be defined <em>very sparingly</em>.  Outside of the full set of atomic operations, and operations for the commonest use cases, it is wise to be very reluctant to add any more.  Further operations add confusing bloat to the API, and are a maintenance burden, both of which are costs that are probably greater than the value of adding an API call for some obscure operation.</p>
 </li>
 </ol>
+<h4 id="consider-using-specification-data-objects">Consider Using Specification Data Objects</h4>
+<p>Suppose you are developing a function that is turning out to have rather a lot of parameters.  The function call is becoming unwieldy.  Furthermore, many of those parameters must be further passed down into sub-functions, that are themselves suffering a bloated signature.</p>
+<p>Now, this <em>may</em> be a sign of a bad abstraction - is the function trying to do much?  Should it be broken into separate concerns?  However, let us assume that it is indeed a good abstraction, and the entry point really does require that many parameters, due to the nature of the domain problem.</p>
+<p>One solution is to modify the function signature to accept a single rich data object, instead of a multitude of low-level parameters.  The 'parameter space' is thought of as a separate concern that can be abstracted out into a data object.  Generally, this abstraction will represent a <em>specification</em> for the algorithm that the function carries out.  This spec object can be easily passed down into sub-functions, which tends to significantly tidy up code.</p>
+<p>One possible benefit of this approach is that the <em>effective</em> signature of the function can be changed <em>without</em> actually changing the function signature, by simply modifying the structure of the specification data object.  Of course, changing the spec object may cause its own problems: strictly speaking, we are still changing the API.  But the hope is that this form of change will be easier than changing the function call itself.</p>
+<p>This advice on API design is an example of the application of previous advice to separate state into its own object, since objects are perfectly suited for data-like code.</p>
 <h1 id="miscellaneous-advice">Miscellaneous Advice</h1>
 <p>Some advice on low-level code constructions that nevertheless have a big impact on code readability.</p>
 <h2 id="name-things-clearly">Name Things Clearly</h2>
-<p>Duh.  Make code self-documenting.</p>
+<p>Everything in your code should have a name that is precise, descriptive, and at the appropriate level of abstraction.  Then your code can be said to be <em>self-documenting</em>.  If the reader trusts that all names have been chosen with care, then the reader can understand the code much more quickly because the names describe what each piece is and does.  Self-documenting code also needs fewer comments to explain the code.</p>
+<p>However, naming things is <em>hard</em>.  The skill of naming things well takes a long time to develop.  Perhaps this skill is one signifier of a 'senior engineer'.  Here are some guidelines to consider when trying to find a suitable name.</p>
+<p>For clarity, consider a simple floating-point number variable that needs a self-documenting name.  The variable name could:</p>
+<ol>
+<li>Describe what it <strong>is</strong>, in the sense of 'how it was constructed'.  For example, a variable computed from the sum some financial transactions could be called <code>sum_of_transactions</code>.</li>
+<li>Describe what it will be <strong>used for</strong>.  For example, if the variable is fed into a function that ultimately generates a financial statement, then an appropriate name could be <code>sum_for_statement_generator</code>.</li>
+<li>Describe what is <strong>is</strong>, in the sense of 'what it means, in the context of the problem domain'.  For example, the variable <em>actually</em> represents net profit, then an obvious candidate name would be <code>net_profit</code>.</li>
+</ol>
+<p>Options 1 and 2 are the easiest to work with.  Either one would likely add <em>considerably</em> more value than a vague variable name such as <code>val</code>.</p>
+<p>However, Option 3 is likely to be the most valuable.  Describing the <em>meaning</em> of a variable, <em>why it matters</em>, will generally give the most insight into what the code as a whole is supposed to achieve.  But this is also generally the most difficult option to implement: It requires a proper understanding of the problem domain, and the skill at seeing the correct level of abstraction to describe this small part of the domain.</p>
+<p>Naming things is <em>hard</em>.  But the payoff of good, self-documenting variable names is huge, so persevere in finding them.</p>
 <h2 id="code-hygiene">Code Hygiene</h2>
+<p>The phrase 'code hygiene' is sometimes used to refer to the practice of cleaning up temporary files and other sundry mess resulting from software development, and keeping necessary configuration files <em>etc</em> in a tidy state.  The idea is to keep your engineering workspace in a state that minimises confusion.  A few hints follow.</p>
 <p>Don't call a file <code>data.txt</code>.  Call it what it is.  Spend 60 seconds thinking of a great name.  This will save <em>many minutes</em> in the future.  So call it something like <code>user_accounts_2023-01-21.txt</code></p>
 <p>Delete temporary files as soon as you can.  They are supposed to be <em>temporary</em>.</p>
 <p>A common problem is that you can't delete a temporary file immediately, because you may need it again in a few hours or days.  So try this trick:  Put a deletion date in the file name.</p>
 <p>Eg. <code>user_accounts_2023-01-21_DELETE_AFTER_2023-02-01.txt</code></p>
 <p>Then, in six months time, when you stumble across this long-dead file again, you won't have to spend time investigating whether or not it is safe to delete.</p>
+<hr />
+<p>Work In Progress below this line.</p>
 <h2 id="use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</h2>
 <p>Though it appears to lack symmetry, using closed/open ranges makes the arithmetic much simpler, and gets rid of loads of code to handle edge cases.</p>
 <p>There's a reason the Python range() function uses this convention: <code>range(3, 6) = [3, 4, 5]</code>.</p>
