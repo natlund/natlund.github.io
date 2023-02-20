@@ -403,7 +403,7 @@
             </li>
         
             <li>
-                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#case-studies-polymorphism">Case Studies?: Polymorphism?</a>
+                <a href="https://natlund.github.io/software_engineering/principles-of-code-structure/#case-studies-polymorphism-design-patterns">Case Studies?: Polymorphism?  Design Patterns?</a>
                 
             </li>
         
@@ -1761,7 +1761,7 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <ol>
 <li>Describe what it <strong>is</strong>, in the sense of 'how it was constructed'.  For example, a variable computed from the sum some financial transactions could be called <code>sum_of_transactions</code>.</li>
 <li>Describe what it will be <strong>used for</strong>.  For example, if the variable is fed into a function that ultimately generates a financial statement, then an appropriate name could be <code>sum_for_statement_generator</code>.</li>
-<li>Describe what is <strong>is</strong>, in the sense of 'what it means, in the context of the problem domain'.  For example, the variable <em>actually</em> represents net profit, then an obvious candidate name would be <code>net_profit</code>.</li>
+<li>Describe what is <strong>is</strong>, in the sense of 'what it means, in the context of the problem domain'.  For example, if the variable <em>actually</em> represents net profit, then an obvious candidate name would be <code>net_profit</code>.</li>
 </ol>
 <p>Options 1 and 2 are the easiest to work with.  Either one would likely add <em>considerably</em> more value than a vague variable name such as <code>val</code>.</p>
 <p>However, Option 3 is likely to be the most valuable.  Describing the <em>meaning</em> of a variable, <em>why it matters</em>, will generally give the most insight into what the code as a whole is supposed to achieve.  But this is also generally the most difficult option to implement: It requires a proper understanding of the problem domain, and the skill at seeing the correct level of abstraction to describe this small part of the domain.</p>
@@ -1770,23 +1770,38 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <p>The phrase 'code hygiene' is sometimes used to refer to the practice of cleaning up temporary files and other sundry mess resulting from software development, and keeping necessary configuration files <em>etc</em> in a tidy state.  The idea is to keep your engineering workspace in a state that minimises confusion.  A few hints follow.</p>
 <p>Don't call a file <code>data.txt</code>.  Call it what it is.  Spend 60 seconds thinking of a great name.  This will save <em>many minutes</em> in the future.  So call it something like <code>user_accounts_2023-01-21.txt</code></p>
 <p>Delete temporary files as soon as you can.  They are supposed to be <em>temporary</em>.</p>
-<p>A common problem is that you can't delete a temporary file immediately, because you may need it again in a few hours or days.  So try this trick:  Put a deletion date in the file name.</p>
-<p>Eg. <code>user_accounts_2023-01-21_DELETE_AFTER_2023-02-01.txt</code></p>
+<p>A common problem is that you can't delete a temporary file immediately, because you may need it again in a few hours or days.  So try this trick:  Put a deletion date in the file name. Eg.</p>
+<p><code>user_accounts_2023-01-21_DELETE_AFTER_2023-02-01.txt</code></p>
 <p>Then, in six months time, when you stumble across this long-dead file again, you won't have to spend time investigating whether or not it is safe to delete.</p>
+<h2 id="use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</h2>
+<p>Famed computer scientist Edsger Dijkstra wrote an essay in 1982 explaining why the best convention to describe a range of numbers is to have an <strong>inclusive</strong> lower bound and an <strong>exclusive</strong> upper bound.  To illustrate by example, a range of natural numbers defined by the pair <code>[3, 6)</code> denotes the numbers <code>[3, 4, 5]</code>.  In other words, the the lower bound (<code>3</code>) is <strong>included</strong> in the range, and the upper bound (<code>6</code>) is <strong>excluded</strong> from the range.</p>
+<p>To summarise Doctor Dijkstra's reasoning:</p>
+<ol>
+<li>
+<p>The number of elements in the range is simply upper bound minus lower bound.  (This convenient arithmetic is not true for the inclusive/inclusive or exclusive/exclusive conventions.)</p>
+</li>
+<li>
+<p>The lowest natural number, zero, can be included in a range, without having the lower bound go outside of the set of natural numbers.  (The lower bound is zero; it doesn't have to be eg. -1, as it might for the convention of an <em>exclusive</em> lower bound.)</p>
+</li>
+<li>
+<p>For two <em>adjacent</em> ranges, the upper bound of one is the lower bound of the other.  So if one wants to define a new range 'starting from' an existing range, the lower bound is already known; no calculation is required.  (Without this convention, calculating the lower bound of the new adjacent range can be surprisingly non-trivial, especially for time ranges.)</p>
+</li>
+</ol>
+<p>Doctor Dijkstra goes on to say that all four conventions were tried in the Mesa programming language, and the empirical evidence showed that the other three conventions were &quot;a constant source of clumsiness and mistakes&quot;.  The essay is well worth a read.</p>
+<p>The value of Dijkstra's inclusive/exclusive convention is particularly clear when dealing with time spans.  Consider two adjacent time ranges in Dijkstra's convention: 1:00 - 2:00, 2:00 - 3:00.  Now try to express these ranges with the inclusive/inclusive convention.  What is the upper bound on the lower range? 1:59?  1:59:59?  What about milliseconds?  <em>Et cetera</em>.  The upper bound would depend on the resolution to which we measure time.  The same problem applies to the exclusive/exclusive convention.</p>
+<p>So prefer Dijkstra's inclusive/exclusive convention for any ranges.</p>
+<h1 id="thinking-like-an-engineer">Thinking Like An Engineer</h1>
 <hr />
 <p>Work In Progress below this line.</p>
-<h2 id="use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</h2>
-<p>Though it appears to lack symmetry, using closed/open ranges makes the arithmetic much simpler, and gets rid of loads of code to handle edge cases.</p>
-<p>There's a reason the Python range() function uses this convention: <code>range(3, 6) = [3, 4, 5]</code>.</p>
-<h1 id="thinking-like-an-engineer">Thinking Like An Engineer</h1>
 <h2 id="be-explicit">Be Explicit</h2>
 <p>Crush Ambiguity.</p>
 <p>A callback to the art of abstraction first encountered at the beginning of the book.  'Be Explicit' is another rule for creating good abstractions at the right level.</p>
 <h2 id="single-source-of-truth">Single Source Of Truth</h2>
 <h2 id="format-code-perfectly-at-all-times">Format Code Perfectly At All Times</h2>
-<p>Keep code formatting perfect at all times.  <em>Don't</em> say to yourself &quot;I'll come back and fix the formatting later.&quot;  Write your code in the same way that proper chefs practise 'clean as you go' in a commercial kitchen.  This discipline helps instil both the attention to detail and sensitivity to structure that characterise a good engineering mind.</p>
-<h1 id="case-studies-polymorphism">Case Studies?: Polymorphism?</h1>
-<p>The classic example with <code>square.area()</code> and <code>circle.area()</code> illustrating the power of method polymorphism.</p>
+<p>Keep code formatting perfect at all times.  <em>Don't</em> say to yourself &quot;I'll come back and fix the formatting later.&quot;  Write your code in the same way that professional chefs practise 'clean as you go' in a commercial kitchen.  This discipline helps instil both the attention to detail and sensitivity to structure that characterise a good engineering mind.</p>
+<h1 id="case-studies-polymorphism-design-patterns">Case Studies?: Polymorphism?  Design Patterns?</h1>
+<p>The classic example with <code>square.area()</code> and <code>circle.area()</code> illustrating the power of method polymorphism?</p>
+<p>Various design patterns from the Gang Of Four?</p>
 
         
         <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
