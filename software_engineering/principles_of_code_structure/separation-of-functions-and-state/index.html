@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Separation Of Functions And State | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Separation Of Functions And State</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Separation Of Functions And State</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/#separation-of-functions-and-state">Separation Of Functions And State</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/#interlude-pure-functions">Interlude:  Pure Functions</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/#state">State</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/#separate-state-collate-state-minimise-state">Separate State; Collate State; Minimise State</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Previous: Separate Inherent And Collateral Complexity</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Next: Distinguish Algorithm-like From Data-like Code</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="separation-of-functions-and-state">Separation Of Functions And State</h1>
+<p>The Constitution of the United States Of America contains the important concept of 'separation of church and state'.  A similarly important concept in software engineering is the separation of <em>functions</em> from state.  (This is a pun on the two different meanings of 'state', as we shall see.)</p>
+<p>This principle could also be simplified to 'Separate state from everything else'.</p>
+<h3 id="interlude-pure-functions">Interlude:  Pure Functions</h3>
+<p>A pure function is a function that behaves like a mathematical function:</p>
+<ul>
+<li>The same input <em>always</em> results in the same output.</li>
+<li>The function has no <em>side effects</em>.</li>
+</ul>
+<p>A pure function does not care about the state of the world.  Nor does it care about any previous inputs.  It does not know how many times it has been called.  A pure function is <em>stateless</em>.</p>
+<p>The function has no connection to the outside world except through the explicit inputs and outputs.</p>
+<ul>
+<li>The function does not <em>read</em> from anything outside of itself.  No reading of global variables, environment variables, config files, <em>etc.</em></li>
+<li>The function does not <em>write</em> to anything outside of itself.  Thus, the function has no side effects.</li>
+</ul>
+<p>Pure functions are easy to test, because they are completely self-contained, and the same input always results in the same output.</p>
+<p>Pure functions make code easy to reason about.  Not least because the self-containment and lack of side-effects implies an absence of coupling.</p>
+<p>Pure functions make your code easier to read.  Use them as much as possible.  Try to structure your code such that everything that <em>can</em> be a pure function <em>is</em> a pure function.</p>
+<h3 id="state">State</h3>
+<p>State is a broad, abstract term in software engineering.  In practice, it means something like the following.</p>
+<p><strong>State:</strong> Any <strong>variables</strong> that:</p>
+<ol>
+<li>Can <strong>change</strong>, especially in these two ways:
+<ul>
+<li>In non-deterministic ways, for example, due to random user input.</li>
+<li>In hard-to-understand ways, for example, during the convoluted machinations of a complex algorithm.</li>
+</ul>
+</li>
+</ol>
+<p>Variables that change in predictable, easy-to-understand ways are also <em>state</em>.  However, such simple state is often localised and easy to manage.  The advice of this Chapter 'Separate State from everything else' still applies, of course.  A good example is an Iterator, which we'll cover in a moment.</p>
+<h4 id="immutable-state">Immutable State?</h4>
+<p>Consider a data structure of immutable constants that:</p>
+<ol>
+<li>Can <strong>be accessed</strong>, especially in these two ways:
+<ul>
+<li>In non-deterministic ways, for example, due to random requests from a user.</li>
+<li>In hard-to-understand ways, for example, during the convoluted machinations of a complex algorithm.</li>
+</ul>
+</li>
+</ol>
+<p>Since the data structure does not change, some people would not consider it to be 'state'.  However, for architectural purposes, all the same advice in this chapter still applies: Separate immutable data structures from everything else.</p>
+<h3 id="separate-state-collate-state-minimise-state">Separate State; Collate State; Minimise State</h3>
+<p>Managing state is widely recognised as one of the main sources of complexity in software.  Therefore:</p>
+<ol>
+<li>Minimise the use of state in the program.</li>
+<li>Concentrate necessary state into its own modules, separate from the rest of the code.</li>
+<li>Make the rest of the code <em>stateless</em>, using pure functions where possible.</li>
+</ol>
+<h4 id="example-iterator">Example: Iterator</h4>
+<p>An Iterator provides an easy way to loop through some sequential data structure, without the user having to worry about maintaining an index variable, for example.  Internally, the Iterator maintains <em>state</em> about where we are in the sequence, but this is completely hidden from the user.  So this is a great example of software abstraction:</p>
+<ol>
+<li>The abstract concept of 'iteration' is recognised as being what we really care about.</li>
+<li>So a simple interface is provided that lets the user iterate through the sequence.</li>
+<li>The collateral complexity of managing a variable to index into the sequence, and terminating the sequence, <em>etc</em>. is <em>hidden away</em> inside the iterator module.</li>
+<li>Thus, state has been concentrated into the iterator module, and extracted out of (separate from) the main code.</li>
+</ol>
+<p>Consider a classic for-loop that iterates through an array, in C++:</p>
+<pre data-lang="C++" style="background-color:#2b303b;color:#c0c5ce;" class="language-C++ "><code class="language-C++" data-lang="C++"><span style="color:#b48ead;">for</span><span>(</span><span style="color:#b48ead;">int</span><span> i = </span><span style="color:#d08770;">0</span><span>; i &gt; array_length; i++) {
+</span><span>    element = some_array[i]
+</span><span>    </span><span style="color:#65737e;">// Do stuff.
+</span><span>    </span><span style="color:#65737e;">// Horrifyingly, it is possible to modify the iterator variable i.
+</span><span>} 
+</span></code></pre>
+<p>The irrelevant iterator variable <em>i</em> is exposed in the code.  Even worse, it is possible to <em>modify</em> the iterator variable during each iteration, so misguided programmers could write insane 'clever' code that is impossible to reason about.</p>
+<p>With the Iterator abstraction, code is much simpler and safer.  Consider this Python code:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">for </span><span>element </span><span style="color:#b48ead;">in </span><span>some_array:
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span></code></pre>
+<p>The <em>state</em> variable <em>i</em> has now vanished.  It is isolated inside the Iterator for <code>some_array</code>, and no longer appears in our algorithm.  State has been successfully separated from our function.</p>
+<h4 id="warning-don-t-add-complexity-via-too-little-state">Warning:  Don't Add Complexity Via Too Little State</h4>
+<p>It is sometimes possible to completely eliminate state by using constructions found in functional programming languages.  A classic example is recursion.  A <code>for</code> loop may be eliminated by using a function that recursively calls itself.</p>
+<p>But this is a bad idea:  Recursion is <em>considerably harder</em> to understand than a simple <code>for</code> loop with state.  Our goal is not to be clever, but to write readable, maintainable code.  So don't do this sort of thing.  The goal is not to eliminate state at all costs, but to reduce the use of state down to the point where it maximises readability.  A little bit of easy-to-understand state is vastly better than a confusingly 'clever' stateless solution borrowed from functional programming.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Previous: Separate Inherent And Collateral Complexity</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Next: Distinguish Algorithm-like From Data-like Code</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

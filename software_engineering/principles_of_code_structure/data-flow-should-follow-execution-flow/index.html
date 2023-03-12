@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Data Flow Should Follow Execution Flow | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Data Flow Should Follow Execution Flow</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Data Flow Should Follow Execution Flow</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/#data-flow-should-follow-execution-flow">Data Flow Should Follow Execution Flow</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/#evil-global-variables">Evil Global Variables</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/#an-object-oriented-trap">An Object-Oriented Trap</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Previous: Make Execution Flow Obvious</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Next: Interfaces - The Glue That Connects</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="data-flow-should-follow-execution-flow">Data Flow Should Follow Execution Flow</h1>
+<p>Let us start with an analogy...</p>
+<blockquote>
+<p>Imagine you are on a police surveillance team, watching suspicious comings-and-goings on Functional Street.  You walk past Larry's Barber Shop, and see that it is empty except for Larry himself.  A little while later, from a distant observation point, you observe three shady individuals leave Bada Bing club and enter Larry's Barber shop.  A police sniper contacts you by radio, and asks how many people are in Larry's. You answer &quot;Four&quot;.</p>
+</blockquote>
+<blockquote>
+<p>Now, on a similar assignment, you are conducting surveillance on Object-Oriented Avenue.  After chatting to Mr Sharp who is alone in his shop, you retire across the street to discreetly observe.  You see three dodgy characters leave The Red Lion pub and enter Sharp's Bait and Tackle.  Anticipating the question, you think about how many people are in Sharp's.  What is the correct answer?  Four?  Nope.  There are seven.  What?  <em>People came in the BACK DOOR</em>.  Five minutes later, your radio crackles to life with the question &quot;How many people are in Sharp's?&quot;  How many indeed?  The correct answer is: zero.  What?  <em>They all left through the back door</em>.</p>
+</blockquote>
+<p>This story is analogous to reading code where the data flow does not follow the control flow.  The control flow (or execution flow) is what you are reading, line-by-line, as you try to understand what it does.  Data flow describes the movement of data between different components.  Suppose you are reading the code, and see that <code>function_A()</code> is executed, followed by <code>function_B()</code>.  Further suppose that just by reading the code in front of you, you see that data generated by <code>function_A()</code> is passed as input into <code>function_B()</code>.  Then we can say that Data Flow is following Control Flow.</p>
+<p>Interestingly, Data flow is something you don't think about <em>unless</em> it deviates from the execution flow.  How might it do that?  By the use of evil <em>global variables</em>.</p>
+<h3 id="evil-global-variables">Evil Global Variables</h3>
+<p>Most CPUs work by executing machine code instructions and storing values in registers, which are later read by other instructions.  When the first higher-level languages were developed, they tended to follow this model of doing some operation, storing the output value, then having subsequent operations read the value from its memory store.  It was some time before experience with larger-scale software programs showed the dangers of this approach.</p>
+<p>A concrete example of the use of global variables in Python:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>evil_global_variable = </span><span style="color:#d08770;">0
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#bf616a;">operation_1</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if </span><span>evil_global_variable == </span><span style="color:#d08770;">1</span><span>:
+</span><span>        </span><span style="color:#bf616a;">operation_2</span><span>()
+</span><span>    </span><span style="color:#b48ead;">else</span><span>:
+</span><span>        </span><span style="color:#bf616a;">operation_3</span><span>()
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    evil_global_variable = </span><span style="color:#bf616a;">peculiar_computation</span><span>()
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_2</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># Lots of computation that does not use evil_global_variable.
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_3</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    result = </span><span style="color:#d08770;">3.1415927 </span><span>* r^</span><span style="color:#d08770;">2 </span><span>* evil_global_variable
+</span><span>    </span><span style="color:#d08770;">... 
+</span></code></pre>
+<p>The opacity and obfuscation are obvious in the example above.  Simply by reading the code in <code>main()</code>, one cannot know that <code>operation_1()</code> <em>sets</em> <code>evil_global_variable</code>, while <code>operation_2()</code> does not use <code>evil_global_variable</code> at all, and <code>operation_3()</code> <em>depends on</em> <code>evil_global_variable</code>.</p>
+<p>Thus, global variables force the reader to make much more mental effort to understand the code:  You have to read every single damn line to see where global variables are being set, and remember that fact as you read on.  Then much later, when you encounter code that reads that variable, you have to remember the state of that variable.  So you have to keep a parallel thread in your mind.  You are reading code - that is one mental thread - but now you need another mental thread to track the flow of data between functions.</p>
+<p>The effort of reading <em>all</em> the code might be reasonable for a small code base, but this becomes a huge time cost as the code base gets bigger.  And the cognitive task of maintaining a mental thread of the global variable value becomes simply unfeasible for large enough code bases.  This will inevitably lead to bugs.  Consider this scenario: <code>function_A()</code> dumps a result to a global variable.  Some time later, <code>function_B()</code> reads that variable as an input.  But surprise!  That new bit of code your colleague wrote yesterday alters the global variable before <code>funtion_B()</code> access it.  And that is why you are debugging today...</p>
+<p>So don't do this.  Make data follow the control flow.  Pass necessary data in, so that you can see it right there as you read the code that uses it.  Here is the example code fixed:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    local_variable = </span><span style="color:#bf616a;">operation_1</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">if </span><span>local_variable == </span><span style="color:#d08770;">1</span><span>:
+</span><span>        </span><span style="color:#bf616a;">operation_2</span><span>()
+</span><span>    </span><span style="color:#b48ead;">else</span><span>:
+</span><span>        </span><span style="color:#bf616a;">operation_3</span><span>(local_variable)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    local_variable = </span><span style="color:#bf616a;">peculiar_computation</span><span>()
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#b48ead;">return </span><span>local_variable
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_2</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># Lots of computation that does not use evil_global_variable.
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_3</span><span>(</span><span style="color:#bf616a;">local_variable</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    result = </span><span style="color:#d08770;">3.1415927 </span><span>* r^</span><span style="color:#d08770;">2 </span><span>* local_variable
+</span><span>    </span><span style="color:#d08770;">... 
+</span></code></pre>
+<h3 id="an-object-oriented-trap">An Object-Oriented Trap</h3>
+<p>The code in the example above that uses global variables is terrible!!!  So let us 'fix' it by applying the panacea of object-oriented programming!!!</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">AnAllTooTypicalClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>():
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.perfectly_innocent_class_variable = </span><span style="color:#d08770;">0
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">operation_1</span><span>()
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">self</span><span>.perfectly_innocent_class_variable == </span><span style="color:#d08770;">1</span><span>:
+</span><span>            </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">operation_2</span><span>()
+</span><span>        </span><span style="color:#b48ead;">else</span><span>:
+</span><span>            </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">operation_3</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.perfectly_innocent_class_variable = </span><span style="color:#bf616a;">peculiar_computation</span><span>()
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_2</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#65737e;"># Lots of computation that does not use perfectly_innocent_class_variable.
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_3</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        result = </span><span style="color:#d08770;">3.1415927 </span><span>* r^</span><span style="color:#d08770;">2 </span><span>* </span><span style="color:#bf616a;">self</span><span>.perfectly_innocent_class_variable
+</span><span>        </span><span style="color:#d08770;">... 
+</span></code></pre>
+<p>Much better!!!  Object-oriented design saves the day!!!  The evil global variable has been <em>encapsulated</em>, and the problems have been fixed.  Right?</p>
+<p>Sadly, no.</p>
+<p>A careful look will reveal that the problematic structure is <em>exactly the same</em>, it has just been transported down a level from the file level to the class level.  Adding an extra layer of abstraction - the class - has not changed the relationship between the troublesome variable and the functions that access it.  (Note that in this example, the extra layer of abstraction adds no benefit, and has therefore made the code worse.)</p>
+<p>We have uncovered a serious 'foot gun' of object-oriented design.  Various claims about the desirability of 'data encapsulation' <em>etc</em> obscure the fact that object-oriented design positively encourages the use of what are effectively global variables.  Adding an extra layer of abstraction and relabelling them to 'object attributes' does not eliminate the problems they cause.</p>
+<p>Now, the problems with the object-oriented example code above <em>could</em> be fixed by eliminating the object variable, and passing data directly into methods that use it.  However, we should look at the bigger picture and consider the issue from a higher level of abstraction, which we'll consider next.</p>
+<h4 id="when-to-use-objects">When To Use Objects</h4>
+<p>Objects are very good at capturing <em>state</em>.  They are excellent for carrying around variables and methods (functions) that access those variables, though care must be taken to ensure that the state is always forced to be consistent.  This code construction is so useful that even strict functional languages such as Haskell have it.</p>
+<p>Problems arise when objects are used as containers for <em>algorithm-like</em> code.  As the example above shows, a common anti-pattern is to have a class that carries out a complex algorithm using what are effectively global variables.</p>
+<p>The structure of an object is inherently tree-like, and as the section <em>Make Execution Flow Obvious</em> argued, algorithm-like code suits linear-type structures, while data-like code suits tree-like structures.</p>
+<p>A <em>possible</em> use case for an object that carries out complex algorithms is as a <em>context</em> for the computations, in which the object attributes are all <em>immutable</em>, so that the object does not have global variables but rather global <em>constants</em>.  Then the functions can easily access the global constants.  However, since there are no encapsulated variables, some would argue that this violates principles of object-oriented design, and a class should not be used in this instance.  So we do not advise doing this -  we merely mention this <em>theoretical</em> use case for completeness.</p>
+<p>In general, just separate the concerns of algorithm-like code and data-like code, and follow these rules of thumb:</p>
+<blockquote>
+<p>Make objects <strong>small</strong>, and chiefly concerned about <strong>carrying state</strong>.  Use as few objects as possible, but no fewer - separate the different kinds of state into separate objects.</p>
+</blockquote>
+<p>The above advice is a general corollary of the Golden Rule: Separation Of Concerns.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Previous: Make Execution Flow Obvious</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Next: Interfaces - The Glue That Connects</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

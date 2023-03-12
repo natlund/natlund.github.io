@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Distinguish Algorithm-like From Data-like Code | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Distinguish Algorithm-like From Data-like Code</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Distinguish Algorithm-like From Data-like Code</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/#distinguish-algorithm-like-code-from-data-like-code">Distinguish Algorithm-like Code From Data-like Code</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/#antipattern-objects-conflating-algorithms-and-data">Antipattern: Objects Conflating Algorithms And Data</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/#enforce-consistency-of-state">Enforce Consistency Of State</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Previous: Separation Of Functions And State</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Next: Separate Input&#x2F;Output From Computation</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="distinguish-algorithm-like-code-from-data-like-code">Distinguish Algorithm-like Code From Data-like Code</h1>
+<p>This principle is in many ways an expansion and restatement of the previous principle 'Separation Of Functions And State', though typically applicable at a higher level of abstraction.</p>
+<p>Time is linear.  Time is just one damn thing after another.</p>
+<p>Important Corollary: The execution of a computer program is a <em>sequence</em> of operations, one after the other.  We can say that program flow is <em>linear</em>.</p>
+<p>Even more important corollary:  Reading is a linear process.  We read one element at a time, <em>incrementally</em> building an understanding of the whole piece.</p>
+<p>Thus, to answer &quot;what does this code do?&quot; is to understand the sequence of operations during the execution of the code.  Furthermore, our understanding of that sequence of operations is built by reading parts of the code, one after the other.</p>
+<p>Now, a computer program <em>as a whole</em> has an execution order, a program flow.  However, not all parts of the program may have a meaningful execution order.  For example, code that is some kind of data structure is essentially static, and merely accessed by other code, and so does not really have a meaningful execution order.</p>
+<p>If code <em>does</em> have a meaningful execution order, then we can describe it as <strong>'algorithm-like'</strong>.  An algorithm is colloquially described as a 'recipe', or sequence of steps to carry out.  So code that is essentially a recipe of steps to execute in order, is algorithm-like.</p>
+<p>Code that is <em>not</em> algorithm-like may be described as <strong>'data-like'</strong>.  As mentioned, this tends to be static structures that don't really <em>do</em> anything, just store information to be accessed by other parts of the code.</p>
+<p>Note that algorithm-like code may still contain <em>state</em>.  An algorithm may work by mutating some state, so that state is an integral part of the algorithm.  We cannot apply a simplistic hard-and-fast rule like &quot;State = Data-like; Pure Functions = Algorithm-like&quot;.  Rather, the point is to distinguish the <em>role</em> of state - is it to serve an algorithm?  Or is it more like reference data?</p>
+<p>As we become familiar with the distinction between algorithm-like and data-like code, we can see situations where they should be <em>separated</em>.  This point is best illustrated with an example such as the following.</p>
+<h3 id="antipattern-objects-conflating-algorithms-and-data">Antipattern: Objects Conflating Algorithms And Data</h3>
+<p>A common bad construction is an object that:</p>
+<ol>
+<li>Stores input parameters as object variables.</li>
+<li>Executes an algorithm, using object variables as temporary working variables.</li>
+<li>Stores the output of the algorithm as yet more object variables.</li>
+</ol>
+<p>Faced with this abomination, the reader thinks:  What is the class doing?  Executing an algorithm?  Storing the result of the algorithm?  Storing the algorithm inputs as a kind of specification?  Are some variables merely irrelevant temporary working variables?  Depressingly, the answer to all of the above is &quot;Yes&quot;.</p>
+<p>A toy example of this antipattern in Python:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Rotundicity</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">a</span><span>, </span><span style="color:#bf616a;">b</span><span>, </span><span style="color:#bf616a;">c</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.a = a
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.b = b
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.c = c
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">discombobulate</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.p = </span><span style="color:#bf616a;">self</span><span>.a**</span><span style="color:#bf616a;">self</span><span>.b + </span><span style="color:#bf616a;">sin</span><span>(</span><span style="color:#bf616a;">self</span><span>.c)/</span><span style="color:#bf616a;">cos</span><span>(</span><span style="color:#bf616a;">self</span><span>.a)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">freneticise</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.q = </span><span style="color:#bf616a;">exp</span><span>(a, p) + </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.p * </span><span style="color:#bf616a;">arctan</span><span>(</span><span style="color:#bf616a;">self</span><span>.b/</span><span style="color:#bf616a;">self</span><span>.c)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">compute</span><span>():
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.rotundicity = </span><span style="color:#bf616a;">log</span><span>(</span><span style="color:#bf616a;">self</span><span>.p) - </span><span style="color:#bf616a;">log</span><span>(</span><span style="color:#bf616a;">self</span><span>.q) + </span><span style="color:#bf616a;">self</span><span>.p**</span><span style="color:#d08770;">2 </span><span>+ </span><span style="color:#bf616a;">self</span><span>.q**</span><span style="color:#d08770;">3
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">q_factor</span><span>():
+</span><span>        </span><span style="color:#b48ead;">return </span><span>(</span><span style="color:#bf616a;">self</span><span>.a + </span><span style="color:#bf616a;">tan</span><span>(</span><span style="color:#bf616a;">self</span><span>.b))/</span><span style="color:#bf616a;">self</span><span>.rotundicity
+</span></code></pre>
+<p>Consider the stupid example above.  By just reading the class definition, it is impossible to know the <em>purpose</em> and usage of the code.  It seems clear that <code>rotundicity</code> is an important thing to be computed, but why is it stored on the class?  Will it be recomputed again at random times?  Are <code>p</code> and <code>q</code> important?  If not, why are they accessible attributes on the class?  Would a user ever set <code>p</code> or <code>q</code> directly?  <em>Et cetera</em>.</p>
+<p>Now, some of the problems with this class could be alleviated if the language had 'private' class member variables, <em>etc.</em>  (Python does not.)  However, there are fundamental <em>structural</em> problems with the code that should be addressed.  We need to <em>separate concerns</em>.  Distinguish the <em>input data</em> from the <em>algorithm</em> from the <em>output data</em>, and separate them.  A possible refactoring is as follows:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">RotundicityInputs</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">a</span><span>, </span><span style="color:#bf616a;">b</span><span>, </span><span style="color:#bf616a;">c</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.a = a
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.b = b
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.c = c
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Rotundicity</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">rotundicity</span><span>, </span><span style="color:#bf616a;">q_factor</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.rotundicity = rotundicity
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.q_factor = q_factor
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">compute_rotundicity</span><span>(</span><span style="color:#bf616a;">data</span><span>: RotundicityInputs):
+</span><span>    p = </span><span style="color:#bf616a;">discombobulate</span><span>(data)
+</span><span>    q = </span><span style="color:#bf616a;">freneticise</span><span>(data, p)
+</span><span>
+</span><span>    rotundicity = </span><span style="color:#bf616a;">log</span><span>(p) - </span><span style="color:#bf616a;">log</span><span>(q) + p**</span><span style="color:#d08770;">2 </span><span>+ q**</span><span style="color:#d08770;">3
+</span><span>    q_factor = (data.a + </span><span style="color:#bf616a;">tan</span><span>(data.b))/rotundicity
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">Rotundicity</span><span>(
+</span><span>        </span><span style="color:#bf616a;">rotundicity</span><span>=rotundicity,
+</span><span>        </span><span style="color:#bf616a;">q_factor</span><span>=q_factor,
+</span><span>        )
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">discombobulate</span><span>(</span><span style="color:#bf616a;">data</span><span>: RotundicityInputs):
+</span><span>    </span><span style="color:#b48ead;">return </span><span>data.a**data.b + </span><span style="color:#bf616a;">sin</span><span>(data.c)/</span><span style="color:#bf616a;">cos</span><span>(data.a)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">freneticise</span><span>(</span><span style="color:#bf616a;">data</span><span>: RotundicityInputs, </span><span style="color:#bf616a;">p</span><span>: float):
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">exp</span><span>(data.a, p) + </span><span style="color:#d08770;">3.141592654 </span><span>* p * </span><span style="color:#bf616a;">arctan</span><span>(data.b/data.c)
+</span></code></pre>
+<p>Now it is very clear that <code>rotundicity</code> and associated <code>q_factor</code> are the outputs that matter.  They are tied together on a simple, lightweight data class, that can be passed around the rest of the program.  It is equally clear that the only parameters that a user can control are <code>a</code>, <code>b</code>, and <code>c</code>.  Finally, the actual algorithm for calculating the outputs from the inputs is now crystal clear.</p>
+<p>An alternative refactoring would be to have the <code>compute_rotundicity()</code> function be a <em>method</em> on the <code>RotundicityInputs</code> class.  This might be a more appropriate structure if the <code>RotundicityInputs</code> data class is <em>state</em> that changes frequently, and the rotundicity needs to be computed frequently.</p>
+<h2 id="enforce-consistency-of-state">Enforce Consistency Of State</h2>
+<p>In the stupid example above, the lack of separation of concerns causes another more subtle but potentially more serious problem: the state can become inconsistent.  Here is how:  There is only <em>one</em> value of <code>rotundicity</code> that is mathematically consistent with given inputs <code>a</code>, <code>b</code>, and <code>c</code>.  However, the input variables can be modified <em>without</em> updating the output variables.  Thus, since the 'state' of the <code>Rotundicity</code> object consists of all five variables, the state can become inconsistent.</p>
+<p>This is better illustrated with a simpler example.  Consider this snippet of code that represents geometric shapes drawn on the screen:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">x</span><span>: float, </span><span style="color:#bf616a;">y</span><span>: float, </span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#65737e;"># Position on screen.
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.x = x
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.y = y
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Radius
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.r = r
+</span><span>
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">calculate_area</span><span>()  </span><span style="color:#65737e;"># Sets self.area
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calculate_area</span><span>()
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.area = </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.r ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>The problem is that both <code>r</code> (radius) and <code>area</code> are attributes of a <code>Circle</code> object, and radius <code>r</code> can be updated <em>without</em> updating <code>area</code>.  Thus, the state of the <code>Circle</code> object can become inconsistent.</p>
+<p>There are at least a couple of fixes.  Probably the best way to enforce consistency of state is to <strong>minimise state</strong>, and not store <code>area</code> as state at all - just compute it when needed, in the spirit of functional programming.  The code would look like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">x</span><span>: float, </span><span style="color:#bf616a;">y</span><span>: float, </span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#65737e;"># Position on screen.
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.x = x
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.y = y
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Radius
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.r = r
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">calculate_area</span><span>()
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.r ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>This is a very clean solution, that keeps code minimal and easy to understand.</p>
+<p>Another approach to enforcing consistency of state is to use 'setters', in the spirit of traditional object-oriented programming.  This approach is automatically re-calculate <code>area</code> every time radius <code>r</code> is changed.  The following code is not idiomatic Python, but illustrates the approach:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Circle</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">x</span><span>: float, </span><span style="color:#bf616a;">y</span><span>: float, </span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#65737e;"># Position on screen.
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.x = x
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.y = y
+</span><span>
+</span><span>        </span><span style="color:#65737e;"># Radius
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">set_radius</span><span>(r)
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">set_radius</span><span>(</span><span style="color:#bf616a;">r</span><span>: float):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.r = r
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">_calculate_area</span><span>()
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_calculate_area</span><span>()
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.area = </span><span style="color:#d08770;">3.141592654 </span><span>* </span><span style="color:#bf616a;">self</span><span>.r ** </span><span style="color:#d08770;">2
+</span></code></pre>
+<p>(There is an idiomatic Python way to define setters, but the syntax will be less clear to readers not familiar with this somewhat obscure Python feature.)</p>
+<p>The disadvantage of this approach to enforcing consistency of state is that area <em>must</em> be calculated every time the radius is changed, even if we don't care about the area at the time.  This doesn't matter for this minimal example, but in real-world code, there could be a significant performance cost to automatically doing a costly calculation regardless of whether or not it is needed.  Thus, in general, prefer the simpler method of <em>minimising state</em>, to enforce consistency.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Previous: Separation Of Functions And State</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Next: Separate Input&#x2F;Output From Computation</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

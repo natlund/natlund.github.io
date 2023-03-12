@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>The Art Of Abstraction | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">The Art Of Abstraction</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">The Art Of Abstraction</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#categories-abstractions-in-common">Categories: Abstractions In Common</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#hierarchies-of-abstraction">Hierarchies Of Abstraction</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#the-power-of-abstraction">The Power Of Abstraction</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#concrete-bound-thinking-the-flynn-effect">Concrete-bound thinking: The Flynn Effect</a>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#risks-and-failure-modes-of-abstract-thinking">Risks And Failure Modes Of Abstract Thinking</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#correct-abstractions">Correct Abstractions</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#correct-level-of-abstraction">Correct Level Of Abstraction</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#abstract-reasoning-in-software-engineering">Abstract Reasoning in Software Engineering</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#information-hiding">Information Hiding</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/#malabstractions">Malabstractions</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Previous: Elementary Code Structures</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">Next: The Platinum Rule Of Thumb</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <p>The English word 'abstract' is derived from the Latin word <em>abstractus</em>, meaning 'pulled away from'.  (The Latin particle <em>abs</em> means 'away', and one may recognise 'tract' inside words like 'traction' and 'tractor', and see some connection to pulling.  A farm tractor <em>pulls</em> a plough.)</p>
+<p>The first use of <em>abstract</em> in Middle English was as a noun to describe the <em>summary</em> of a longer text.  This usage is still standard in papers published in scientific journals, which nearly always have an Abstract at the start of the paper that summarises the key findings.  The other main usages of the word <em>abstract</em> are 'non-material, not concrete' and 'general, not specific'.  (There is also Abstract Art, which does not depict physical, material things (and is usually bloody awful).)</p>
+<p>From the point of view of philosophy, the art of abstraction is an essential tool in the scientific method.  It is therefore also an essential tool in engineering.  To begin explaining <em>how</em> abstraction is so useful, we shall start with this definition:</p>
+<p><strong>To Abstract:</strong> To pull out the <em>essential</em> elements of something.</p>
+<p>A corollary is that abstraction is the art of <em>ignoring the irrelevant</em>.  We identify what is important, and ignore the rest because it does not matter to our intellectual context.</p>
+<p>The great power of abstraction comes from the fact that a single concrete entity can be abstracted in <em>different ways</em>.  There are <em>many different abstractions</em> to be made from a single thing.</p>
+<p><strong>Example:</strong>  Consider an apple.  There are many <em>different</em> 'essential' things that we can identify about the apple.  Which elements we consider to be essential is a choice, that will depend on what we care about in the relevant intellectual context.  Here are some elements of an apple, each of which could be considered the 'essential' element, depending on the intellectual context:</p>
+<ul>
+<li>It is coloured red.</li>
+<li>It is approximately spherical.</li>
+<li>It is edible.</li>
+<li>It is a member of the plant kingdom.</li>
+<li>It has a lifespan measured in weeks (without special cold storage).</li>
+<li>It is traded internationally.</li>
+<li>Its retail price contributes to the Consumer Price Index measure of inflation.</li>
+<li><em>Et cetera</em>.</li>
+</ul>
+<p>By abstracting from a concrete apple in these ways, we naturally tend to think in terms of <em>categories</em> or <em>sets</em>.  An apple is <em>is in the set of</em> red things.  An apple is <em>in the set of</em> plants.  <em>Et cetera</em>.  Categorical or set-based thinking is very natural to people with sufficient education in mathematics.  In the modern world, primary school children learn the Venn diagrams of set theory.  And the extension into formal Boolean algebra and propositional calculus may be encountered in the first year of university.</p>
+<h3 id="categories-abstractions-in-common">Categories: Abstractions In Common</h3>
+<p>As alluded to in our mention of <em>sets</em> above, if we abstract the <em>same thing</em> from two <em>different</em> concrete objects, we have found something that is <em>common</em> to both.  For example, an apple is a plant, and a cactus is a plant; both belong to the set of 'plants'.  Furthermore, an apple is edible, and a fish is edible; both belong to the set of 'edible things'.</p>
+<p>So abstraction allows us to make connections between disparate things that are deeper than the immediate concrete connections.  An example of a merely concrete connection: an apple and an orange may both be in the same fruit bowl.  This connection <em>is</em> an abstraction ('set of things in this fruit bowl'), but it is mere association, and we would scarcely think of it as abstraction.</p>
+<h3 id="hierarchies-of-abstraction">Hierarchies Of Abstraction</h3>
+<p>Abstraction can be applied to abstractions themselves.  For example, the abstraction 'fruit' defines a set including things like apples and oranges.  And the abstraction 'flowers' includes things like tulips and roses.  Moreover, the sets 'fruit' and 'flowers' are both <em>plants</em>.  Qualities that define plants can be abstracted from both fruit and flowers.</p>
+<p>Hierarchies of abstractions can be constructed: sets of sets; sets within sets.</p>
+<p>The value of such set hierarchies is that they underpin logical inference.  A classic illustration is the logical syllogisms formalised in Ancient Greece: &quot;All humans are mortal.  Socrates is a human.  Therefore, Socrates is mortal.&quot;  Various other logical rules have also been formalised.</p>
+<h3 id="the-power-of-abstraction">The Power Of Abstraction</h3>
+<p>Abstract reasoning lets us find hidden connections between concrete observable things, and derive new information by using logical inference.  This allows us to make predictions about the world.  Science is essentially the systematic application of abstract reasoning.  Engineering can be viewed as a scientific approach to building things -- such as software.</p>
+<p>'Intelligence', broadly speaking, could be described as the ability to abstract the essential elements of a situation and apply logic to them to derive new knowledge.</p>
+<p>Abstraction lets us impose a structure on the universe that allows us to make sense of it.  With careful effort, we can construct a tree-like structure of concepts and categories that best allows us to understand a problem.  And we can construct <em>other</em> conceptual hierarchies of the same physical situation, in order to look at the problem in a different way.</p>
+<h3 id="concrete-bound-thinking-the-flynn-effect">Concrete-bound thinking: The Flynn Effect</h3>
+<p>An important point is that abstract reasoning is <em>far from universal</em>.  People with the privilege of a Western-type education in the 21st century use some degree of abstract reasoning all the time, and usually take it for granted that everybody always uses it and always has.  This is not true.  We have hard data on this, from research on the Flynn Effect of psychology.</p>
+<p><strong>Flynn Effect:</strong>  The discovery by New Zealand academic James Flynn that humans are getting smarter:  The IQ scores of the population are increasing over time.  The main cause of this seems to be that modern humans have been exposed to abstract reasoning through their education, and are thus better equipped to answer the logical reasoning questions in an IQ test.  How does this compare to the reasoning of uneducated people?  Consider these questions posed to illiterate peasants in Soviet Uzbekistan in the 1930s.  They went something like this:</p>
+<p>Question: &quot;There are no elephants in Germany.  Berlin is the capital of Germany.  Are there elephants in Berlin?&quot;<br />
+Peasant: &quot;I don't know, I've never been to Berlin.  But if Berlin is a big city, they might have elephants there.&quot;</p>
+<p>The modern mind would see this a failure to use set theory or logical inference.</p>
+<p>Another type of question lists some objects, and asks for the connection between them.</p>
+<p>Question: &quot;Consider a dog and a rabbit.  What do they have in common?&quot;<br />
+Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
+<p>The modern mind would think that the 'correct' answer is &quot;They are both mammals&quot;, and consider the peasant to be thinking at the lowest possible level of abstraction - mere association.</p>
+<p>It would be easy to mock these peasants for their lack of sophisticated reasoning.  But that would be utterly unfair.  In fact, primitive peoples have an <em>encyclopaedic</em> knowledge of their environment, and a sharply-tuned operational intelligence that promotes their success in that (often-harsh) environment.  Such people never need abstract reasoning, and see it as useless word games.</p>
+<h3 id="risks-and-failure-modes-of-abstract-thinking">Risks And Failure Modes Of Abstract Thinking</h3>
+<h4 id="correct-abstractions">Correct Abstractions</h4>
+<p>Scientific knowledge consists of elaborate conceptual structures that accurately map to the real world, and are internally consistent.  The key distinction that makes a concept 'scientific' is that it has been <em>tested by experiment</em>.  Abstractions are formulated, and eventually confirmed (or falsified) by experiments in the real world.</p>
+<ul>
+<li>For example, the subatomic particle known as a <em>quark</em> started out as a purely mathematical abstraction that simplified and clarified the theory of subatomic particles.  But much later, high-energy physics experiments confirmed the physical existence of quarks.</li>
+</ul>
+<p>But if our abstractions cannot be tested with the rigour of science, then how do we decide if they are 'good' or not?</p>
+<p>The answer to this question is deep, and beyond the scope of this essay.  Only some rough guidelines can be suggested:</p>
+<ul>
+<li>A good abstraction <strong>simplifies</strong> our understanding of the situation.</li>
+<li>A good abstraction <strong>unifies</strong> various disparate elements, that were previously seen as having no relation.</li>
+<li>A good abstraction will tend to be <strong>generally applicable</strong>, to a wider problem space beyond the current problem.  It may have <strong>predictive power</strong>.</li>
+<li>A good set (or hierarchy )of abstractions will be <strong>internally consistent</strong>.  There will be no contradictions.</li>
+</ul>
+<p>Thus, abstract reasoning is actually very risky, in the following sense: It can be done very badly, leading to a false understanding of the universe, and that false understanding may persist for a very long time, because of the difficulty of testing it.  Enormous amounts of time and energy may be wasted on building castles in the air, discussing how many angels may dance on the head of a pin.</p>
+<p>Primitive people don't suffer much from this problem, because errors in concrete thinking are usually immediately visible.  &quot;Trust me, there are no bears in this cave!&quot;  <em>Chomp</em>.  But it doesn't take much additional cultural sophistication to suffer badly from it.  &quot;We need to throw a virgin into the volcano to prevent it from erupting&quot;.  <em>&quot;Aaaaargh!</em>&quot;  Silence.  &quot;See, it's working.&quot;</p>
+<h4 id="correct-level-of-abstraction">Correct Level Of Abstraction</h4>
+<p>Given that <em>hierarchies</em> of abstractions may be constructed, it is critical to choose the abstraction at the <em>right level</em> for the problem.  The correct level of abstraction is this: <strong>as concrete as possible</strong> (but no more).  In other words, choose the abstraction that is the <em>least abstract</em> that you can get away with.</p>
+<p>A little-publicised but absolutely fundamental rule of good prose writing (and good communication in general) is to use the lowest possible level of abstraction (but no lower).  Think about it: a concrete concept is more precise, explicit, and easy to understand than a vague generality.  <strong>The same applies to writing computer code.</strong></p>
+<p>As an aside, overly abstract language may be <em>deliberately</em> employed by people not wanting to commit to any specifics, or more nefariously, by people trying to give the false impression they know what they are talking about.</p>
+<p>When a person reaches the level of intellectual maturity at which they can start using abstract language, they may take delight in using it as much as possible.  This irritating phenomenon often appears in the early teens, and some people never grow out of it, wrongly believing that overly-abstract language is a sign of intelligence.  At its worst, it manifests as the use of multiple high-level abstractions to triangulate on the concrete; the specific object is the intersection of several sets.  For example: &quot;Manual excavation implement&quot; is the intersection of 'set of things operated by hand', 'set of things related to digging', and 'set of tools'; in other words, a <em>spade</em>.  Don't be a wanker, call a spade a spade.</p>
+<p>The point is that rational, abstract thought is <em>difficult and unnatural</em>.  But is is an essential skill for software engineering.  One needs careful, disciplined thinking to develop this skill.  Make no mistake, Uzbek peasants <em>suck</em> at programming.</p>
+<h2 id="abstract-reasoning-in-software-engineering">Abstract Reasoning in Software Engineering</h2>
+<p>The preceding section on the art of abstraction contained rather a lot of philosophical material, none of it directly concerned with programming.  The reader may be surprised at this.  But there is a motivation:  The word <em>abstraction</em> is used <em>all the time</em> in software engineering, very often without much depth of understanding.  This book strives to help with this.</p>
+<p>In practice, abstraction in software engineering works like this:</p>
+<ol>
+<li>The problem domain is analysed, and broken into different entities, by identifying fundamental elements and abstracting out various actions, responsibilities, <em>etc</em>.  The relationships between the various entities give rise to a (probably hierarchical) structure.</li>
+<li>In general, each separate entity is created as a separate module of computer code.  The separate modules are connected together to reflect the relationships between the abstract entities.</li>
+</ol>
+<p>Your computer code will live or die depending on the quality of your abstractions.  Abstractions come to life as the very components and structures of your code, the architecture itself.  Once the code has been written and is in use, it can be <em>very hard</em> to change the structure.  Therefore, it is <em>very important</em> to spend the effort finding good abstractions, because a hastily-conceived bad abstraction may become a burden that you are permanently stuck with.  The wrong abstractions can <em>f@*$ you up</em>.</p>
+<p>This book is in a large part a guide to abstractions that have proven useful - a guide to various elements of computer code that have turned out to be essential.</p>
+<h3 id="information-hiding">Information Hiding</h3>
+<p>In software engineering, abstraction often results in <em>information hiding</em>.  Consider this: Some lines of code are seen to be all related to the same abstract thing, so the code is pulled out into a separate module (function or object).  The module <em>name</em> describes the abstraction, and the <em>details</em> are <em>hidden away</em> inside the module.  At the point in the code where the new module is used, the abstraction is reified as an explicit module name, and the irrelevant details are hidden.</p>
+<p>For more discussion, see the chapter below on Separation Of Complexity.</p>
+<p>Not all abstractions involve information hiding.  An essential aspect of the code may be pulled out into its own module, but nothing is hidden.  All elements are simply accessible from a single coherent module.  (See definition of coherent in chapter on Separation Of Concerns.)</p>
+<h3 id="malabstractions">Malabstractions</h3>
+<p>Since both abstract reasoning and software engineering are difficult and unnatural (and in the case of software engineering, <em>unwholesome</em>), standard errors in abstraction abound.  Here we examine some commonly-observed errors in abstraction (or 'malabstractions', to coin a term).</p>
+<ol>
+<li>Making the <em>wrong</em> abstractions.</li>
+<li>Using the <em>wrong level</em> of abstraction, usually <em>too high a level</em> of abstraction.</li>
+<li>Abstraction Addiction 1.  Making things as abstract as possible, i.e. as general as possible.</li>
+<li>Abstraction Addiction 2.  Abstracting out <em>everything</em> that can be.  (See DRY below.)</li>
+<li>Adding useless layers and wrappers that do not actually provide any abstraction, because they do not hide irrelevant detail, just pass calls through.</li>
+<li>Peasant abstraction.  Creating a module that is a tangle of disparate elements that are merely associated somehow.</li>
+</ol>
+<h4 id="dry-is-bad-advice">DRY is bad advice</h4>
+<p>A ubiquitous piece of advice given to beginner programmers is &quot;Don't Repeat Yourself&quot;.  So beginners assiduously pull out <em>every</em> instance of repeated code and create an abstraction for it.  Now, for a given piece of repeated code, this <em>may</em> be the correct thing to do. Or it may not.</p>
+<p>There are two rules that should be followed when applying DRY:</p>
+<ol>
+<li>A little repetition is better than the wrong abstraction.</li>
+<li>A <em>lot</em> of repetition is still better than the wrong abstraction.</li>
+</ol>
+<p>Be careful; don't blindly follow DRY.  The point is <strong>not</strong> &quot;Don't Repeat Yourself&quot;, the point is &quot;The right abstractions massively improve your code, so search carefully for them&quot;.</p>
+<p>(The opposite of DRY is WET, which is alleged to mean either &quot;Write Everything Twice&quot; or &quot;We Enjoy Typing&quot;.  WET is obviously <em>terrible</em> advice.  But the joke shouldn't be taken as support for dogmatically applying DRY.)</p>
+<h4 id="peasant-abstraction">Peasant Abstraction</h4>
+<p>Creating a separate module of code that contains a tangle of disparate elements with only some loose association with each other, and proudly calling it an 'Abstraction'.  Typically, the abstraction implicitly defines &quot;the set of all the things I might need to do this thing&quot;.  As noted above, this is barely an abstraction at all - it is mere association.</p>
+<p>Obviously, the art of abstraction should be applied to the tangle of disparate elements within the module, and to the module itself in the context of the wider code base.  It is likely that the entire module itself should not exist.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Previous: Elementary Code Structures</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">Next: The Platinum Rule Of Thumb</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

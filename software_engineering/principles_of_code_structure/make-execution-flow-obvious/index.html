@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Make Execution Flow Obvious | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Make Execution Flow Obvious</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Make Execution Flow Obvious</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#make-execution-flow-obvious">Make Execution Flow Obvious</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#data-like-code-favours-a-tree-structure">Data-like Code Favours A Tree Structure</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#a-fundamental-cause-of-badly-structured-code">A Fundamental Cause Of Badly-Structured Code</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#algorithm-like-code-suits-linear-structures">Algorithm-like Code Suits Linear Structures</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#summary">Summary</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Previous: Coupling Modules Into A Structure</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Next: Data Flow Should Follow Execution Flow</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="make-execution-flow-obvious">Make Execution Flow Obvious</h1>
+<p>Four paragraphs appearing at the beginning of the chapter <em>Distinguish Algorithm-like Code From Data-like Code</em> apply here.  For convenience, we repeat them verbatim here:</p>
+<p>Time is linear.  Time is just one damn thing after another.</p>
+<p>Important corollary: The execution of a computer program is a <em>sequence</em> of operations, one after the other.  We can say that program flow is <em>linear</em>.</p>
+<p>Even more important corollary:  Reading is a linear process.  We read one element at a time, <em>incrementally</em> building an understanding of the whole piece.</p>
+<p>Thus, to answer &quot;what does this code do?&quot; is to understand the sequence of operations during the execution of the code.  Furthermore, our understanding of that sequence of operations is built by reading parts of the code, one after the other.</p>
+<p>Therefore, a key principle for structuring code for readability is: <strong>make execution flow obvious</strong>.</p>
+<p>Before exploring how to apply this principle, we shall first deal with the <em>exception</em> - code that <em>does not</em> have a meaningful execution order, which we have defined as 'data-like code'.</p>
+<h2 id="data-like-code-favours-a-tree-structure">Data-like Code Favours A Tree Structure</h2>
+<p>Data can be thought of as just a bunch of static variables.  However, the variables may be grouped in various ways, and the groups themselves may be further grouped into higher-order sets, forming a <strong>hierarchy</strong>.  Thus, a <strong>tree-like</strong> structure can be imposed onto the bunch of variables.  If the data is correctly abstracted in this way, it will make more logical sense, and be easier to understand.</p>
+<p>Obviously, code whose main purpose is to represent data should be structured so as represent the abstract tree of variable groupings.  Then, accessing the data in the rest of the program will be as intuitive and logical as possible.</p>
+<p>Consider an example of some data in JSON format.  The first example shows data in 'flat' format.</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">student_id</span><span>&quot;: </span><span style="color:#d08770;">12345678</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Joe Aloysius Bloggs</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">j.bloggs@gmail.com</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">phone</span><span>&quot;: </span><span style="color:#d08770;">07412345678</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">street_address</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">21 Jump Street</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">town</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Crapstone</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">county</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Devon</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">postcode</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">PL20 7PJ</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">bank</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Barclays</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">account_name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">J A Bloggs</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">sort_code</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">12-34-56</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">account_number</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">87654321</span><span>&quot;,
+</span><span>}
+</span></code></pre>
+<p>The second example shows the same data grouped into a sensible tree structure.</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">student_id</span><span>&quot;: </span><span style="color:#d08770;">12345678</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Joe Aloysius Bloggs</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">contact_details</span><span>&quot;: {
+</span><span>        &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">j.bloggs@gmail.com</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">phone</span><span>&quot;: </span><span style="color:#d08770;">07412345678</span><span>,
+</span><span>        &quot;</span><span style="color:#a3be8c;">postal_address</span><span>&quot;: {
+</span><span>            &quot;</span><span style="color:#a3be8c;">street_address</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">21 Jump Street</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">town</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Crapstone</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">county</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Devon</span><span>&quot;,
+</span><span>            &quot;</span><span style="color:#a3be8c;">postcode</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">PL20 7PJ</span><span>&quot;,
+</span><span>        }
+</span><span>    },
+</span><span>    &quot;</span><span style="color:#a3be8c;">bank_details</span><span>&quot;: {
+</span><span>        &quot;</span><span style="color:#a3be8c;">bank</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Barclays</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">account_name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">J A Bloggs</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">sort_code</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">12-34-56</span><span>&quot;,
+</span><span>        &quot;</span><span style="color:#a3be8c;">account_number</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">87654321</span><span>&quot;,
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>The second example with the tree structure is obviously <em>much</em> easier to parse.</p>
+<p>Suppose the JSON example above needs to be represented as a data structure in a computer program.  There are various ways of converting JSON into, for example, a composition of objects.  The details of that conversion are not important here - what is important is that the organised tree structure is preserved.  Assuming that details of reading and converting the JSON are abstracted away, then (Python) code that uses the data structure could look like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>student_json = </span><span style="color:#bf616a;">read_student_json</span><span>()
+</span><span>student = </span><span style="color:#bf616a;">convert_json_to_student_object</span><span>(student_json)
+</span><span>
+</span><span style="color:#d08770;">...
+</span><span>
+</span><span>email = student.contact_details.email
+</span><span>
+</span><span style="color:#d08770;">...
+</span><span>
+</span><span>postcode = student.contact_details.postal_address.postcode
+</span><span>
+</span></code></pre>
+<p>As we can see, the tree structure is accessed in an intuitive way using the nested 'dot' syntax of object attributes.</p>
+<p>The logical grouping and sub-grouping of all the data elements makes the data structure easy to understand and work with.  So favour tree-like structures for data-like code.</p>
+<h2 id="a-fundamental-cause-of-badly-structured-code">A Fundamental Cause Of Badly-Structured Code</h2>
+<p>Now that we have seen how tree-like code structures can be a great idea, let us indulge in a rant about how tree-like structures can be a <em>terrible</em> idea. </p>
+<p>Why do intelligent people write such obfuscated, tangled code?  Here is one reason:</p>
+<p>They are organising code as if it were nothing more than a static bunch of text statements.  Of course, it <em>is</em> a static bunch text statements, but crucially, it may be <em>more</em> than that: there is another dimension to consider.  We'll come back to this point.</p>
+<p>The intelligent but unwise programmer looks at code as a bunch of static text statements, and proceeds to 'organise' it.  The programmer abstracts out an underlying logical structure, and breaks the code into separate parts.  He or she carries on, further breaking each newly-created part into separate logical chunks.  The final result is a large number of separate pieces, all connected together in a <strong>tree</strong> structure.  The intelligent but unwise programmer is probably proud of this achievement, believing that he or she has cleverly followed the Separation Of Concerns Principle to the letter.  The code is now so beautifully <em>organised</em>.</p>
+<p>Now, as we have seen, this is eminently appropriate as long as the code is <strong>data-like</strong>.</p>
+<p>But most code in an application is algorithm-like. For algorithm-like code, this approach is completely and utterly wrong.  As we noted above, there is another dimension: time.  More specifically: execution order.</p>
+<p>Algorithm-like code consists of a series of actions performed in a sequence.  To understand the code, one must understand the exact sequence of actions.  A linear type of structure obviously perfectly captures the sequence of actions.  On the other hand, a tree structure <em>obfuscates</em> the sequence of actions.</p>
+<h2 id="algorithm-like-code-suits-linear-structures">Algorithm-like Code Suits Linear Structures</h2>
+<p>As the preceding sections have made clear, linear-type code structures maximise the readability of algorithm-like code.  Let us consider a plan of attack for achieving well-structured code, using our skills of software abstraction to separate concerns.</p>
+<p>Practical Advice:</p>
+<ol>
+<li>Most code follows the pattern handed down from the ancients: Take some data, do things to the data, put the data somewhere.</li>
+<li>Assume we are considering a non-trivial algorithm of this type, that takes up more than one screen of code to implement.</li>
+<li>Take the entire algorithm, and decide what the different <em>logical</em> elements are.  A logical element does <em>one thing</em>, it is a logically distinct operation.  This breakdown has nothing to do with the number of lines of code: Some operations can be done in one line of code, others in one thousand.  In other words, <em>separate concerns.</em></li>
+<li>Create a separate function to do each logical element.  Because of the clean logical separation, it should be easy to give the function an accurate and complete self-documenting name.</li>
+<li>Now the entry point, the algorithm in question, can be written as a 'main' or 'orchestrator' function containing a linear sequence of sub-functions.</li>
+</ol>
+<p>Now, code is fractal: each logical element described above may itself be composed of distinct logical sub-elements.  The same principle applies at any level: for each element, write code that clearly reveals the flow of execution order.</p>
+<p>Because of the fractal nature, we end up with code that has a nested structure, and is therefore tree-like in some sense.  However, the structure is <em>not</em> a 'pure' tree - there is a critical additional property: The <em>linearity</em> of each element means that an explicit <em>execution flow</em> can be traced through the structure.</p>
+<p>The diagram below illustrates the 'nested chain' structure.  The black arrows show the execution flow.</p>
+<div align="center">
+<svg width="400" height="640">
+    <defs>
+        <marker id="arrowhead" markerWidth="10" markerHeight="8" 
+         refX="8" refY="4" orient="auto">
+            <polygon points="2 4, 0 8, 10 4, 0 0"/>
+    </defs>
+    <-- Main function -->
+    <line x1="20" y1="20" x2="20" y2="620" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="220" x2="200" y2="120" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="220" x2="200" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="200" y1="120" x2="200" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="200" y1="253" x2="350" y2="187" stroke="red" stroke-width="8"/>
+    <line x1="200" y1="253" x2="350" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="350" y1="187" x2="350" y2="320" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="520" x2="170" y2="453" stroke="red" stroke-width="8"/>
+    <line x1="20" y1="520" x2="170" y2="587" stroke="red" stroke-width="8"/>
+    <line x1="170" y1="453" x2="170" y2="587" stroke="red" stroke-width="8"/>
+    <circle cx="20" cy="20" r="20" fill="blue"/>
+    <circle cx="20" cy="120" r="20" fill="blue"/>
+    <circle cx="20" cy="220" r="20" fill="blue"/>
+    <circle cx="20" cy="320" r="20" fill="blue"/>
+    <circle cx="20" cy="420" r="20" fill="blue"/>
+    <circle cx="20" cy="520" r="20" fill="blue"/>
+    <circle cx="20" cy="620" r="20" fill="blue"/>
+    <-- Sub-function 1 -->
+    <circle cx="200" cy="120" r="15" fill="blue"/>
+    <circle cx="200" cy="187" r="15" fill="blue"/>
+    <circle cx="200" cy="253" r="15" fill="blue"/>
+    <circle cx="200" cy="320" r="15" fill="blue"/>
+    <-- Sub-sub-function -->
+    <circle cx="350" cy="187" r="15" fill="blue"/>
+    <circle cx="350" cy="253" r="15" fill="blue"/>
+    <circle cx="350" cy="320" r="15" fill="blue"/>
+    <-- Sub-function 2 -->
+    <circle cx="170" cy="453" r="15" fill="blue"/>
+    <circle cx="170" cy="520" r="15" fill="blue"/>
+    <circle cx="170" cy="587" r="15" fill="blue"/>
+    <--   Flow arrows -->
+    <line x1="50" y1="0" x2="50" y2="185" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="60" y1="182" x2="180" y2="115" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="225" y1="120" x2="225" y2="220" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="235" y1="212" x2="330" y2="172" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="375" y1="187" x2="375" y2="320" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="350" y1="345" x2="220" y2="280" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="220" y1="290" x2="220" y2="320" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="200" y1="345" x2="40" y2="250" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="50" y1="270" x2="50" y2="450" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="37" y="475">Etc</text>
+</svg>
+</div>
+<p>An example sketch in Python would look something like:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    config = </span><span style="color:#bf616a;">read_config</span><span>()
+</span><span>    data = </span><span style="color:#bf616a;">load_data_from_file</span><span>(config)
+</span><span>    transformed_data = </span><span style="color:#bf616a;">operation_1</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    discombobulated_data = </span><span style="color:#bf616a;">operation_4</span><span>(transmogrified_data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    modified_data = </span><span style="color:#bf616a;">sub_operation_1</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    mangled_data = </span><span style="color:#bf616a;">sub_operation_3</span><span>(altered_data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">sub_operation_3</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    mutated_data = </span><span style="color:#bf616a;">sub_sub_operation_1</span><span>()
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># Et cetera.
+</span></code></pre>
+<p>As noted in the section above <em>A Fundamental Cause Of Badly-Structured Code</em>, the point is <em>not</em> to create a neatly-structured tree of nodes, with each node having minimal content, resulting in a very deep tree.  Therefore, resist the temptation to group the functions into higher-level functions with vague names like <code>transform()</code>.  This incredibly widespread plague of abstraction addiction is the <em>opposite</em> of writing readable code.</p>
+<p>Furthermore, as noted in the chapter <em>Separate Input/Output From Computation</em>, Input dependencies such as reading a configuration file, reading environment variables from the operating system, loading a data file, <em>etc</em>, should happen at the <strong>start</strong> of the algorithm.  Making dependencies obvious is an important part of making code easy to understand quickly, so declare them up front. </p>
+<h3 id="the-daisy-chain-anti-pattern">The Daisy-Chain Anti-Pattern</h3>
+<p>Code with a 'daisy-chain' structure has a <em>linear</em> structure, but lacks a proper 'main' or 'orchestrator' function.  Code consists of a chain of function calls, where each function calls the next function in the sequence, instead of returning back up to an orchestrator.  There are two main flaws of this structure:</p>
+<ol>
+<li>With no 'main' or orchestrator function, the overall structure of the algorithm cannot be seen anywhere.  One must read all the functions in turn to build a mental picture of the key steps in the algorithm.</li>
+<li>The entry point will be the first function in the sequence.  Since it will have a single clear concern, it should have a simple descriptive name such as <code>read_data_file()</code>.  However, its final act is to call the next function in the sequence, thus ultimately executing the entire program.  Executing the entire program is the <em>mother</em> of all side-effects for a simple function!</li>
+</ol>
+<p>So don't do this.  Instead, use the (nested) linear structures with orchestrators described in the previous section.</p>
+<p>The example sketch above structured in this anti-pattern would look something like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">read_config</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">load_data_from_file</span><span>(config)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">load_data_from_file</span><span>(</span><span style="color:#bf616a;">config</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">operation_1</span><span>(data)
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_1</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">operation_2</span><span>(data):
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">operation_2</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">operation_3</span><span>(data)
+</span></code></pre>
+<h2 id="summary">Summary</h2>
+<p>The structure of code should reflect its purpose.  Is the purpose of a module of code to store data or is it to do some computation?</p>
+<p>Note that a data-like code component may still have algorithm-like code within it, for example, non-trivial accessor methods on a complex data structure.  Within those accessor methods, the advice for algorithm-like code applies (favour linear 'nested chain' structures).</p>
+<blockquote>
+<p><strong>Code should look like what it is.  Code should look like what it does.</strong></p>
+</blockquote>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Previous: Coupling Modules Into A Structure</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Next: Data Flow Should Follow Execution Flow</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

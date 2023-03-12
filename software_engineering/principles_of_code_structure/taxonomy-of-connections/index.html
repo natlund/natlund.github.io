@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Taxonomy Of Connections | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Taxonomy Of Connections</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Taxonomy Of Connections</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#taxonomy-of-connections">Taxonomy Of Connections</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#types-of-connections">Types Of Connections</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#function-call">Function Call</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#method-call-on-class">Method Call On Class</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#function-call-of-injected-function">Function Call Of Injected Function</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#method-call-on-injected-object">Method Call On Injected Object</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#inheritance">Inheritance</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Previous: Coupling</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Next: Coupling Modules Into A Structure</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="taxonomy-of-connections">Taxonomy Of Connections</h1>
+<p>Our goal in this chapter is to describe the different types of connection that may be used, and give some preliminary assessment on two attributes:</p>
+<ol>
+<li>How simple they are to understand.</li>
+<li>How easy they are to extend or modify, in particular, how easy it is to swap out one module for another.</li>
+</ol>
+<p>The value of assessing Simplicity is obvious, since we usually value readability above all else.</p>
+<p>There are a few reasons why we should assess Extensibility:</p>
+<p>Firstly, suppose we <strong>know</strong> that the code will need to be modified in the future.  Then the specification for the code will include the criterion &quot;Needs to be extensible&quot;.  So we choose the <em>most readable</em> solution that provides the extensibility that we need.</p>
+<p>Secondly, the label 'extensible' is often applied very vaguely.  Object-Oriented methods, in particular, are often claimed to be 'extensible', without much deep analysis as to how easy they actually are to extend, and whether they truly are easier to extend than simpler competing methods.  It is worth doing a little critical examination of this here.</p>
+<p>Thirdly, 'swappable' modules must be loosely coupled, which tends to correlate with cleanly separated concerns.</p>
+<h3 id="types-of-connections">Types Of Connections</h3>
+<p>Some types of connection, in approximate order of simplicity.</p>
+<ol>
+<li>Function call.</li>
+<li>Method call on class.</li>
+<li>Object instantiation, then method call on object.</li>
+<li>Function call of injected function.</li>
+<li>Method call on injected object.</li>
+<li>Inheritance.  Method call on parent class.</li>
+</ol>
+<h3 id="function-call">Function Call</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h4 id="simplicity">Simplicity:</h4>
+<p>As simple as possible.</p>
+<h4 id="extensibility">Extensibility:</h4>
+<p>Assuming that an <code>alternative()</code> function has been written, then changing the coupling simply requires changing the function call in <code>main()</code>:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
+</span><span style="color:#65737e;">#     # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># secondary(data)
+</span><span>    </span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>New function.</li>
+<li>One-line change in <code>main()</code>, to call new function.</li>
+</ul>
+<h3 id="method-call-on-class">Method Call On Class</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h4 id="simplicity-1">Simplicity:</h4>
+<p>Almost as simple as possible.  The class simply acts as a <em>namespace</em> for the <code>secondary()</code> function.  In some situations, having such a namespace may tidy up the code and make it more readable.</p>
+<h4 id="extensibility-1">Extensibility:</h4>
+<p>This depends on whether the new alternative function lives in the <em>same</em> namespace class, or needs its own new class.</p>
+<p>Like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#    @staticmethod
+</span><span style="color:#65737e;">#    def secondary(data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
+</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>Or this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#65737e;">#class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    @staticmethod
+</span><span style="color:#65737e;">#    def secondary(data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
+</span><span>    LessStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>New method or class.</li>
+<li>One-line change in <code>main()</code>, to call different class or method.</li>
+</ul>
+<h3 id="object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h4 id="simplicity-2">Simplicity:</h4>
+<p>Extra overhead of a container class, and instantiating the class.</p>
+<h4 id="extensibility-2">Extensibility:</h4>
+<p>Swapping functionality requires either a new method on the existing class, or a new class.</p>
+<p>Like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    </span><span style="color:#65737e;"># stupid_object.secondary(data)
+</span><span>    stupid_object.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>Or this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#65737e;"># class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
+</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
+</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>New method or class.</li>
+<li>One-line change in <code>main()</code>, to call new method or instantiate new class.</li>
+</ul>
+<h3 id="function-call-of-injected-function">Function Call Of Injected Function</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">injected_func</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=secondary)
+</span><span>
+</span></code></pre>
+<h4 id="simplicity-3">Simplicity:</h4>
+<p>Not so simple...  There are now <em>three</em> modules required.  However, each module is itself very simple.  A first-class function needs to be followed as it is passed around.  When reading the <code>main()</code> function alone, it is impossible to know what <em>real</em> function the injected function actually is.  An IDE would probably be unable to 'jump to source' of <code>injected_func</code>.</p>
+<h4 id="extensibility-3">Extensibility:</h4>
+<p>The defining attribute of this form of coupling is that the <code>main()</code> function <em>does not need to be touched</em> to change functionality.</p>
+<p>However, the <em>orchestrator</em> function will need to be changed, to pass in the new function.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
+</span><span style="color:#65737e;">#    # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">injected_func</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># main(injected_func=secondary)
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=alternative)
+</span><span>
+</span></code></pre>
+<ul>
+<li>New function.</li>
+<li><code>main()</code> function is <strong>not</strong> changed.</li>
+<li>One-line change in orchestrator function, to pass in alternative function.</li>
+</ul>
+<h3 id="method-call-on-injected-object">Method Call On Injected Object</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    injected_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
+</span><span>
+</span></code></pre>
+<h4 id="simplicity-4">Simplicity:</h4>
+<p>Relatively complex.  There are now <em>three</em> modules.  There is the extra overhead of a container class, and instantiating the class.  An injected object needs to be followed as it is passed around, though this is arguably easier to understand than a first-class <em>function</em> being passed around, since it is probably more commonly seen.</p>
+<p>When reading the <code>main()</code> function alone, it is impossible to know which real class the injected object actually is.  An IDE will probably not be able to 'go to source' of <code>injected_object</code>.  This will be less of a problem if the injected object conforms to an <em>interface</em>, that can be specified as the type of the <code>injected_object</code> argument.</p>
+<h4 id="extensibility-4">Extensibility:</h4>
+<p>Could in principle depend on whether the new functionality needs a whole new class or just a new method on the existing class.  However, the whole point of the flexibility of the orchestrator pattern is to <em>easily inject a different object</em>, so that's what we'll consider here.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>):
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    injected_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
+</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
+</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
+</span><span>
+</span></code></pre>
+<ul>
+<li>New class with different method <em>of same name</em>.</li>
+<li><code>main()</code> function is <strong>not</strong> changed.</li>
+<li>One-line change in orchestrator function, to instantiate new class.</li>
+</ul>
+<h3 id="inheritance">Inheritance</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<h4 id="simplicity-5">Simplicity:</h4>
+<h4 id="extensibility-5">Extensibility:</h4>
+<p>Best case: the new functionality properly belongs on the parent class, just like the old functionality.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#   def secondary(self, data):
+</span><span style="color:#65737e;">#       # Do stuff.
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#65737e;"># self.secondary(data)
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<ul>
+<li>New method on parent class (base class).</li>
+<li>One-line change in child class, to call new method.</li>
+<li>No change in surrounding orchestrating code.</li>
+</ul>
+<p>Worst case: The new functionality is realised to be not part of the parent class.  The whole abstraction is discovered to be wrong.  The inheritance hierarchy must be dismantled and rebuilt.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class ParentClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#   def secondary(self, data):
+</span><span style="color:#65737e;">#       # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># class MainClass(ParentClass):
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<ul>
+<li>Whole new parent class required.</li>
+<li>Parent class of main class must be changed (one line change).</li>
+<li>Surrounding orchestrating code should not need to be changed.</li>
+</ul>
+<p>However, in practice, this change will often be very difficult.  The original parent class may have many child classes.  So if the main class changes to a different parent, then the main class is no longer considered to be the same type of class as the other child classes.  This may have widespread ramifications for the design.</p>
+<p>It seems that inheritance is a very brittle form of coupling.  The abstraction of the inheritance relationship needs to be exactly right, because it can be very difficult to change.  This implies that inheritance is not suitable for code that will developed in an agile, iterative fashion.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Previous: Coupling</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Next: Coupling Modules Into A Structure</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Separation Of Concerns | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Separation Of Concerns</h1>
+      <p class="subtitle"><strong>2022-12-19</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Separation Of Concerns</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#separation-of-concerns">Separation Of Concerns</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#collation-of-concerns-single-concern-in-a-single-place">Collation Of Concerns (Single Concern In A Single Place)</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#coherence">Coherence</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#summary-separate-concerns-collate-concerns">Summary: Separate Concerns; Collate Concerns</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">Previous: The Platinum Rule Of Thumb</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Next: Separate Inherent And Collateral Complexity</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="separation-of-concerns">Separation Of Concerns</h1>
+<p>'Concern' is a purposefully broad term. It may refer to:</p>
+<ul>
+<li>An action, at any level of abstraction</li>
+<li>A more abstract notion such as 'responsibility' or 'purpose'</li>
+<li>Data to be stored</li>
+<li><em>Et cetera</em>.</li>
+</ul>
+<p>In some fundamental sense, the process of becoming a good software engineer is the process of learning to discern and define <em>concerns</em> in computer code.  In other words, to get better at abstracting.  To separate concerns, one must first recognise concerns.</p>
+<p>The first pillar of good software design is that a module of code that has a single concern is <em>much easier</em> to understand and work with.  So if we find code that deals with more than one concern, we should break it apart into separate pieces that each deal with a single concern.</p>
+<p>When designing software from scratch, the abstractions that make up our design should be concerns, and they should already be separated.</p>
+<p>When refactoring code, or developing code organically through a series of prototypes, there is an idealised strategy we might follow:</p>
+<ol>
+<li>Assume we have a prototype piece of code that solves the problem at hand, but is just an unstructured mess.  (Perhaps it is just one long script.)</li>
+<li>We consider the program as a whole, and ask &quot;What does it do?  What is it for?&quot; and apply our skills of abstraction to answer those questions.</li>
+<li>We then consider a subset and repeat the same questions.</li>
+<li>We do this recursively on all parts of the code, figuring what is being done.</li>
+<li>At length, we will have some idea of all the different <em>concerns</em> in the code.</li>
+<li>Then we can separate the concerns out, and begin experimenting with a better architecture. </li>
+</ol>
+<h3 id="collation-of-concerns-single-concern-in-a-single-place">Collation Of Concerns (Single Concern In A Single Place)</h3>
+<p>We have established the value of a single module of code only dealing with a single concern.</p>
+<p>The complement to that is to pull all the code that deals with the same concern into a single module of code.  In other words, <em>collate</em> all the code that deals a single concern, and put it in a single module.</p>
+<p>This also makes the code easier to understand.  A single responsibility is in a single place.  The code is also much easier to modify - only a single place in the code needs to be touched.</p>
+<p>This principle tends to apply more to refactoring existing code (or prototypes).  Code that is well-designed from scratch will automatically tend to have a single concern in a single place.</p>
+<h3 id="coherence">Coherence</h3>
+<p>A piece of code may be described as <strong>coherent</strong> if all of its lines of code relate to a single concern.  A module of code is 'incoherent' if some of its lines of code relate to one concern, and other lines relate to a different concern.</p>
+<p>Coherent modules of code are the <em>consequence</em> of correctly separating concerns.</p>
+<h3 id="summary-separate-concerns-collate-concerns">Summary: Separate Concerns; Collate Concerns</h3>
+<ol>
+<li>A single module of code should deal with a single concern.</li>
+<li>A single concern should be dealt with in a single module of code.</li>
+</ol>
+<p>A number of concerns have been identified that appear time and time again in many computer programs.  Appropriately separating those particular concerns should be the first order of business when designing a software architecture.  Details follow in the next several chapters.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">Previous: The Platinum Rule Of Thumb</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Next: Separate Inherent And Collateral Complexity</a>
+        
+       </p>
+    </div>
+    
+
+    <footer>
+      <p class="datestamp"><strong>2022-12-19</strong></p>
+    </footer>
+  
+  </body>
+
+</html>
