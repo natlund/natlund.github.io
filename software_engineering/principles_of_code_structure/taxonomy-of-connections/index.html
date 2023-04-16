@@ -94,6 +94,22 @@
           </li>
         
           <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/">Coupling By Direct Connection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Coupling By Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/">Coupling By Inheritance</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/">Coupling Summary</a>
+          </li>
+        
+          <li>
             <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
           </li>
         
@@ -137,14 +153,6 @@
                         
                             <li>
                                 <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#types-of-connections">Types Of Connections</a>
-                            </li>
-                        
-                            <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#summary">Summary</a>
-                            </li>
-                        
-                            <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/#conclusions">Conclusions</a>
                             </li>
                         
                     </ul>
@@ -196,6 +204,14 @@
     
         
     
+        
+    
+        
+    
+        
+    
+        
+    
 
     
         
@@ -210,7 +226,7 @@
         
 
         
-            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Next: Coupling Modules Into A Structure</a>
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/">Next: Coupling By Direct Connection</a>
         
        </p>
     </div>
@@ -328,7 +344,7 @@
 <p>Code that is very easy to extend by connecting a new module, or can easily have existing modules replaced by new modules, is often described as <strong>modular</strong>.  Phrases like 'pluggable architecture' are also heard.</p>
 <p>Modular code is very desirable from the standpoint of the maintenance and evolution of the code base.  But is it also readable?  Luckily, yes: modular code tends to have clean separation of concerns, and obviously has clean connections between components.  Such code has a strong chance of 'just making sense'. </p>
 <h2 id="types-of-connections">Types Of Connections</h2>
-<p>Some types of connection, in approximate order of simplicity.</p>
+<p>Some specific forms of connection, in approximate order of simplicity.</p>
 <ol>
 <li>Function call.</li>
 <li>Method call on class.</li>
@@ -337,547 +353,29 @@
 <li>Method call on injected object.</li>
 <li>Inheritance.  Method call on parent class.</li>
 </ol>
-<p>As well as simplicity, we are also interested in how each connection type supports modularity.  The 'replacement' type of modification is arguably the simplest, and the syntax is essentially the same as for 'simple extension', so we shall analyse 'replaceability' here.</p>
-<h3 id="function-call">Function Call</h3>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>    </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
-<h4 id="simplicity">Simplicity:</h4>
-<p>As simple as possible.  The function call <em>is</em> the connection.  The only coupling is a direct connection to an explicit module.</p>
-<div align="center">
-<svg width="500" height="70">
-    <defs>
-        <marker
-            id="arrowhead"
-            markerWidth="3" markerHeight="3" 
-            refX="2" refY="1.5"
-            orient="auto"
-        >
-            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
-        </marker>
-    </defs>
-    <rect x="5"   y="5" width="160" height="60" rx="15" stroke="black" fill="lime" />
-    <text x="85" y="35" text-anchor="middle" alignment-baseline="central">Module A</text>
-    <rect x="255" y="5" width="160" height="60" rx="15" stroke="black" fill="cyan" />
-    <text x="335" y="35" text-anchor="middle" alignment-baseline="central">Function B</text>
-    <line x1="165" y1="35" x2="252" y2="35" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
-</svg>
-</div>
-<h4 id="replaceability">Replaceability:</h4>
-<p>A new function <code>alternative()</code> must be written.  Then changing the coupling simply requires changing the function call in <code>main()</code>:</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
-</span><span style="color:#65737e;">#     # Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>    </span><span style="color:#65737e;"># Do different stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#65737e;"># secondary(data)
-</span><span>    </span><span style="color:#bf616a;">alternative</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
+<p>These may be grouped into three different types:</p>
 <ul>
-<li>Write new replacement function.</li>
-<li>One-line change in <code>main()</code>, to call new function.</li>
-</ul>
-<h3 id="method-call-on-class">Method Call On Class</h3>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>    @</span><span style="color:#96b5b4;">staticmethod
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
-<h4 id="simplicity-1">Simplicity:</h4>
-<p>Almost as simple as possible.  The class simply acts as a <em>namespace</em> for the <code>secondary()</code> function.  In some situations, having such a namespace may tidy up the code and make it more readable.</p>
-<p>The method call <em>is</em> the connection.  The only coupling is a direct connection to the explicit method of a class.</p>
-<div align="center">
-<svg width="500" height=120">
-    <defs>
-        <marker
-            id="arrowhead"
-            markerWidth="3" markerHeight="3" 
-            refX="2" refY="1.5"
-            orient="auto"
-        >
-            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
-        </marker>
-    </defs>
-    <rect x="5"  y="45" width="160" height="60" rx="15" stroke="black" fill="lime" />
-    <text x="85" y="75" text-anchor="middle" alignment-baseline="central">Module A</text>
-    <rect x="250" y="5" width="170" height="105" rx="5" stroke="black" fill="gainsboro" />
-    <text x="335" y="25" text-anchor="middle" alignment-baseline="central">Class B</text>
-    <rect x="255" y="45" width="160" height="60" rx="15" stroke="black" fill="cyan" />
-    <text x="335" y="75" text-anchor="middle" alignment-baseline="central">Method C</text>
-    <line x1="165" y1="75" x2="252" y2="75" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
-</svg>
-</div>
-<h4 id="replaceability-1">Replaceability:</h4>
-<p>This depends on whether the new alternative function lives in the <em>same</em> namespace class, or needs its own new class.</p>
-<p>Like this:</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span style="color:#65737e;">#    @staticmethod
-</span><span style="color:#65737e;">#    def secondary(data):
-</span><span style="color:#65737e;">#        # Do stuff.
-</span><span>
-</span><span>    @</span><span style="color:#96b5b4;">staticmethod
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do different stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
-</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">alternative</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
-<p>Or this:</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
-</span><span style="color:#65737e;">#class SomeStupidClass:
-</span><span style="color:#65737e;">#
-</span><span style="color:#65737e;">#    @staticmethod
-</span><span style="color:#65737e;">#    def secondary(data):
-</span><span style="color:#65737e;">#        # Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>    @</span><span style="color:#96b5b4;">staticmethod
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff better.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
-</span><span>    LessStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
+<li>Coupling By Direct Connection
 <ul>
-<li>Write new replacement method or class.</li>
-<li>One-line change in <code>main()</code>, to call different class or method.</li>
+<li>Function call</li>
+<li>Method call on class</li>
+<li>Object instantiation, then method call on object</li>
 </ul>
-<h3 id="object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</h3>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
-</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
-<h4 id="simplicity-2">Simplicity:</h4>
-<p>No longer as simple as possible, but still straightforward.  There is the extra overhead of having to instantiate the container class.</p>
-<p>The coupling now has two elements: instantiating the object, and calling the method on the object.  If both are done in the same place, then the coupling is trivial to understand.  However, if instantiation is done in a very different place to the method call, then the reader has to mentally keep track of both parts of the coupling to properly understand how Module A depends on Module B.</p>
-<div align="center">
-<svg width="500" height=130">
-    <defs>
-        <marker
-            id="arrowhead"
-            markerWidth="3" markerHeight="3" 
-            refX="2" refY="1.5"
-            orient="auto"
-        >
-            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
-        </marker>
-    </defs>
-    <rect x="5"  y="10" width="160" height="120" rx="15" stroke="black" fill="lime" />
-    <text x="85" y="70" text-anchor="middle" alignment-baseline="central">Module A</text>
-    <rect x="250" y="5" width="170" height="125" rx="5" stroke="black" fill="thistle" />
-    <text x="335" y="35" text-anchor="middle" alignment-baseline="central">Object B</text>
-    <rect x="255" y="65" width="160" height="60" rx="15" stroke="black" fill="cyan" />
-    <text x="335" y="95" text-anchor="middle" alignment-baseline="central">Method C</text>
-    <line x1="165" y1="35" x2="250" y2="35" stroke="black" stroke-width="6" />
-    <line x1="165" y1="95" x2="252" y2="95" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
-</svg>
-</div>
-<h4 id="replaceability-2">Replaceability:</h4>
-<p>Swapping functionality requires either a new method on the existing class, or a new class.</p>
-<p>Like this:</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span style="color:#65737e;">#    def secondary(self, data):
-</span><span style="color:#65737e;">#        # Do stuff.
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff better.
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
-</span><span>    </span><span style="color:#65737e;"># stupid_object.secondary(data)
-</span><span>    stupid_object.</span><span style="color:#bf616a;">alternative</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
-<p>Or this:</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
-</span><span style="color:#65737e;"># class SomeStupidClass:
-</span><span style="color:#65737e;">#
-</span><span style="color:#65737e;">#    def secondary(self, data):
-</span><span style="color:#65737e;">#        # Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff better.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
-</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
-</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span></code></pre>
+</li>
+<li>Coupling By Dependency Injection
 <ul>
-<li>Write new replacement method or class.</li>
-<li>One-line change in <code>main()</code>, to call new method or instantiate new class.</li>
+<li>Function call of injected function</li>
+<li>Method call on injected object</li>
 </ul>
-<h3 id="function-call-of-injected-function">Function Call Of Injected Function</h3>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>    </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>):
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#bf616a;">injected_func</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=secondary)
-</span><span>
-</span></code></pre>
-<h4 id="simplicity-3">Simplicity:</h4>
-<p>No longer simple.  There are now <em>three</em> modules required.  However, each module is itself very simple.</p>
-<p>The coupling consists of two elements: the Orchestrator passing Function B into Module A, and the call on Function B.  Worryingly, the two elements of coupling are <em>necessarily</em> in different parts of the code.</p>
-<p>The function call has been <strong>anonymised</strong>:  When reading the <code>main()</code> function alone, it is impossible to know what <em>real</em> function the injected function actually is.  (In fact, An IDE would probably be unable to 'jump to source' of <code>injected_func</code>.)  We may say that the connection is <strong>indirect</strong> or abstract.</p>
-<p>In order to fully understand the coupling, the reader needs to follow a function as it is passed around the code.  The complexity of indirect connection is a mental load on the reader.</p>
-<div align="center">
-<svg width="500" height="190">
-    <defs>
-        <marker
-            id="arrowhead"
-            markerWidth="3" markerHeight="3" 
-            refX="2" refY="1.5"
-            orient="auto"
-        >
-            <polygon points="1 1.5, 0 3, 3 1.5, 0 0" />
-        </marker>
-    </defs>
-    <rect x="5"   y="5" width="410" height="60" rx="15" stroke="black" fill="gainsboro" />
-    <text x="210" y="35" text-anchor="middle" alignment-baseline="central">Orchestrator</text>
-    <rect x="5"   y="125" width="160" height="60" rx="15" stroke="black" fill="lime" />
-    <text x="85" y="155" text-anchor="middle" alignment-baseline="central">Module A</text>
-    <rect x="255" y="125" width="160" height="60" rx="15" stroke="black" fill="cyan" />
-    <text x="335" y="155" text-anchor="middle" alignment-baseline="central">Function B</text>
-    <line x1="335" y1="125" x2="335" y2="65" stroke="gray" stroke-width="6" />
-    <line x1="338" y1="65" x2="82" y2="65" stroke="gray" stroke-width="6" />
-    <line x1="85" y1="65" x2="85" y2="125" stroke="gray" stroke-width="6" marker-end="url(#arrowhead)"/>
-    <line x1="165" y1="155" x2="252" y2="155" stroke="black" stroke-width="6" stroke-dasharray="15 5" marker-end="url(#arrowhead)"/>
-</svg>
-</div>
-<h4 id="replaceability-3">Replaceability:</h4>
-<p>The defining attribute of this form of coupling is that the <code>main()</code> function <em>does not need to be touched</em> to change functionality.</p>
-<p>However, the <em>orchestrator</em> function will need to be changed, to pass in the new function.</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
-</span><span style="color:#65737e;">#    # Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
-</span><span>    </span><span style="color:#65737e;"># Do stuff better.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>):
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#bf616a;">injected_func</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#65737e;"># main(injected_func=secondary)
-</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_func</span><span>=alternative)
-</span><span>
-</span></code></pre>
+</li>
+<li>Inheritance
 <ul>
-<li>Write new replacement function.</li>
-<li>One-line change in orchestrator function, to pass in alternative function.</li>
-<li><code>main()</code> function is <strong>not</strong> changed.</li>
+<li>Method call on parent class</li>
 </ul>
-<h3 id="method-call-on-injected-object">Method Call On Injected Object</h3>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>):
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    injected_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
-</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
-</span><span>
-</span></code></pre>
-<h4 id="simplicity-4">Simplicity:</h4>
-<p>Relatively complex.  There are now <em>three</em> modules required.</p>
-<p>The coupling consists of three elements:  the Orchestrator instantiating Object B, the Orchestrator passing Object B into Module A, and the call on Method C of Object B.<br />
-Disturbingly, the method call is <em>necessarily</em> in a different part of the code from the other elements of the coupling.</p>
-<p>Note that while the object is anonymous, the method call is on the actual named method on the class.</p>
-<p>This coupling pattern can manifest in a range of different ways, from perfectly readable to horrendously obfuscated, depending on how the <em>type</em> (class) of the injected object is controlled.  Let's explore three of those ways.</p>
-<h5 id="injected-object-has-single-fixed-class">Injected Object Has Single Fixed Class</h5>
-<p>First, consider the case where the injected object is <em>always</em> an instance of a <em>single</em> class.  The object may vary in its particulars, but there is only one bit of code to look at.  This should not pose any great problems for readability.</p>
-<h5 id="injected-object-of-unknown-class-but-with-well-defined-interface">Injected Object Of Unknown Class But With Well-Defined Interface</h5>
-<p>Next, consider the case where the class of the injected object is unknown, but the method constitutes a <em>well-defined interface</em>, in the following sense: While the behaviour of the method necessarily changes depending on the class, the behaviour is always sufficiently well-constrained that the reader <em>does not</em> really need to know about the detailed differences between the methods of the different classes.  In other words, the method call can always be treated as a call to a 'black box', whose inner workings do not matter to the reader trying to understand the code of Module A.</p>
-<p>The method polymorphism used in this case should not pose a great problem for readability, <em>as long as</em> the software design guarantees that the reader can always treat the method call as a call to a closed 'black box'.  In practice, it may be difficult to always achieve this.  If the reader <em>does</em> end up needing to know the details inside a method, then this interface could be considered a 'leaky abstraction', at least from the reader's point of view, because the information hidden inside the abstraction 'leaks out'.</p>
-<h5 id="injected-object-of-unknown-class">Injected Object Of Unknown Class</h5>
-<p>Finally, consider the case where the class of the injected object is unknown, and the reader simply <em>must</em> read the details inside the method in order comprehend the code.</p>
-<p>The method call on the object is an indirect connection:  When reading the <code>main()</code> function alone, it is impossible to know the real class of the injected object.  (In fact, An IDE will probably not be able to 'go to source' of <code>injected_object</code>.)</p>
-<p>In order to fully understand the coupling, the reader needs to follow an object as it is passed around the code.  The complexity of indirect connection is a mental load on the reader.</p>
-<div align="center">
-<svg width="500" height="255">
-    <defs>
-        <marker
-            id="arrowhead"
-            markerWidth="3" markerHeight="3" 
-            refX="2" refY="1.5"
-            orient="auto"
-        >
-            <polygon points="1 1.5, 0 3, 3 1.5, 0 0" />
-        </marker>
-    </defs>
-    <rect x="5"   y="5" width="415" height="60" rx="15" stroke="black" fill="gainsboro" />
-    <text x="210" y="35" text-anchor="middle" alignment-baseline="central">Orchestrator</text>
-    <rect x="5"   y="185" width="160" height="60" rx="15" stroke="black" fill="lime" />
-    <text x="85" y="215" text-anchor="middle" alignment-baseline="central">Module A</text>
-    <rect x="250" y="125" width="170" height="125" rx="5" stroke="black" fill="thistle" />
-    <text x="335" y="155" text-anchor="middle" alignment-baseline="central">Object B</text>
-    <rect x="255" y="185" width="160" height="60" rx="15" stroke="black" fill="cyan" />
-    <text x="335" y="215" text-anchor="middle" alignment-baseline="central">Method C</text>
-    <line x1="364" y1="125" x2="364" y2="65" stroke="black" stroke-width="6" />
-    <line x1="307" y1="125" x2="307" y2="65" stroke="gray" stroke-width="6" />
-    <line x1="310" y1="65" x2="82" y2="65" stroke="gray" stroke-width="6" />
-    <line x1="85" y1="65" x2="85" y2="185" stroke="gray" stroke-width="6" marker-end="url(#arrowhead)"/>
-    <line x1="165" y1="215" x2="252" y2="215" stroke="black" stroke-width="6" stroke-dasharray="15 5" marker-end="url(#arrowhead)"/>
-</svg>
-</div>
-<h4 id="replaceability-4">Replaceability:</h4>
-<p>Could in principle depend on whether the new functionality needs a whole new class or just a new method on the existing class.  However, the whole point of the flexibility of the orchestrator pattern is to <em>easily inject a different object</em>, so that's what we'll consider here.</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class SomeStupidClass:
-</span><span style="color:#65737e;">#
-</span><span style="color:#65737e;">#    def secondary(self, data):
-</span><span style="color:#65737e;">#        # Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>        </span><span style="color:#65737e;"># Do stuff better.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>):
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    injected_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
-</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
-</span><span>    </span><span style="color:#bf616a;">main</span><span>(</span><span style="color:#bf616a;">injected_object</span><span>=stupid_object)
-</span><span>
-</span></code></pre>
-<ul>
-<li>Write new replacement class with different method <em>of same name</em>.</li>
-<li>One-line change in orchestrator function, to instantiate new class.</li>
-<li><code>main()</code> function is <strong>not</strong> changed.</li>
+</li>
 </ul>
-<h3 id="inheritance">Inheritance</h3>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>       </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>        </span><span style="color:#d08770;">...
-</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>        </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
-</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
-</span></code></pre>
-<h4 id="simplicity-5">Simplicity:</h4>
-<p>Relatively complex.  There are three modules, and the overhead of instantiating the container class.</p>
-<p>The coupling consists of two elements: The direct connection of Method A calling Method B, and the potentially heavyweight connection of <code>MainClass</code> inheriting from <code>ParentClass</code>.</p>
-<p>On the one hand, the connection via inheritance between the two modules is simpler than, say, 'Method Call On Injected Object', because the connection is explicitly hard-wired, rather than being dynamic.</p>
-<p>On the other hand, the inheritance connection between <code>MainClass</code> and <code>ParentClass</code> couples <em>everything</em> in <code>ParentClass</code> to <code>MainClass</code>.  If the class hierarchy has not been extremely well-designed, then <code>MainClass</code> will have access to lots of methods which have <em>nothing</em> to do with the concern of <code>MainClass</code>.  The problem is that any coupling (even indirect) could be construed as indicating a dependency: the reader may reason that a module has access to methods because it <em>needs</em> them.  The reader may waste time sorting out which base class methods are actually relevant to <code>MainClass</code>, and which simply get dragged along as a consequence of inheritance.</p>
-<div align="center">
-<svg width="500" height=130">
-    <defs>
-        <marker
-            id="arrowhead"
-            markerWidth="3" markerHeight="3" 
-            refX="2" refY="1.5"
-            orient="auto"
-        >
-            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
-        </marker>
-    </defs>
-    <rect x="5" y="5" width="170" height="125" rx="5" stroke="black" fill="gainsboro" />
-    <text x="90" y="35" text-anchor="middle" alignment-baseline="central">Main Class</text>
-    <rect x="10"  y="65" width="160" height="60" rx="15" stroke="black" fill="lime" />
-    <text x="90" y="95" text-anchor="middle" alignment-baseline="central">Module A</text>
-    <rect x="255" y="5" width="170" height="125" rx="5" stroke="black" fill="thistle" />
-    <text x="340" y="35" text-anchor="middle" alignment-baseline="central">Parent Class</text>
-    <rect x="260" y="65" width="160" height="60" rx="15" stroke="black" fill="cyan" />
-    <text x="340" y="95" text-anchor="middle" alignment-baseline="central">Method B</text>
-    <rect x="175" y="15" width="80" height="40" stroke="black" fill="thistle" />
-    <line x1="170" y1="95" x2="257" y2="95" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
-</svg>
-</div>
-<h4 id="replaceability-5">Replaceability:</h4>
-<p>Best case: the new functionality properly belongs on the parent class, just like the old functionality.</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span style="color:#65737e;">#   def secondary(self, data):
-</span><span style="color:#65737e;">#       # Do stuff.
-</span><span>
-</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>       </span><span style="color:#65737e;"># Do different stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>        </span><span style="color:#d08770;">...
-</span><span>        </span><span style="color:#65737e;"># self.secondary(data)
-</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">alternative</span><span>(data)
-</span><span>        </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
-</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
-</span></code></pre>
-<ul>
-<li>Write new replacement method on parent class (base class).</li>
-<li>One-line change in child class, to call new method.</li>
-<li>No change in surrounding orchestrating code.</li>
-</ul>
-<p>Worst case: The new functionality is realised to be not part of the parent class.  The whole abstraction is discovered to be wrong.  The inheritance hierarchy must be dismantled and rebuilt.</p>
-<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class ParentClass:
-</span><span style="color:#65737e;">#
-</span><span style="color:#65737e;">#   def secondary(self, data):
-</span><span style="color:#65737e;">#       # Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">:
-</span><span>
-</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
-</span><span>       </span><span style="color:#65737e;"># Do stuff.
-</span><span>
-</span><span>
-</span><span style="color:#65737e;"># class MainClass(ParentClass):
-</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">):
-</span><span>
-</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
-</span><span>        </span><span style="color:#d08770;">...
-</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
-</span><span>        </span><span style="color:#d08770;">...
-</span><span>
-</span><span>
-</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
-</span><span>    </span><span style="color:#d08770;">...
-</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
-</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
-</span></code></pre>
-<ul>
-<li>Whole new parent class required.</li>
-<li>Parent class of main class must be changed (one line change).</li>
-<li>Surrounding orchestrating code should not need to be changed.</li>
-</ul>
-<p>However, in practice, this change will often be very difficult.  The original parent class may have many child classes.  So if the main class changes to a different parent, then the main class is no longer considered to be the same type of class as the other child classes.  This may have widespread ramifications for the design.</p>
-<p>It seems that inheritance is a very brittle form of coupling.  The abstraction of the inheritance relationship needs to be exactly right, because it can be very difficult to change.  This implies that inheritance is not suitable for code that will developed in an agile, iterative fashion.</p>
-<h2 id="summary">Summary</h2>
-<table class="dense-table">
-   <caption>Some Connections Between Software Modules</caption>
-   <thead>
-      <tr> <th><!--Blank--></th> <th>Simplicity</th>          <th>Replaceability</th> </tr>
-   </thead>
-   <tbody>
-      <tr>
-        <th>Function Call</th>
-        <td>Simple as possible</td>
-        <td><ul><li>New function</li><li>One-line change</li></ul></td>
-      </tr>
-      <tr>
-        <th>Class Method Call</th>
-        <td>Simple.<br>Class is namespace</td>
-        <td><ul><li>New class or method</li><li>One-line change</li></ul></td>
-      </tr>
-      <tr>
-        <th>Object Method Call</th>
-        <td>Medium.<br>Overhead of instantiation</td>
-        <td><ul><li>New class or method</li><li>One-line change</li></ul></td>
-      </tr>
-      <tr>
-        <th>Injected Function Call</th>
-        <td>Somewhat Complex.<br>Three modules, but each<br>module is simple</td>
-        <td><ul><li>New function</li><li>One-line change</li></ul></td>
-      </tr>
-      <tr>
-        <th>Injected Object<br>Method Call</th>
-        <td>Complex.<br>Three modules.<br>Overhead of instantiation</td>
-        <td><ul><li>New class</li><li>One-line change</li></ul></td>
-      </tr>
-      <tr>
-        <th>Inheritance</th>
-        <td>Complex.<br>Three modules.<br>Possible irrelevant<br>inherited connections</td>
-        <td>Worst case:<ul><li>New parent class</li><li>Refactor class hierarchy</li><li>One-line change</li></ul></td>
-     </tr>
-   </tbody>
-</table>
-<h2 id="conclusions">Conclusions</h2>
-<p>Don't use inheritance.  Be <em>very</em> careful with dependency injection.  Favour simple direct connections.</p>
+<p>In the next three chapters, we'll look at these forms of connection.  We'll make some observations on the relative simplicity of each form.</p>
+<p>As well as simplicity, we are also interested in how each connection type supports modularity.  The 'replacement' type of modification is arguably the simplest, and the syntax is essentially the same as for 'simple extension', so we shall analyse the 'replaceability' of each connection form.</p>
 
         
         <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
@@ -892,7 +390,7 @@ Disturbingly, the method call is <em>necessarily</em> in a different part of the
         
 
         
-            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Next: Coupling Modules Into A Structure</a>
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/">Next: Coupling By Direct Connection</a>
         
        </p>
     </div>

@@ -32,8 +32,24 @@
         <lastmod>2022-12-19</lastmod>
     </url>
     <url>
+        <loc>https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/</loc>
+        <lastmod>2023-04-16</lastmod>
+    </url>
+    <url>
+        <loc>https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/</loc>
+        <lastmod>2023-04-16</lastmod>
+    </url>
+    <url>
+        <loc>https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/</loc>
+        <lastmod>2023-04-16</lastmod>
+    </url>
+    <url>
         <loc>https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/</loc>
         <lastmod>2022-12-19</lastmod>
+    </url>
+    <url>
+        <loc>https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/</loc>
+        <lastmod>2023-04-16</lastmod>
     </url>
     <url>
         <loc>https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/</loc>

@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Interfaces - The Glue That Connects | Explicator</title>
+    <title>Coupling Summary | Explicator</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/../../essay.css">
     
@@ -17,8 +17,8 @@
     
 
     <header style="background: steelblue">
-      <h1 class="title">Interfaces - The Glue That Connects</h1>
-      <p class="subtitle"><strong>2022-12-19</strong></p>
+      <h1 class="title">Coupling Summary</h1>
+      <p class="subtitle"><strong>2023-04-16</strong></p>
     </header>
 
     <nav>
@@ -137,26 +137,18 @@
       
       <hr>
 
-      <p style="padding-left: 1em;">Interfaces - The Glue That Connects</p>
+      <p style="padding-left: 1em;">Coupling Summary</p>
     
         
         <ul>
         
             <li>
-                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/#interfaces-the-glue-that-connects">Interfaces: The Glue That Connects</a>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/#summary">Summary</a>
                 
                     <ul>
                         
                             <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/#private-interfaces">Private Interfaces</a>
-                            </li>
-                        
-                            <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/#public-interfaces">Public Interfaces</a>
-                            </li>
-                        
-                            <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/#api-design">API Design</a>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/#conclusions">Conclusions</a>
                             </li>
                         
                     </ul>
@@ -201,15 +193,15 @@
         
     
         
-    
-        
-    
-        
-    
-        
-    
-        
            
+        
+    
+        
+    
+        
+    
+        
+    
         
     
         
@@ -226,51 +218,57 @@
     <div class="previous_next_header">
         <p>
         
-            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Previous: Data Flow Should Follow Execution Flow</a>
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/">Previous: Coupling By Inheritance</a>
         
 
         
-            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Next: Miscellaneous Advice</a>
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Next: Coupling Modules Into A Structure</a>
         
        </p>
     </div>
 
     <article class="essay">
-        <h1 id="interfaces-the-glue-that-connects">Interfaces: The Glue That Connects</h1>
-<p>An <strong>interface</strong> to a code module is the point of entry.  Examples include:</p>
-<ul>
-<li>A function call.  The interface is defined by the function name and signature (arguments passed in).</li>
-<li>Class instantiation, and the suite of public methods on the object.</li>
-<li>Internet requests via the <code>http</code> protocol.</li>
-</ul>
-<p>An Application Programming Interface (API) is any interface that a programmer could use, by learning the protocol, and writing correct code for it.  In practice, the words 'API' and 'interface' are generally used interchangeably.</p>
-<p>An interface may be private or public.  Somewhat different guidelines apply between private and public interfaces.</p>
-<h4 id="private-interfaces">Private Interfaces</h4>
-<p>Private interfaces can be modified without external consequence.  Furthermore, private interfaces <em>should</em> be modified as the program iterates towards a sound structure engineered for readability.  The <em>ideal</em> interface should emerge organically as the program is developed.</p>
-<h4 id="public-interfaces">Public Interfaces</h4>
-<p>Any interface that an external party uses is <em>public</em>.  Therefore, modifying the interface will affect the external party.  If the external party is just some engineers on the other side of the office, then this can be coordinated.  However, if the external party could be any random user on the internet, then more care is required.</p>
-<p>In general, a public interface should be <strong>versioned</strong>, so that if it is changed, the change is explicitly advertised.</p>
-<p>A public interface needs <em>much</em> more care in its design than a private interface, because it is much harder to change.</p>
-<h3 id="api-design">API Design</h3>
-<h4 id="multi-granular">Multi-Granular</h4>
-<p>Especially for a non-trival public API, the interface should have <strong>different levels of granularity</strong>.  This means:</p>
-<ol>
-<li>
-<p><strong>Atomic operations</strong> should be defined and exposed.  These are the lowest-level building blocks of API operations.  This is the lowest level of granularity.  The atomic operations should form a <strong>complete set</strong>, so that any possible action with the API can be achieved by a sequence of atomic operations.</p>
-</li>
-<li>
-<p><strong>Routine operations</strong> should be possible with a single simple call.  That is, the most common uses of the API should be <em>trivial</em> to achieve.  Internally, each routine operation should use atomic operations, so that by definition, a routine operation call is equivalent to a sequence of atomic operation calls.</p>
-</li>
-<li>
-<p>Further operations should be defined <em>very sparingly</em>.  Outside of the full set of atomic operations, and operations for the commonest use cases, it is wise to be very reluctant to add any more.  Further operations add confusing bloat to the API, and are a maintenance burden, both of which are costs that are probably greater than the value of adding an API call for some obscure operation.</p>
-</li>
-</ol>
-<h4 id="consider-using-specification-data-objects">Consider Using Specification Data Objects</h4>
-<p>Suppose you are developing a function that is turning out to have rather a lot of parameters.  The function call is becoming unwieldy.  Furthermore, many of those parameters must be further passed down into sub-functions, that are themselves suffering a bloated signature.</p>
-<p>Now, this <em>may</em> be a sign of a bad abstraction - is the function trying to do much?  Should it be broken into separate concerns?  However, let us assume that it is indeed a good abstraction, and the entry point really does require that many parameters, due to the nature of the domain problem.</p>
-<p>One solution is to modify the function signature to accept a single rich data object, instead of a multitude of low-level parameters.  The 'parameter space' is thought of as a separate concern that can be abstracted out into a data object.  Generally, this abstraction will represent a <em>specification</em> for the algorithm that the function carries out.  This spec object can be easily passed down into sub-functions, which tends to significantly tidy up code.</p>
-<p>One possible benefit of this approach is that the <em>effective</em> signature of the function can be changed <em>without</em> actually changing the function signature, by simply modifying the structure of the specification data object.  Of course, changing the spec object may cause its own problems: strictly speaking, we are still changing the API.  But the hope is that this form of change will be easier than changing the function call itself.</p>
-<p>This advice on API design is an example of the application of previous advice to separate state into its own object, since objects are perfectly suited for data-like code.</p>
+        <h1 id="summary">Summary</h1>
+<table class="dense-table">
+   <caption>Some Connections Between Software Modules</caption>
+   <thead>
+      <tr> <th><!--Blank--></th> <th>Simplicity</th>          <th>Replaceability</th> </tr>
+   </thead>
+   <tbody>
+      <tr>
+        <th>Function Call</th>
+        <td>Simple as possible</td>
+        <td><ul><li>New function</li><li>One-line change</li></ul></td>
+      </tr>
+      <tr>
+        <th>Class Method Call</th>
+        <td>Simple.<br>Class is namespace</td>
+        <td><ul><li>New class or method</li><li>One-line change</li></ul></td>
+      </tr>
+      <tr>
+        <th>Object Method Call</th>
+        <td>Medium.<br>Overhead of instantiation</td>
+        <td><ul><li>New class or method</li><li>One-line change</li></ul></td>
+      </tr>
+      <tr>
+        <th>Injected Function Call</th>
+        <td>Somewhat Complex.<br>Three modules, but each<br>module is simple</td>
+        <td><ul><li>New function</li><li>One-line change</li></ul></td>
+      </tr>
+      <tr>
+        <th>Injected Object<br>Method Call</th>
+        <td>Complex.<br>Three modules.<br>Overhead of instantiation</td>
+        <td><ul><li>New class</li><li>One-line change</li></ul></td>
+      </tr>
+      <tr>
+        <th>Inheritance</th>
+        <td>Complex.<br>Three modules.<br>Possible irrelevant<br>inherited connections</td>
+        <td>Worst case:<ul><li>New parent class</li><li>Refactor class hierarchy</li><li>One-line change</li></ul></td>
+     </tr>
+   </tbody>
+</table>
+<h2 id="conclusions">Conclusions</h2>
+<p>Don't use inheritance.  Be <em>very</em> careful with dependency injection.  Favour simple direct connections.</p>
 
         
         <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
@@ -281,11 +279,11 @@
     <div class="previous_next_footer">
         <p>
         
-            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Previous: Data Flow Should Follow Execution Flow</a>
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/">Previous: Coupling By Inheritance</a>
         
 
         
-            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Next: Miscellaneous Advice</a>
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Next: Coupling Modules Into A Structure</a>
         
        </p>
     </div>
@@ -293,7 +291,7 @@
     <div class="filler"></div>
 
     <footer>
-      <p class="datestamp"><strong>2022-12-19</strong></p>
+      <p class="datestamp"><strong>2023-04-16</strong></p>
     </footer>
   
   </body>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Coupling By Inheritance | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Coupling By Inheritance</h1>
+      <p class="subtitle"><strong>2023-04-16</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/">Coupling By Direct Connection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Coupling By Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/">Coupling By Inheritance</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/">Coupling Summary</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Coupling By Inheritance</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/#inheritance">Inheritance</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/#simplicity">Simplicity:</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/#replaceability">Replaceability:</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Previous: Coupling By Dependency Injection</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/">Next: Coupling Summary</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="inheritance">Inheritance</h1>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<h3 id="simplicity">Simplicity:</h3>
+<p>Relatively complex.  There are three modules, and the overhead of instantiating the container class.</p>
+<p>The coupling consists of two elements: The direct connection of Method A calling Method B, and the potentially heavyweight connection of <code>MainClass</code> inheriting from <code>ParentClass</code>.</p>
+<p>On the one hand, the connection via inheritance between the two modules is simpler than, say, 'Method Call On Injected Object', because the connection is explicitly hard-wired, rather than being dynamic.</p>
+<p>On the other hand, the inheritance connection between <code>MainClass</code> and <code>ParentClass</code> couples <em>everything</em> in <code>ParentClass</code> to <code>MainClass</code>.  If the class hierarchy has not been extremely well-designed, then <code>MainClass</code> will have access to lots of methods which have <em>nothing</em> to do with the concern of <code>MainClass</code>.  The problem is that any coupling (even indirect) could be construed as indicating a dependency: the reader may reason that a module has access to methods because it <em>needs</em> them.  The reader may waste time sorting out which base class methods are actually relevant to <code>MainClass</code>, and which simply get dragged along as a consequence of inheritance.</p>
+<div align="center">
+<svg width="500" height=130">
+    <defs>
+        <marker
+            id="arrowhead"
+            markerWidth="3" markerHeight="3" 
+            refX="2" refY="1.5"
+            orient="auto"
+        >
+            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
+        </marker>
+    </defs>
+    <rect x="5" y="5" width="170" height="125" rx="5" stroke="black" fill="gainsboro" />
+    <text x="90" y="35" text-anchor="middle" alignment-baseline="central">Main Class</text>
+    <rect x="10"  y="65" width="160" height="60" rx="15" stroke="black" fill="lime" />
+    <text x="90" y="95" text-anchor="middle" alignment-baseline="central">Module A</text>
+    <rect x="255" y="5" width="170" height="125" rx="5" stroke="black" fill="thistle" />
+    <text x="340" y="35" text-anchor="middle" alignment-baseline="central">Parent Class</text>
+    <rect x="260" y="65" width="160" height="60" rx="15" stroke="black" fill="cyan" />
+    <text x="340" y="95" text-anchor="middle" alignment-baseline="central">Method B</text>
+    <rect x="175" y="15" width="80" height="40" stroke="black" fill="thistle" />
+    <line x1="170" y1="95" x2="257" y2="95" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
+</svg>
+</div>
+<h3 id="replaceability">Replaceability:</h3>
+<p>Best case: the new functionality properly belongs on the parent class, just like the old functionality.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#   def secondary(self, data):
+</span><span style="color:#65737e;">#       # Do stuff.
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">ParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#65737e;"># self.secondary(data)
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<ul>
+<li>Write new replacement method on parent class (base class).</li>
+<li>One-line change in child class, to call new method.</li>
+<li>No change in surrounding orchestrating code.</li>
+</ul>
+<p>Worst case: The new functionality is realised to be not part of the parent class.  The whole abstraction is discovered to be wrong.  The inheritance hierarchy must be dismantled and rebuilt.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># class ParentClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#   def secondary(self, data):
+</span><span style="color:#65737e;">#       # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>       </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># class MainClass(ParentClass):
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">MainClass</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">BetterAbstractedParentClass</span><span style="color:#eff1f5;">):
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>        </span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">orchestrator</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    main_processor = </span><span style="color:#bf616a;">MainClass</span><span>()
+</span><span>    main_processor.</span><span style="color:#bf616a;">main</span><span>()
+</span></code></pre>
+<ul>
+<li>Whole new parent class required.</li>
+<li>Parent class of main class must be changed (one line change).</li>
+<li>Surrounding orchestrating code should not need to be changed.</li>
+</ul>
+<p>However, in practice, this change will often be very difficult.  The original parent class may have many child classes.  So if the main class changes to a different parent, then the main class is no longer considered to be the same type of class as the other child classes.  This may have widespread ramifications for the design.</p>
+<p>It seems that inheritance is a very brittle form of coupling.  The abstraction of the inheritance relationship needs to be exactly right, because it can be very difficult to change.  This implies that inheritance is not suitable for code that will developed in an agile, iterative fashion.</p>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Previous: Coupling By Dependency Injection</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/">Next: Coupling Summary</a>
+        
+       </p>
+    </div>
+    
+    <div class="filler"></div>
+
+    <footer>
+      <p class="datestamp"><strong>2023-04-16</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

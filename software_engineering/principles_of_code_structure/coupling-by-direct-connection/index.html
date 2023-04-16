@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Coupling By Direct Connection | Explicator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/../../essay.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+  
+    
+    
+
+    <header style="background: steelblue">
+      <h1 class="title">Coupling By Direct Connection</h1>
+      <p class="subtitle"><strong>2023-04-16</strong></p>
+    </header>
+
+    <nav>
+      <h3 style="text-align: center;">Navigation Links</h3>
+    
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/">Home Page</a></p>
+
+      
+        
+        <p><a style="padding-left: 2em;" href="https://natlund.github.io/software_engineering/">Software Engineering</a></p>
+      
+        
+        <p><a style="padding-left: 3em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+      
+            
+      <hr>
+      
+      <p><a style="padding-left: 1em;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/">Principles Of Code Structure</a></p>
+
+      <ol>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/readability/">Readability</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/elementary-code-structures/">Elementary Code Structures</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/art-of-abstraction/">The Art Of Abstraction</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">The Platinum Rule Of Thumb</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Separation Of Concerns</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Separate Inherent And Collateral Complexity</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-functions-and-state/">Separation Of Functions And State</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/">Distinguish Algorithm-like From Data-like Code</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/">Separate Input&#x2F;Output From Computation</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-business-logic-from-mechanical-work/">Separate Business Logic From Mechanical Work</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/collate-the-concern-of-logical-branching/">Collate The Concern Of Logical Branching</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling/">Coupling</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Taxonomy Of Connections</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/">Coupling By Direct Connection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Coupling By Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/">Coupling By Inheritance</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/">Coupling Summary</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/">Make Execution Flow Obvious</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/data-flow-should-follow-execution-flow/">Data Flow Should Follow Execution Flow</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/interfaces/">Interfaces - The Glue That Connects</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/">Miscellaneous Advice</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/thinking-like-an-engineer/">Thinking Like An Engineer</a>
+          </li>
+        
+      </ol>
+      
+      <hr>
+
+      <p style="padding-left: 1em;">Coupling By Direct Connection</p>
+    
+        
+        <ul>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#function-call">Function Call</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#simplicity">Simplicity:</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#replaceability">Replaceability:</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#method-call-on-class">Method Call On Class</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#simplicity-1">Simplicity:</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#replaceability-1">Replaceability:</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+            <li>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</a>
+                
+                    <ul>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#simplicity-2">Simplicity:</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/#replaceability-2">Replaceability:</a>
+                            </li>
+                        
+                    </ul>
+                
+            </li>
+        
+        </ul>
+        
+    </nav>
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+           
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+        
+          
+
+    
+
+    <div class="previous_next_header">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Previous: Taxonomy Of Connections</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Next: Coupling By Dependency Injection</a>
+        
+       </p>
+    </div>
+
+    <article class="essay">
+        <h1 id="function-call">Function Call</h1>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="simplicity">Simplicity:</h3>
+<p>As simple as possible.  The function call <em>is</em> the connection.  The only coupling is a direct connection to an explicit module.</p>
+<div align="center">
+<svg width="500" height="70">
+    <defs>
+        <marker
+            id="arrowhead"
+            markerWidth="3" markerHeight="3" 
+            refX="2" refY="1.5"
+            orient="auto"
+        >
+            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
+        </marker>
+    </defs>
+    <rect x="5"   y="5" width="160" height="60" rx="15" stroke="black" fill="lime" />
+    <text x="85" y="35" text-anchor="middle" alignment-baseline="central">Module A</text>
+    <rect x="255" y="5" width="160" height="60" rx="15" stroke="black" fill="cyan" />
+    <text x="335" y="35" text-anchor="middle" alignment-baseline="central">Function B</text>
+    <line x1="165" y1="35" x2="252" y2="35" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
+</svg>
+</div>
+<h3 id="replaceability">Replaceability:</h3>
+<p>A new function <code>alternative()</code> must be written.  Then changing the coupling simply requires changing the function call in <code>main()</code>:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># def secondary(data):
+</span><span style="color:#65737e;">#     # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>    </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># secondary(data)
+</span><span>    </span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>Write new replacement function.</li>
+<li>One-line change in <code>main()</code>, to call new function.</li>
+</ul>
+<h1 id="method-call-on-class">Method Call On Class</h1>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="simplicity-1">Simplicity:</h3>
+<p>Almost as simple as possible.  The class simply acts as a <em>namespace</em> for the <code>secondary()</code> function.  In some situations, having such a namespace may tidy up the code and make it more readable.</p>
+<p>The method call <em>is</em> the connection.  The only coupling is a direct connection to the explicit method of a class.</p>
+<div align="center">
+<svg width="500" height=120">
+    <defs>
+        <marker
+            id="arrowhead"
+            markerWidth="3" markerHeight="3" 
+            refX="2" refY="1.5"
+            orient="auto"
+        >
+            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
+        </marker>
+    </defs>
+    <rect x="5"  y="45" width="160" height="60" rx="15" stroke="black" fill="lime" />
+    <text x="85" y="75" text-anchor="middle" alignment-baseline="central">Module A</text>
+    <rect x="250" y="5" width="170" height="105" rx="5" stroke="black" fill="gainsboro" />
+    <text x="335" y="25" text-anchor="middle" alignment-baseline="central">Class B</text>
+    <rect x="255" y="45" width="160" height="60" rx="15" stroke="black" fill="cyan" />
+    <text x="335" y="75" text-anchor="middle" alignment-baseline="central">Method C</text>
+    <line x1="165" y1="75" x2="252" y2="75" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
+</svg>
+</div>
+<h3 id="replaceability-1">Replaceability:</h3>
+<p>This depends on whether the new alternative function lives in the <em>same</em> namespace class, or needs its own new class.</p>
+<p>Like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#    @staticmethod
+</span><span style="color:#65737e;">#    def secondary(data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do different stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
+</span><span>    SomeStupidClass.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>Or this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#65737e;">#class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    @staticmethod
+</span><span style="color:#65737e;">#    def secondary(data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">staticmethod
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># SomeStupidClass.secondary(data)
+</span><span>    LessStupidClass.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>Write new replacement method or class.</li>
+<li>One-line change in <code>main()</code>, to call different class or method.</li>
+</ul>
+<h1 id="object-instantiation-then-method-call-on-object">Object Instantiation, Then Method Call On Object</h1>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<h3 id="simplicity-2">Simplicity:</h3>
+<p>No longer as simple as possible, but still straightforward.  There is the extra overhead of having to instantiate the container class.</p>
+<p>The coupling now has two elements: instantiating the object, and calling the method on the object.  If both are done in the same place, then the coupling is trivial to understand.  However, if instantiation is done in a very different place to the method call, then the reader has to mentally keep track of both parts of the coupling to properly understand how Module A depends on Module B.</p>
+<div align="center">
+<svg width="500" height=130">
+    <defs>
+        <marker
+            id="arrowhead"
+            markerWidth="3" markerHeight="3" 
+            refX="2" refY="1.5"
+            orient="auto"
+        >
+            <polygon points="1 1.5, 0 3, 3 1.5, 0 0"/>
+        </marker>
+    </defs>
+    <rect x="5"  y="10" width="160" height="120" rx="15" stroke="black" fill="lime" />
+    <text x="85" y="70" text-anchor="middle" alignment-baseline="central">Module A</text>
+    <rect x="250" y="5" width="170" height="125" rx="5" stroke="black" fill="thistle" />
+    <text x="335" y="35" text-anchor="middle" alignment-baseline="central">Object B</text>
+    <rect x="255" y="65" width="160" height="60" rx="15" stroke="black" fill="cyan" />
+    <text x="335" y="95" text-anchor="middle" alignment-baseline="central">Method C</text>
+    <line x1="165" y1="35" x2="250" y2="35" stroke="black" stroke-width="6" />
+    <line x1="165" y1="95" x2="252" y2="95" stroke="black" stroke-width="6" marker-end="url(#arrowhead)"/>
+</svg>
+</div>
+<h3 id="replaceability-2">Replaceability:</h3>
+<p>Swapping functionality requires either a new method on the existing class, or a new class.</p>
+<p>Like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">SomeStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">alternative</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    stupid_object = </span><span style="color:#bf616a;">SomeStupidClass</span><span>()
+</span><span>    </span><span style="color:#65737e;"># stupid_object.secondary(data)
+</span><span>    stupid_object.</span><span style="color:#bf616a;">alternative</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<p>Or this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>
+</span><span style="color:#65737e;"># class SomeStupidClass:
+</span><span style="color:#65737e;">#
+</span><span style="color:#65737e;">#    def secondary(self, data):
+</span><span style="color:#65737e;">#        # Do stuff.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">LessStupidClass</span><span style="color:#eff1f5;">:
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">secondary</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">data</span><span>):
+</span><span>        </span><span style="color:#65737e;"># Do stuff better.
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">main</span><span>():
+</span><span>    </span><span style="color:#d08770;">...
+</span><span>    </span><span style="color:#65737e;"># stupid_object = SomeStupidClass()
+</span><span>    stupid_object = </span><span style="color:#bf616a;">LessStupidClass</span><span>()
+</span><span>    stupid_object.</span><span style="color:#bf616a;">secondary</span><span>(data)
+</span><span>    </span><span style="color:#d08770;">...
+</span></code></pre>
+<ul>
+<li>Write new replacement method or class.</li>
+<li>One-line change in <code>main()</code>, to call new method or instantiate new class.</li>
+</ul>
+
+        
+        <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
+
+    
+    </article>
+
+    <div class="previous_next_footer">
+        <p>
+        
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/taxonomy-of-connections/">Previous: Taxonomy Of Connections</a>
+        
+
+        
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Next: Coupling By Dependency Injection</a>
+        
+       </p>
+    </div>
+    
+    <div class="filler"></div>
+
+    <footer>
+      <p class="datestamp"><strong>2023-04-16</strong></p>
+    </footer>
+  
+  </body>
+
+</html>

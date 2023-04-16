@@ -94,6 +94,22 @@
           </li>
         
           <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-direct-connection/">Coupling By Direct Connection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-dependency-injection/">Coupling By Dependency Injection</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-by-inheritance/">Coupling By Inheritance</a>
+          </li>
+        
+          <li>
+            <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-summary/">Coupling Summary</a>
+          </li>
+        
+          <li>
             <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/coupling-modules-into-a-structure/">Coupling Modules Into A Structure</a>
           </li>
         
@@ -187,6 +203,14 @@
         
     
         
+    
+        
+    
+        
+    
+        
+    
+        
            
         
     
@@ -234,8 +258,9 @@
 <p><code>user_accounts_2023-01-21_DELETE_AFTER_2023-02-01.txt</code></p>
 <p>Then, in six months time, when you stumble across this long-dead file again, you won't have to spend time investigating whether or not it is safe to delete.</p>
 <h2 id="use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</h2>
-<p>Famed computer scientist Edsger Dijkstra wrote an essay in 1982 explaining why the best convention to describe a range of numbers is to have an <strong>inclusive</strong> lower bound and an <strong>exclusive</strong> upper bound.  To illustrate by example, a range of natural numbers defined by the pair <code>[3, 6)</code> denotes the numbers <code>[3, 4, 5]</code>.  In other words, the the lower bound (<code>3</code>) is <strong>included</strong> in the range, and the upper bound (<code>6</code>) is <strong>excluded</strong> from the range.</p>
-<p>To summarise Doctor Dijkstra's reasoning:</p>
+<p>Famed computer scientist Edsger Dijkstra wrote an essay in 1982 explaining why the best convention to describe a range of numbers is to have an <strong>inclusive</strong> lower bound and an <strong>exclusive</strong> upper bound.  In mathematics, this corresponds to the <em>half-open interval</em> with a <em>closed</em> lower bound and an <em>open</em> upper bound, denoted <code>[a, b)</code>, where <code>a</code> is contained in the interval, but <code>b</code> is not.</p>
+<p>To illustrate by example, a range of natural numbers defined by the pair <code>[3, 6)</code> denotes the numbers <code>[3, 4, 5]</code>.  In other words, the the lower bound (<code>3</code>) is <strong>included</strong> in the range, and the upper bound (<code>6</code>) is <strong>excluded</strong> from the range.</p>
+<p>To summarise Dijkstra's reasoning:</p>
 <ol>
 <li>
 <p>The number of elements in the range is simply upper bound minus lower bound.  (This convenient arithmetic is not true for the inclusive/inclusive or exclusive/exclusive conventions.)</p>
