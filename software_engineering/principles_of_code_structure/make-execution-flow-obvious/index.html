@@ -241,7 +241,7 @@
 
     <article class="essay">
         <h1 id="make-execution-flow-obvious">Make Execution Flow Obvious</h1>
-<p>Four paragraphs appearing at the beginning of the chapter <em>Distinguish Algorithm-like Code From Data-like Code</em> apply here.  For convenience, we repeat them verbatim here:</p>
+<p>Four paragraphs appearing at the beginning of the chapter <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/distinguish-algorithmlike-from-datalike-code/"><em>Distinguish Algorithm-like From Data-like Code</em></a> apply here.  For convenience, we repeat them verbatim here:</p>
 <p>Time is linear.  Time is just one damn thing after another.</p>
 <p>Important corollary: The execution of a computer program is a <em>sequence</em> of operations, one after the other.  We can say that program flow is <em>linear</em>.</p>
 <p>Even more important corollary:  Reading is a linear process.  We read one element at a time, <em>incrementally</em> building an understanding of the whole piece.</p>
@@ -412,8 +412,8 @@
 </span><span>
 </span><span style="color:#65737e;"># Et cetera.
 </span></code></pre>
-<p>As noted in the section above <em>A Fundamental Cause Of Badly-Structured Code</em>, the point is <em>not</em> to create a neatly-structured tree of nodes, with each node having minimal content, resulting in a very deep tree.  Therefore, resist the temptation to group the functions into higher-level functions with vague names like <code>transform()</code>.  This incredibly widespread plague of abstraction addiction is the <em>opposite</em> of writing readable code.</p>
-<p>Furthermore, as noted in the chapter <em>Separate Input/Output From Computation</em>, Input dependencies such as reading a configuration file, reading environment variables from the operating system, loading a data file, <em>etc</em>, should happen at the <strong>start</strong> of the algorithm.  Making dependencies obvious is an important part of making code easy to understand quickly, so declare them up front. </p>
+<p>As noted in the section above <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#a-fundamental-cause-of-badly-structured-code"><em>A Fundamental Cause Of Badly-Structured Code</em></a>, the point is <em>not</em> to create a neatly-structured tree of nodes, with each node having minimal content, resulting in a very deep tree.  Therefore, resist the temptation to group the functions into higher-level functions with vague names like <code>transform()</code>.  This incredibly widespread plague of abstraction addiction is the <em>opposite</em> of writing readable code.</p>
+<p>Furthermore, as noted in the chapter <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-input-output-from-computation/"><em>Separate Input/Output From Computation</em></a>, Input dependencies such as reading a configuration file, reading environment variables from the operating system, loading a data file, <em>etc</em>, should happen at the <strong>start</strong> of the algorithm.  Making dependencies obvious is an important part of making code easy to understand quickly, so declare them up front. </p>
 <h3 id="the-daisy-chain-anti-pattern">The Daisy-Chain Anti-Pattern</h3>
 <p>Code with a 'daisy-chain' structure has a <em>linear</em> structure, but lacks a proper 'main' or 'orchestrator' function.  Code consists of a chain of function calls, where each function calls the next function in the sequence, instead of returning back up to an orchestrator.  There are two main flaws of this structure:</p>
 <ol>

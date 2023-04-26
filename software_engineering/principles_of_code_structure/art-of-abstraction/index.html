@@ -342,8 +342,8 @@ Peasant:  &quot;You use a dog to hunt rabbits.&quot;</p>
 <p>This book is in a large part a guide to abstractions that have proven useful - a guide to various elements of computer code that have turned out to be essential.</p>
 <h3 id="information-hiding">Information Hiding</h3>
 <p>In software engineering, abstraction often results in <em>information hiding</em>.  Consider this: Some lines of code are seen to be all related to the same abstract thing, so the code is pulled out into a separate module (function or object).  The module <em>name</em> describes the abstraction, and the <em>details</em> are <em>hidden away</em> inside the module.  At the point in the code where the new module is used, the abstraction is reified as an explicit module name, and the irrelevant details are hidden.</p>
-<p>For more discussion, see the chapter below on Separation Of Complexity.</p>
-<p>Not all abstractions involve information hiding.  An essential aspect of the code may be pulled out into its own module, but nothing is hidden.  All elements are simply accessible from a single coherent module.  (See definition of coherent in chapter on Separation Of Concerns.)</p>
+<p>For more discussion, see the chapter <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/"><em>Separate Inherent And Collateral Complexity</em></a></p>
+<p>Not all abstractions involve information hiding.  An essential aspect of the code may be pulled out into its own module, but nothing is hidden.  All elements are simply accessible from a single coherent module.  (See the definition of <em>coherent</em> in the chapter <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/"><em>Separation Of Concerns</em></a>.)</p>
 <h3 id="malabstractions">Malabstractions</h3>
 <p>Since both abstract reasoning and software engineering are difficult and unnatural (and in the case of software engineering, <em>unwholesome</em>), standard errors in abstraction abound.  Here we examine some commonly-observed errors in abstraction (or 'malabstractions', to coin a term).</p>
 <ol>

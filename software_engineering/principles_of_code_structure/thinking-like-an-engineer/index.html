@@ -18,7 +18,7 @@
 
     <header style="background: steelblue">
       <h1 class="title">Thinking Like An Engineer</h1>
-      <p class="subtitle"><strong>2022-12-19</strong></p>
+      <p class="subtitle"><strong>2023-04-27</strong></p>
     </header>
 
     <nav>
@@ -237,12 +237,16 @@
         <h1 id="thinking-like-an-engineer">Thinking Like An Engineer</h1>
 <h2 id="format-code-perfectly-at-all-times">Format Code Perfectly At All Times</h2>
 <p>Keep code formatting perfect at all times.  <em>Don't</em> say to yourself &quot;I'll come back and fix the formatting later.&quot;  Write your code in the same way that a professional chef would practise 'clean as you go' in a busy commercial kitchen.  This discipline helps instil both the attention to detail and sensitivity to structure that characterise a good engineering mind.</p>
-<hr />
-<p>Work In Progress below this line.</p>
 <h2 id="single-source-of-truth">Single Source Of Truth</h2>
+<p>At the beginning of this book, we observed that the advice &quot;Don't Repeat Yourself&quot; is too simplistic: abstracting out everything possible is usually not a good idea.  Following that, approximately the first half of this book was devoted to exploring a bunch of concerns that <em>should</em> be abstracted out.  With all that now under our belt, let us look at a high-level principle of abstraction.</p>
+<p>Consider a piece of code that is important to the correctness to the program as a whole.  It may not be very big - for example, it could be a single configuration variable, perhaps just a boolean flag.  Another example could be a function that does some mathematical calculation.</p>
+<p>Now consider the situation where the code is <em>duplicated</em> - there are (at least two) functionally identical pieces of code.  Now let's imagine that at some point in time, the two copies <em>diverge</em> so that they are no longer identical - perhaps one copy was updated, but the other was forgotten.  Finally, let's assume that the divergence is a <em>bug</em>, the program as a whole is no longer correct.</p>
+<p>So we have identified a class of vulnerabilities in software design.  The obvious solution is to <em>not have</em> duplicates, but rather just have a <strong>single</strong> instance of the critical piece of code.  The single instance of critical code is known as the &quot;Single Source Of Truth&quot;.</p>
+<p>Note that the motivation behind having a Single Source Of Truth is robustness (bug prevention) rather than readability.  But having a Single Source Of Truth will often improve readability: code needs to be read only <em>once</em> to be understood.  The reader will not find themselves wondering &quot;Wait, is this code essentially the same as that other code I read earlier?&quot;  Generally, readability only suffers when the advice is applied obsessively at every possible opportunity, manifesting as DRY Abstraction Addiction.</p>
+<p>The philosophy of having a Single Source Of Truth applies far beyond just computer software.  Documentation, in particular, should be written with the philosophy in mind: things should be defined in one place.  More generally, all written materials should have a single source of truth.  Management and organisation structure benefit from having clear roles and responsibilities, with explicit boundaries on authority.  An engineer cannot serve two masters...  (Your author once served <em>five</em> masters at the same time.)</p>
 <h2 id="be-explicit">Be Explicit</h2>
-<p>Crush Ambiguity.</p>
-<p>A callback to the art of abstraction first encountered at the beginning of the book.  'Be Explicit' is another rule for creating good abstractions at the right level.</p>
+<p>When reviewing computer code or working with another engineer, the phrase I find myself using the most often is &quot;Be Explicit&quot;, and variations thereof.  Let me as the reader know <em>exactly</em> what I need to know to understand what is going on.  Don't make me guess - crush ambiguity.  Express Intent: tell the reader what the code is trying to achieve.</p>
+<p>The corollary to this is to hide away stuff that isn't important - don't distract me with irrelevance.  Take great care in deciding what is <em>really</em> important to understanding the algorithm, and bring it to the surface where the reader can see it.  So this principle circles back to the Art Of Abstraction first encountered at the beginning of this book.  The right abstractions (at the right level of abstraction) make your code <em>make sense</em>.  Therefore, carefully cultivate the skills of abstraction.</p>
 
         
         <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
@@ -263,7 +267,7 @@
     <div class="filler"></div>
 
     <footer>
-      <p class="datestamp"><strong>2022-12-19</strong></p>
+      <p class="datestamp"><strong>2023-04-27</strong></p>
     </footer>
   
   </body>
