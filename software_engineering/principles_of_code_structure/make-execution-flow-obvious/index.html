@@ -160,6 +160,10 @@
                             </li>
                         
                             <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#lexical-order-should-follow-logical-order">Lexical Order Should Follow Logical Order</a>
+                            </li>
+                        
+                            <li>
                                 <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/make-execution-flow-obvious/#summary">Summary</a>
                             </li>
                         
@@ -441,6 +445,32 @@
 </span><span>    </span><span style="color:#d08770;">...
 </span><span>    </span><span style="color:#bf616a;">operation_3</span><span>(data)
 </span></code></pre>
+<h2 id="lexical-order-should-follow-logical-order">Lexical Order Should Follow Logical Order</h2>
+<p>By <strong>Lexical Order</strong> we mean the <strong>order of words</strong> in our source code.</p>
+<p>By <strong>Logical Order</strong> we mean the logical order of operations that must be done to achieve the aim of the code.  Note that this is <strong>not</strong> necessarily the order of operations that execute on the machine, as that may depend on the compiler optimisations <em>et cetera</em>.  Rather, we mean the logical order of steps that makes it easiest for a human to understand what the code is trying to achieve.</p>
+<p>For example, consider some code that does two simple steps:</p>
+<ol>
+<li>Retrieve a value from a data source. (Eg. a Python dictionary.)</li>
+<li>Pass that value into a function.</li>
+</ol>
+<p>Code to achieve that is sometimes seen written something like this:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#bf616a;">some_function</span><span>(
+</span><span>    </span><span style="color:#bf616a;">relevant_value </span><span>= source_dictionary.</span><span style="color:#bf616a;">get</span><span>(&quot;</span><span style="color:#a3be8c;">obscurely_named_variable</span><span>&quot;)
+</span><span>    )
+</span></code></pre>
+<p>To be understood, the code above must be read <em>from the inside out</em>.  For such a simple example, this is not such a problem, but the code is easier to read if the lexical order follows the logical order of operations:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>well_named_variable = source_dictionary.</span><span style="color:#bf616a;">get</span><span>(&quot;</span><span style="color:#a3be8c;">obscurely_named_variable</span><span>&quot;)
+</span><span style="color:#bf616a;">some_function</span><span>(</span><span style="color:#bf616a;">relevant_value</span><span>=well_named_variable)
+</span></code></pre>
+<p>Arguably, one cost of this improved code is that is now necessary to create an explicit 'dummy' variable to pass data to the next line.  But there are two benefits to having this dummy variable:</p>
+<ol>
+<li>Debugging is much easier.  A debugger can show the value of the dummy variable.</li>
+<li>The dummy variable can be given a self-documenting name that describes its purpose <em>in the context of the function call</em>.  As the example indicates, the original variable name in the data source may have an obscure name that reveals nothing about its meaning in the local context.</li>
+</ol>
+<p>Now, for such a simple example as the one above, inside-out code hardly matters.  But for more complex function signatures, and any kind of nesting of function calls <em>et cetera</em>, inside-out code rapidly becomes a problem:  The reader must perfectly maintain a mental stack of code operations in reverse order, or re-read up and down several times to figure out what is going on.</p>
+<p>A reasonable metric of 'readability' is the extent to which code can be read <em>in order, from top to bottom, without going back</em>.  Obviously, code in which the lexical order follows the logical order maximises this readability metric.</p>
+<p>For simple examples, inside-out code does not matter, and could be argued to be a matter of taste.  But the style must rapidly be abandoned for code of any complexity, if readability is to be maintained.  For consistency, then, it makes sense to always favour code in which lexical order follows logical order.</p>
+<p>As an aside, the inside-out style mirrors function composition in mathematical notation. For example, <code>f(g(h(x)))</code> means 'apply function <code>h</code> to <code>x</code>, then apply function <code>g</code> to the result, then finally apply function <code>f</code> to the final result'.  Since functional programming languages are inspired by the mathematics of functions, perhaps they have tended to promote inside-out coding styles.  Interestingly, modern functional programming languages tend to provide constructions with a syntax along the lines of: <code>h() -&gt; g() -&gt; f()</code>, that denote function composition in a readable left-to-right manner i.e. the lexical order follows the logical order.</p>
 <h2 id="summary">Summary</h2>
 <p>The structure of code should reflect its purpose.  Is the purpose of a module of code to store data or is it to do some computation?</p>
 <p>Note that a data-like code component may still have algorithm-like code within it, for example, non-trivial accessor methods on a complex data structure.  Within those accessor methods, the advice for algorithm-like code applies (favour linear 'nested chain' structures).</p>
