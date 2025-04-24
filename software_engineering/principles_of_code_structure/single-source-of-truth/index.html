@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Separation Of Concerns | Explicator</title>
+    <title>Single Source Of Truth | Explicator</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/../../essay.css">
     
@@ -17,8 +17,8 @@
     
 
     <header style="background: steelblue">
-      <h1 class="title">Separation Of Concerns</h1>
-      <p class="subtitle"><strong>2022-12-19</strong></p>
+      <h1 class="title">Single Source Of Truth</h1>
+      <p class="subtitle"><strong>2025-04-23</strong></p>
     </header>
 
     <nav>
@@ -141,26 +141,30 @@
       
       <hr>
 
-      <p style="padding-left: 1em;">Separation Of Concerns</p>
+      <p style="padding-left: 1em;">Single Source Of Truth</p>
     
         
         <ul>
         
             <li>
-                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#separation-of-concerns">Separation Of Concerns</a>
+                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/#single-source-of-truth">Single Source Of Truth</a>
                 
                     <ul>
                         
                             <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#coherence">Coherence</a>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/#collation-of-concerns">Collation Of Concerns</a>
                             </li>
                         
                             <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#collation-of-concerns-single-concern-in-a-single-place">Collation Of Concerns (Single Concern In A Single Place)</a>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/#single-source-of-truth-1">Single Source Of Truth</a>
                             </li>
                         
                             <li>
-                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/#summary-separate-concerns-collate-concerns">Summary: Separate Concerns; Collate Concerns</a>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/#similar-sources-of-truth-do-not-collate">Similar Sources Of Truth - Do Not Collate</a>
+                            </li>
+                        
+                            <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/#dry-done-right">DRY Done Right</a>
                             </li>
                         
                     </ul>
@@ -171,6 +175,8 @@
         
     </nav>
 
+    
+        
     
         
     
@@ -220,8 +226,6 @@
     
         
     
-        
-    
 
     
         
@@ -232,49 +236,40 @@
     <div class="previous_next_header">
         <p>
         
-            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">Previous: The Platinum Rule Of Thumb</a>
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Previous: Separation Of Concerns</a>
         
 
         
-            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/">Next: Single Source Of Truth</a>
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Next: Separate Inherent And Collateral Complexity</a>
         
        </p>
     </div>
 
     <article class="essay">
-        <h1 id="separation-of-concerns">Separation Of Concerns</h1>
-<p>'Concern' is a purposefully broad term. It may refer to:</p>
-<ul>
-<li>An action, at any level of abstraction</li>
-<li>A more abstract notion such as 'responsibility' or 'purpose'</li>
-<li>Data to be stored</li>
-<li><em>Et cetera</em>.</li>
-</ul>
-<p>In some fundamental sense, the process of becoming a good software engineer is the process of learning to discern and define <em>concerns</em> in computer code.  In other words, to get better at abstracting.  To separate concerns, one must first recognise concerns.</p>
-<p>The first pillar of good software design is that a module of code that has a single concern is <em>much easier</em> to understand and work with.  So if we find code that deals with more than one concern, we should break it apart into separate pieces that each deal with a single concern.</p>
-<p>When designing software from scratch, the abstractions that make up our design should be concerns, and they should already be separated.</p>
-<p>When refactoring code, or developing code organically through a series of prototypes, there is an idealised strategy we might follow:</p>
+        <h1 id="single-source-of-truth">Single Source Of Truth</h1>
+<h2 id="collation-of-concerns">Collation Of Concerns</h2>
+<p>In the previous chapter <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/"><em>Separation Of Concerns</em></a>, we established the value of a single module of code only dealing with a single concern.</p>
+<p>The complement to that is to pull all the code that deals with the same concern into a single module of code.  In other words, <em>collate</em> all the code that deals with a single concern, and put it in a single module.</p>
+<p>This improves readability.  For a single given concern, the corresponding code only needs to be read <em>once</em>.  The reader will not find themselves wondering &quot;Wait, is this code essentially the same as that other block of code I read earlier?&quot;</p>
+<p>A single code element that captures a single concern and is used in more than one place is known as the 'Single Source Of Truth'.  The name highlights how the structure supports the <em>correctness</em> of the code.  Robustness is improved, not just readability, as we'll illustrate in the following example.</p>
+<h2 id="single-source-of-truth-1">Single Source Of Truth</h2>
+<p>Consider a piece of code dealing with some important concern.  It need not be very big - for example, it could be a single configuration value, perhaps just a boolean flag.  Or it could be something bigger, such as a function that does some mathematical calculation.</p>
+<p>Now consider the situation where the code is <em>duplicated</em> - there are two (or more) functionally identically pieces of code.  Now let's imagine that at some point in time, the two copies <em>diverge</em> so that they are no longer identical.  This can easily happen if, for example, one copy was updated, but the other was forgotten.  Finally, let's assume that the divergence is a <em>bug</em>, the program as a whole is no longer correct.</p>
+<p>The obvious solution is to <em>not</em> have duplicates, but rather to have a single piece of code that deals with the critical concern - the Single Source Of Truth.  That way, when the concern changes in any way, code needs to be modified in only one place, and overall program consistency is always guaranteed.</p>
+<h2 id="similar-sources-of-truth-do-not-collate">Similar Sources Of Truth - Do Not Collate</h2>
+<p>Now consider the <em>superficially</em> similar situation: There are two (or more) functionally identical pieces of code.  But now, the two pieces of code have different <em>purposes</em> or <em>meanings</em>; they are semantically different.  In other words, from a certain point of view, the two apparently-identical pieces of code <em>do not deal with the same concern</em>.</p>
+<p>This may seem very subtle and confusing - how can we tell if two apparently-identical pieces of code deal with the same concern?  The litmus test is this:  Could the two pieces ever evolve in different ways so that they are no longer identical?  As the code base changes over time, could it ever be correct for the two pieces to be no longer identical?  If the answer is yes, then in the most important sense, the two pieces of code <strong>do not</strong> deal with the same concern.  Therefore, they should <strong>not</strong> be collated into a Single Source Of Truth.</p>
+<p>Because this point is quite subtle, and the misleading advice &quot;Don't Repeat Yourself (DRY)&quot; is often mindlessly followed, we often see this anti-pattern of superficially identical code fragments being collated into a Single Source Of (More-Than-One)Truth.  One sign of this that the code module for the Single Source Of Truth has acquired a <em>parameter</em> or two to 'handle the different cases'.</p>
+<p>A single parameterised function is generally <em>worse</em> than two separate but simple functions, even with considerable code repetition.  A parameterised function is much more onerous to test, and much harder to read and reason about.  Getting the parameter wrong for the use case is a potential bug.  So just use two simple separate functions.  Fight the demon of Abstraction Addiction!</p>
+<h2 id="dry-done-right">DRY Done Right</h2>
+<p>The advice in this chapter on when to abstract out a Single Source Of Truth is essentially the ideal intended outcome when the overly-simplistic advice &quot;Don't Repeat Yourself&quot; is issued.  In other words, a well-crafted Single Source Of Truth is 'DRY Done Right'.</p>
+<p>To summarise:</p>
 <ol>
-<li>Assume we have a prototype piece of code that solves the problem at hand, but is just an unstructured mess.  (Perhaps it is just one long script.)</li>
-<li>We consider the program as a whole, and ask &quot;What does it do?  What is it for?&quot; and apply our skills of abstraction to answer those questions.</li>
-<li>We then consider a subset and repeat the same questions.</li>
-<li>We do this recursively on all parts of the code, figuring what is being done.</li>
-<li>At length, we will have some idea of all the different <em>concerns</em> in the code.</li>
-<li>Then we can separate the concerns out, and begin experimenting with a better architecture. </li>
+<li>Separate Concerns in the code base, so that the code now comprises of many individually coherent code modules.</li>
+<li>If two (or more) code modules appear to have identical functionality, ask the question: &quot;Could it ever be <em>correct</em> for these two modules to diverge so they are no longer identical?&quot;</li>
+<li>If the answer is &quot;Yes&quot;, then leave the two code modules alone.  Do not merge them.</li>
+<li>If the answer is &quot;No, for program correctness, these two code modules should always be identical&quot;, then Collate Concerns - merge the separate code modules into a Single Source Of Truth.</li>
 </ol>
-<h3 id="coherence">Coherence</h3>
-<p>A piece of code may be described as <strong>coherent</strong> if all of its lines of code relate to a single concern.  A module of code is 'incoherent' if some of its lines of code relate to one concern, and other lines relate to a different concern.</p>
-<p>Coherent modules of code are the <em>consequence</em> of correctly separating concerns.</p>
-<h3 id="collation-of-concerns-single-concern-in-a-single-place">Collation Of Concerns (Single Concern In A Single Place)</h3>
-<p>We have established the value of a single module of code only dealing with a single concern.</p>
-<p>The complement to that is to pull all the code that deals with the same concern into a single module of code.  In other words, <em>collate</em> all the code that deals a single concern, and put it in a single module.</p>
-<p>This concept is important enough to be dealt with fully in its own separate chapter.  (The following chapter <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/"><em>Single Source Of Truth</em></a>.)</p>
-<h3 id="summary-separate-concerns-collate-concerns">Summary: Separate Concerns; Collate Concerns</h3>
-<ol>
-<li>A single module of code should deal with a single concern.</li>
-<li>A single concern should be dealt with in a single module of code.</li>
-</ol>
-<p>A number of concerns have been identified that appear time and time again in many computer programs.  Appropriately separating those particular concerns should be the first order of business when designing a software architecture.  Details follow in the next several chapters.</p>
 
         
         <p style="text-align: center; font-size: 24pt;"> &#128608 </p>
@@ -285,11 +280,11 @@
     <div class="previous_next_footer">
         <p>
         
-            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/platinum-rule-of-thumb/">Previous: The Platinum Rule Of Thumb</a>
+            <a style="float: left;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separation-of-concerns/">Previous: Separation Of Concerns</a>
         
 
         
-            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/single-source-of-truth/">Next: Single Source Of Truth</a>
+            <a style="float: right;" href="https://natlund.github.io/software_engineering/principles_of_code_structure/separate-inherent-and-collateral-complexity/">Next: Separate Inherent And Collateral Complexity</a>
         
        </p>
     </div>
@@ -297,7 +292,7 @@
     <div class="filler"></div>
 
     <footer>
-      <p class="datestamp"><strong>2022-12-19</strong></p>
+      <p class="datestamp"><strong>2025-04-23</strong></p>
     </footer>
   
   </body>
