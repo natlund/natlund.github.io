@@ -160,6 +160,10 @@
                             </li>
                         
                             <li>
+                                <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/#mistake-proof-with-types">Mistake Proof With Types</a>
+                            </li>
+                        
+                            <li>
                                 <a href="https://natlund.github.io/software_engineering/principles_of_code_structure/miscellaneous-advice/#use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</a>
                             </li>
                         
@@ -249,12 +253,12 @@
 <p>However, naming things is <em>hard</em>.  The skill of naming things well takes a long time to develop.  Perhaps this skill is one signifier of a 'senior engineer'.  Here are some guidelines to consider when trying to find a suitable name.</p>
 <p>For clarity, consider a simple floating-point number variable that needs a self-documenting name.  The variable name could:</p>
 <ol>
-<li>Describe what it <strong>is</strong>, in the sense of 'how it was constructed'.  For example, a variable computed from the sum some financial transactions could be called <code>sum_of_transactions</code>.</li>
-<li>Describe what it will be <strong>used for</strong>.  For example, if the variable is fed into a function that ultimately generates a financial statement, then an appropriate name could be <code>sum_for_statement_generator</code>.</li>
+<li>Describe <strong>where it comes from</strong>, or how it was constructed.  For example, a variable computed from the sum some financial transactions could be called <code>sum_of_transactions</code>.</li>
+<li>Describe <strong>where it's going</strong> - what it will be <strong>used for</strong>.  For example, if the variable is fed into a function that ultimately generates a financial statement, then an appropriate name could be <code>sum_for_statement_generator</code>.</li>
 <li>Describe what is <strong>is</strong>, in the sense of 'what it means, in the context of the problem domain'.  For example, if the variable <em>actually</em> represents net profit, then an obvious candidate name would be <code>net_profit</code>.</li>
 </ol>
-<p>Options 1 and 2 are the easiest to work with.  Either one would likely add <em>considerably</em> more value than a vague variable name such as <code>val</code>.</p>
-<p>However, Option 3 is likely to be the most valuable.  Describing the <em>meaning</em> of a variable, <em>why it matters</em>, will generally give the most insight into what the code as a whole is supposed to achieve.  But this is also generally the most difficult option to implement: It requires a proper understanding of the problem domain, and the skill at seeing the correct level of abstraction to describe this small part of the domain.</p>
+<p>Options 1 and 2 (<strong>where it comes from</strong> or <strong>where it's going</strong>) are the easiest to work with.  Either one would likely add <em>considerably</em> more value than a vague variable name such as <code>val</code>.</p>
+<p>However, Option 3 - what it <strong>is</strong> - is likely to be the most valuable.  Describing the <em>meaning</em> of a variable, <em>why it matters</em>, will generally give the most insight into what the code as a whole is supposed to achieve.  But this is also generally the most difficult option to implement: It requires a proper understanding of the problem domain, and the skill at seeing the correct level of abstraction to describe this small part of the domain.</p>
 <p>Naming things is <em>hard</em>.  But the payoff of good, self-documenting variable names is huge, so persevere in finding them.</p>
 <h2 id="code-hygiene">Code Hygiene</h2>
 <p>The phrase 'code hygiene' is sometimes used to refer to the practice of cleaning up temporary files and other sundry mess resulting from software development, and keeping necessary configuration files <em>etc</em> in a tidy state.  The idea is to keep your engineering workspace in a state that minimises confusion.  A few hints follow.</p>
@@ -263,6 +267,42 @@
 <p>A common problem is that you can't delete a temporary file immediately, because you may need it again in a few hours or days.  So try this trick:  Put a deletion date in the file name. Eg.</p>
 <p><code>user_accounts_2023-01-21_DELETE_AFTER_2023-02-01.txt</code></p>
 <p>Then, in six months time, when you stumble across this long-dead file again, you won't have to spend time investigating whether or not it is safe to delete.</p>
+<h2 id="mistake-proof-with-types">Mistake Proof With Types</h2>
+<p>Consider a couple of variables that are <strong>integers</strong>, and encode something like Customer IDs or Product IDs.  Now consider some function that takes <em>both</em> variables.  Something like this in Python:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">some_function</span><span>(</span><span style="color:#bf616a;">product_id</span><span>: int, </span><span style="color:#bf616a;">customer_id</span><span>: int):
+</span><span>	</span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span>product_id = </span><span style="color:#d08770;">1234
+</span><span>customer_id = </span><span style="color:#d08770;">5678
+</span><span>
+</span><span>result = </span><span style="color:#bf616a;">some_function</span><span>(product_id, customer_id)
+</span></code></pre>
+<p>Now suppose that the two variables were accidentally interchanged in the function invocation.  If the Customer ID number happened to be a legitimate Product ID, and vice versa, then the function call would succeed.  But obviously the result returned would <em>not</em> be the intended one.  Because nothing has 'failed', this logic bug could go unnoticed, causing weird problems for a long time.</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span>wrong_result = </span><span style="color:#bf616a;">some_function</span><span>(customer_id, product_id)  </span><span style="color:#65737e;"># Bug! Arguments swapped.
+</span></code></pre>
+<p>Here's a tactic to reduce these subtle logic bugs by 'mistake-proofing' the function call:  Create <em>explicit</em> data types for Product ID <em>etc</em>, that inherit from the simple integer type.  Then specify the new types as the types of the arguments of the function.  Finally, use the appropriate data type at the point the variables are created.  That way, the language's type system (or type hinting) can prevent (or warn against) the use of the wrong arguments in the function call.  In Python, something like this would suffice:</p>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">ProductID</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">int</span><span style="color:#eff1f5;">):  </span><span style="color:#65737e;"># Inherits from integer.
+</span><span>	</span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">value</span><span>):
+</span><span>		</span><span style="color:#b48ead;">pass
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">CustomerID</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">int</span><span style="color:#eff1f5;">):  </span><span style="color:#65737e;"># Inherits from integer.
+</span><span>	</span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">value</span><span>):
+</span><span>		</span><span style="color:#b48ead;">pass
+</span><span>
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">some_function</span><span>(</span><span style="color:#bf616a;">product_id</span><span>: ProductID, </span><span style="color:#bf616a;">customer_id</span><span>: CustomerID):
+</span><span>	</span><span style="color:#d08770;">...
+</span><span>
+</span><span>
+</span><span>product_id = </span><span style="color:#bf616a;">ProductID</span><span>(</span><span style="color:#d08770;">1234</span><span>)
+</span><span>customer_id = </span><span style="color:#bf616a;">CustomerID</span><span>(</span><span style="color:#d08770;">5678</span><span>)
+</span><span>
+</span><span>result = </span><span style="color:#bf616a;">some_function</span><span>(product_id, customer_id)
+</span></code></pre>
+<p>In a statically-typed language, the compiler would prevent the accidental use of say, a CustomerID in place of a ProductID.  Some dynamically-typed languages, such as Python, now have type <em>hinting</em>.  Modern IDEs use type hints to loudly warn against the use of the wrong types, so the programmer can immediately see the bug while writing the code.</p>
+<p>There is a little extra overhead from defining the new types.  But in large systems, where the variables are passed a long way around, mistake proofing with types is likely to be a net benefit.</p>
 <h2 id="use-inclusive-exclusive-ranges">Use Inclusive-Exclusive Ranges</h2>
 <p>Famed computer scientist Edsger Dijkstra wrote an essay in 1982 explaining why the best convention to describe a range of numbers is to have an <strong>inclusive</strong> lower bound and an <strong>exclusive</strong> upper bound.  In mathematics, this corresponds to the <em>half-open interval</em> with a <em>closed</em> lower bound and an <em>open</em> upper bound, denoted <code>[a, b)</code>, where <code>a</code> is contained in the interval, but <code>b</code> is not.</p>
 <p>To illustrate by example, a range of natural numbers defined by the pair <code>[3, 6)</code> denotes the numbers <code>[3, 4, 5]</code>.  In other words, the the lower bound (<code>3</code>) is <strong>included</strong> in the range, and the upper bound (<code>6</code>) is <strong>excluded</strong> from the range.</p>
